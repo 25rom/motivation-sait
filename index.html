@@ -10,6 +10,7 @@
             --milk: #FDFBF7;
             --carrot: #E67E51;
             --blue: #A5C4D4;
+            --mint: #E2F3E1;
             --graphite: #2D2D2D;
             --text-soft: #555555;
             --border: rgba(230, 126, 81, 0.15);
@@ -27,7 +28,6 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
         
-        /* Сокращенные отступы */
         section { padding: 60px 0; opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         section.visible { opacity: 1; transform: translateY(0); }
 
@@ -45,62 +45,74 @@
         .hero .subtitle { color: var(--carrot); font-size: 1.1rem; margin-bottom: 15px; font-weight: 500; }
         .hero .description { font-size: 1.1rem; color: var(--text-soft); max-width: 650px; margin: 0 auto 40px; }
 
-        /* SCATTERED FOR WHOM (Блок 4) */
-        .scattered-wrap { position: relative; min-height: 500px; margin: 40px 0; }
+        /* BLOCK 2: VISUAL NODES (REWORKED) */
+        .benefits-nodes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+        .node-item { 
+            padding: 30px; border-radius: 40px; background: white; border: 1px solid var(--border);
+            display: flex; flex-direction: column; gap: 15px; transition: 0.3s;
+        }
+        .node-item svg { width: 35px; height: 35px; stroke: var(--carrot); fill: none; stroke-width: 1.2; }
+        .node-item p { font-size: 0.95rem; color: var(--text-soft); }
+        .reflection-quote {
+            grid-column: 1 / -1; margin-top: 20px; padding: 50px; background: white;
+            border-radius: 100px; text-align: center; border: 1px solid var(--carrot);
+        }
+        .reflection-quote p { font-family: 'Playfair Display'; font-size: 1.6rem; font-style: italic; color: var(--carrot); }
+
+        /* BLOCK 4: SCATTERED FOR WHOM */
+        .scattered-wrap { position: relative; min-height: 520px; margin: 40px 0; }
         .scatter-item { 
             background: white; padding: 25px 35px; border-radius: 40px; border: 1px solid var(--border);
-            max-width: 450px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            max-width: 420px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             display: flex; align-items: center; gap: 20px;
         }
-        .scatter-item svg { flex-shrink: 0; width: 40px; height: 40px; stroke: var(--carrot); fill: none; }
+        .scatter-item svg { flex-shrink: 0; width: 35px; height: 35px; stroke: var(--carrot); fill: none; }
         .si-1 { margin-left: 0; }
-        .si-2 { margin-left: auto; margin-right: 50px; margin-top: -20px; }
-        .si-3 { margin-left: 15%; margin-top: 10px; }
+        .si-2 { margin-left: auto; margin-right: 50px; margin-top: -30px; }
+        .si-3 { margin-left: 10%; margin-top: 10px; }
         .si-4 { margin-left: auto; margin-top: -10px; }
-        .si-5 { margin-left: 30%; margin-top: 20px; }
+        .si-5 { margin-left: 25%; margin-top: 20px; }
 
-        /* ORGANIC THESIS (Блок 6) */
-        .thesis-organic { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; margin-top: 40px; }
-        .thesis-box { flex: 1 1 300px; padding: 30px; border-left: 1px solid var(--carrot); }
-        .thesis-box h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--carrot); }
-        .thesis-box p { font-size: 0.95rem; line-height: 1.8; }
-
-        /* ESSENCE CAPSULE (Блок 6 - Суть) */
+        /* BLOCK 6: ORGANIC THESIS & ESSENCE */
+        .thesis-organic { display: flex; flex-wrap: wrap; gap: 30px; justify-content: space-between; margin-top: 40px; }
+        .thesis-box { flex: 1 1 300px; padding: 25px; border-left: 1px solid var(--carrot); }
+        .thesis-box h4 { font-size: 1.3rem; margin-bottom: 15px; color: var(--carrot); }
         .essence-capsule { 
-            background: white; border: 1px solid var(--carrot); 
-            border-radius: 200px; padding: 60px 80px; text-align: center;
-            margin: 40px 0; position: relative;
+            background: white; border: 1px solid var(--carrot); border-radius: 200px; 
+            padding: 50px 80px; text-align: center; margin: 40px 0;
         }
-        .essence-capsule p { font-family: 'Playfair Display'; font-size: 1.8rem; font-style: italic; line-height: 1.4; color: var(--graphite); }
+        .essence-capsule p { font-family: 'Playfair Display'; font-size: 1.7rem; font-style: italic; line-height: 1.4; color: var(--graphite); }
 
-        /* INTENTION FLOW (Блок 7) */
-        .flow-container { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 40px; }
+        /* BLOCK 7: INTENTION FLOW */
+        .flow-container { display: flex; flex-direction: column; align-items: center; gap: 25px; margin-top: 40px; }
         .flow-step { 
-            background: white; padding: 30px 40px; border-radius: 30px; 
+            background: white; padding: 25px 40px; border-radius: 30px; 
             border: 1px solid var(--blue); width: 100%; max-width: 600px; position: relative;
         }
-        .flow-step::after { 
-            content: "↓"; position: absolute; bottom: -35px; left: 50%; 
-            color: var(--blue); font-size: 1.5rem; 
-        }
+        .flow-step::after { content: "↓"; position: absolute; bottom: -30px; left: 50%; color: var(--blue); font-size: 1.2rem; }
         .flow-step:last-child::after { content: ""; }
 
-        /* FINAL FRAME (Блок 10 - Как ты это используешь) */
-        .usage-frame { 
-            border: 2px solid var(--carrot); padding: 40px; border-radius: 40px;
-            margin-top: 50px; text-align: center; position: relative;
-            background: rgba(230, 126, 81, 0.03);
-        }
+        /* BLOCK 8: SCENARIOS (REWORKED) */
+        .scenarios-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+        .sc-card { padding: 50px 40px; border-radius: 50px; background: white; border: 1px solid var(--border); position: relative; overflow: hidden; }
+        .sc-card.morning { background: linear-gradient(135deg, #fff 0%, #fff8f4 100%); }
+        .sc-card.storm { background: linear-gradient(135deg, #f9fbff 0%, #f1f5f9 100%); }
+        .sc-tag { display: inline-block; padding: 6px 18px; border-radius: 100px; background: var(--carrot); color: white; font-size: 0.75rem; font-weight: 600; margin-bottom: 20px; }
+        .storm .sc-tag { background: var(--blue); }
+        .keys-cloud { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 25px; margin-top: 20px; }
+        .key-bubble { font-size: 0.85rem; padding: 10px 18px; background: white; border-radius: 15px; border: 1px solid rgba(0,0,0,0.04); width: fit-content; }
 
-        /* UI ELEMENTS */
-        .cta-btn { background: var(--carrot); color: white; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; }
-        .what-card { background: white; padding: 40px; border-radius: 40px; border: 1px solid var(--border); margin-bottom: 20px; }
+        /* FINAL FRAME */
+        .usage-frame { border: 2px solid var(--carrot); padding: 40px; border-radius: 40px; margin-top: 50px; text-align: center; background: rgba(230, 126, 81, 0.03); }
+
+        .cta-btn { background: var(--carrot); color: white; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 600; display: inline-block; }
         .iphone-frame { width: 240px; height: 500px; background: #2d2d2d; border-radius: 45px; border: 6px solid #444; overflow: hidden; margin: 0 auto; }
         
         @media (max-width: 768px) {
             .scatter-item { margin: 10px 0 !important; max-width: 100%; }
             .essence-capsule { padding: 40px 20px; border-radius: 40px; }
-            .essence-capsule p { font-size: 1.3rem; }
+            .essence-capsule p { font-size: 1.2rem; }
+            .benefits-nodes, .scenarios-visual { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -120,32 +132,44 @@
     </header>
 
     <div class="container">
-        <!-- BLOCK 1 -->
+        <!-- BLOCK 1: HERO -->
         <section class="hero visible">
             <p class="subtitle">28 карточек ценностей в твоем telegram</p>
             <h1>28 опор твоего внутреннего стержня. Тренажёр для тех, кто сам управляет своей игрой</h1>
             <p class="description">Это бот с 28 карточками внутренних состояний. Карточки — это простой способ выключить внешний шум и переключить внимание на то, что у тебя внутри и действительно имеет значение.</p>
         </section>
 
-        <!-- BLOCK 2 -->
+        <!-- BLOCK 2: REWORKED WITH NODES -->
         <section id="about">
-            <div class="what-card">
-                <h3 style="margin-bottom: 25px; color: var(--carrot);">Карточки — это майндфулнес инструмент для практики осознанности.</h3>
-                <p style="margin-bottom: 20px;">С карточками вы будете:</p>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><span>—</span> развивать осознанность через саморефлексию и внимание</li>
-                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><span>—</span> работать с ценностями через медитацию</li>
-                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><span>—</span> устранять разрывы между внешним проявлением и внутренним состоянием, самостоятельно высвечивая слепые зоны</li>
-                    <li style="margin-bottom: 10px; display: flex; gap: 10px;"><span>—</span> всегда помнить о важном</li>
-                </ul>
-                <p style="margin-top: 30px; font-family: 'Playfair Display'; font-size: 1.3rem; font-style: italic; border-top: 1px solid var(--border); padding-top: 25px;">Они не дадут готовых ответов но помогут вам найти свои собственные, запуская процесс глубокой и честной рефлексии</p>
+            <h2 style="text-align: center; color: var(--carrot); margin-bottom: 20px;">Карточки — это майндфулнес инструмент для практики осознанности.</h2>
+            <p style="text-align: center; margin-bottom: 30px;">С карточками вы будете:</p>
+            <div class="benefits-nodes">
+                <div class="node-item">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <p>развивать осознанность через саморефлексию и внимание</p>
+                </div>
+                <div class="node-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/></svg>
+                    <p>работать с ценностями через медитацию</p>
+                </div>
+                <div class="node-item">
+                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <p>устранять разрывы между внешним проявлением и внутренним состоянием, самостоятельно высвечивая слепые зоны</p>
+                </div>
+                <div class="node-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <p>всегда помнить о важном</p>
+                </div>
+                <div class="reflection-quote">
+                    <p>Они не дадут готовых ответов но помогут вам найти свои собственные, запуская процесс глубокой и честной рефлексии</p>
+                </div>
             </div>
         </section>
 
-        <!-- BLOCK 3 -->
+        <!-- BLOCK 3: PHILOSOPHY -->
         <section style="text-align: center;">
             <p style="font-family: 'Playfair Display'; font-size: 1.6rem; color: var(--carrot); margin-bottom: 40px;">Палка которая помогает выпрямить спину пока ты не научишься держать ее ровно</p>
-            <div style="text-align: left; max-width: 800px; margin: 0 auto; column-count: 1; gap: 40px;">
+            <div style="text-align: left; max-width: 800px; margin: 0 auto;">
                 <p style="margin-bottom: 30px;">Работа с карточкой похожа на возвращение к важным местам в книге. Каждое понятие как концентрированный смысл жизни, на любой вкус и цвет.</p>
                 <div style="background: white; padding: 40px; border-radius: 30px; border-right: 4px solid var(--carrot); margin-bottom: 30px;">
                     <p style="font-family: 'Playfair Display'; font-size: 1.4rem; font-style: italic;">"оставаясь наедине с собой, сохраняя всю силу своего интеллекта, которой наслаждаешься в одиночестве и которая немедленно рассеивается в разговоре, мы сохраняем возможность вдохновиться, продолжить плодотворную работу духа над самим собой"</p>
@@ -155,36 +179,36 @@
             </div>
         </section>
 
-        <!-- BLOCK 4 (Scattered) -->
+        <!-- BLOCK 4: SCATTERED FOR WHOM -->
         <section>
             <h2 style="text-align: center; margin-bottom: 30px;">Карточки подойдут тебе если ты</h2>
             <div class="scattered-wrap">
                 <div class="scatter-item si-1">
-                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="1"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="1.5"/></svg>
                     <p>считаешь что жизнь это не то что с тобой случается а то как ты на это отвечаешь</p>
                 </div>
                 <div class="scatter-item si-2">
-                    <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="1"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z" stroke-width="1.5"/></svg>
                     <p>понимаешь: чтобы что-то изменить снаружи, нужно сначала перенастролить что-то внутри</p>
                 </div>
                 <div class="scatter-item si-3">
-                    <svg viewBox="0 0 24 24"><path d="M20 12l-8 8-8-8M12 4v16" stroke-width="1"/></svg>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke-width="1.5"/></svg>
                     <p>ценишь баланс: когда здравый смысл и интуиция дополняются вниманием к себе</p>
                 </div>
                 <div class="scatter-item si-4">
-                    <svg viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-width="1"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 19l7-7-7-7m-8 14l7-7-7-7" stroke-width="1.5"/></svg>
                     <p>хочешь быть автором своего состояния а не просто плыть по течению</p>
                 </div>
                 <div class="scatter-item si-5">
-                    <svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-width="1"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-width="1.5"/></svg>
                     <p>готов видеть в любой ситуации не проблему а повод для роста и тренировки</p>
                 </div>
             </div>
         </section>
 
-        <!-- BLOCK 5 & 6 -->
+        <!-- BLOCK 5 & 6: THESIS & ESSENCE -->
         <section>
-            <div class="what-card" style="background: var(--blue); color: white; border: none;">
+            <div style="background: var(--blue); color: white; padding: 40px; border-radius: 40px; margin-bottom: 30px;">
                 <h3 style="color: white; margin-bottom: 20px;">Инструмент развития Осознанности</h3>
                 <p>Вместо фиксации на внешней цели и желании чего-либо достичь, вы смещаете фокус на внутренее сосотояние. Это помогает устранить противоречия и разрывы в динамике "вншнее проявление - действия > внутренние процессы - цености"</p>
             </div>
@@ -198,33 +222,21 @@
                     <p>Карточка не учит как надо но создает условия в которых вы сами приходите к важному выводу о себе. Это гораздо ценнее чем любой совет со стороны, потому что инсайт, рожденный изнутри, ведет к естественной интеграции опыта и настоящим изменениям</p>
                 </div>
             </div>
-            
             <div class="essence-capsule">
                 <p>Осознанность — это не когда ты стал идеальным. Это когда ты заметил, какой ты сейчас. Этого уже достаточно, чтобы вернуть руль себе</p>
             </div>
-
-            <div class="thesis-organic" style="margin-top: 20px;">
-                <div class="thesis-box">
-                    <h4>Инструмент формирования</h4>
-                    <p>для активного формирования личности который помогает вернуть себе управление своей жизнью и создать надежные внутренние опоры; тех кто хочет осознанно выковать свой характер превращая абстрактыне понятия и ценности в ежедневную практику</p>
-                </div>
-                <div class="thesis-box">
-                    <h4>Пространство исследования</h4>
-                    <p>пространство для твоего личного исследования, поиска опор, объект созерцания и размышлений</p>
-                </div>
-                <div class="thesis-box">
-                    <h4>Работа над опорами</h4>
-                    <p>Добродетели это не догмы, а пространство для твоего личного исследования. Осознание ценностей это работа по созданию истинных опор. Карточки это объект созерцания и размышления запускающий процесс осознания</p>
-                </div>
+            <div class="thesis-organic">
+                <div class="thesis-box"><h4>Инструмент формирования</h4><p>для активного формирования личности который помогает вернуть себе управление своей жизнью и создать надежные внутренние опоры; тех кто хочет осознанно выковать свой характер превращая абстрактыне понятия и ценности в ежедневную практику</p></div>
+                <div class="thesis-box"><h4>Пространство исследования</h4><p>пространство для твоего личного исследования, поиска опор, объект созерцания и размышлений</p></div>
+                <div class="thesis-box"><h4>Работа над опорами</h4><p>Добродетели это не догмы, а пространство для твоего личного исследования. Осознание ценностей это работа по созданию истинных опор. Карточки это объект созерцания и размышления запускающий процесс осознания</p></div>
             </div>
-
             <div style="text-align: center; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 40px;">
                 <p style="margin-bottom: 15px;">Между стимулом и реакцией есть свобода воли. Я не обещаю магических результатов, потому что ценность этого инструмента в твоём личном процессе</p>
                 <p style="font-weight: 600; color: var(--carrot);">Чем больше практикуешь — тем быстрее учишься переключаться с автоматизма на ручное управление</p>
             </div>
         </section>
 
-        <!-- BLOCK 7 (Flow) -->
+        <!-- BLOCK 7: INTENTION FLOW -->
         <section>
             <h2 style="text-align: center; margin-bottom: 20px;">Намерение как внутреннее состояние</h2>
             <div class="flow-container">
@@ -239,87 +251,69 @@
             </div>
         </section>
 
-        <!-- BLOCK 8 -->
+        <!-- BLOCK 8: REWORKED SCENARIOS -->
         <section>
             <h2 style="text-align: center; margin-bottom: 40px;">Возможные сценарии</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div class="what-card">
-                    <h4 style="color: var(--carrot); margin-bottom: 15px;">Сценарий 1</h4>
-                    <p>Выбери карточку в начале дня. Пропусти ее через медитацию, преобразовывай полученные инсайты в состояние через практику, а затем используй как линзу через которую смотришь на происходящее</p>
-                    <div style="margin-top: 20px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 15px;">
-                        <strong>вопросы-ключи:</strong> <br>
-                        • как это понятие проявляется в жизни <br>
-                        • как я могу применить это сейчас <br>
-                        • как оно меняет восприятие
+            <div class="scenarios-visual">
+                <div class="sc-card morning">
+                    <div class="sc-tag">Сценарий 1</div>
+                    <h3 style="margin-bottom: 15px;">Линза дня</h3>
+                    <p style="margin-bottom: 20px;">Выбери карточку в начале дня. Пропусти ее через медитацию, преобразовывай полученные инсайты в состояние через практику, а затем используй как линзу через которую смотришь на происходящее</p>
+                    <div class="keys-cloud">
+                        <strong style="font-size: 0.8rem; opacity: 0.6;">вопросы-ключи:</strong>
+                        <div class="key-bubble">как это понятие проявляется в жизни</div>
+                        <div class="key-bubble">как я могу применить это сейчас</div>
+                        <div class="key-bubble">как оно меняет восприятие</div>
                     </div>
                 </div>
-                <div class="what-card">
-                    <h4 style="color: var(--carrot); margin-bottom: 15px;">Сценарий 2</h4>
-                    <p>Используй карточку как подпорку — когда тебя штормит, или нужной вернуться в состояние перед важным делом.</p>
-                    <div style="margin-top: 20px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 15px;">
-                        <strong>вопросы-ключи:</strong> <br>
-                        • что я игнорирую или избегаю <br>
-                        • куда направить внимание <br>
-                        • что я не могу понять/принять <br>
-                        • что станет подспорьем
+                <div class="sc-card storm">
+                    <div class="sc-tag">Сценарий 2</div>
+                    <h3 style="margin-bottom: 15px;">Внутренняя опора</h3>
+                    <p style="margin-bottom: 20px;">Используй карточку как подпорку — когда тебя штормит, или нужной вернуться в состояние перед важным делом.</p>
+                    <div class="keys-cloud">
+                        <strong style="font-size: 0.8rem; opacity: 0.6;">вопросы-ключи:</strong>
+                        <div class="key-bubble">что я игнорирую или избегаю замечать</div>
+                        <div class="key-bubble">куда направить внимание</div>
+                        <div class="key-bubble">что я не могу понять/принять</div>
+                        <div class="key-bubble">что станет подспорьем в делах</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- BLOCK 9 -->
+        <!-- BLOCK 9: BOT -->
         <section id="bot" style="text-align: center;">
             <h2>Цифровая версия</h2>
             <p style="margin-bottom: 40px; color: var(--text-soft);">Пока я готовлю физический продукт, сделал цифровую версию, чтобы карточки всегда были под рукой.</p>
             <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                <div>
-                    <div class="iphone-frame"></div>
-                    <p style="margin-top: 15px; font-size: 0.9rem;"><strong>Игровое поле</strong> <br> Переход в коллекцию и блокнот</p>
-                </div>
-                <div>
-                    <div class="iphone-frame"></div>
-                    <p style="margin-top: 15px; font-size: 0.9rem;"><strong>Коллекции</strong> <br> Исследование и обратная связь</p>
-                </div>
+                <div><div class="iphone-frame"></div><p style="margin-top: 15px; font-size: 0.9rem;"><strong>Игровое поле</strong><br>Переход в коллекцию и блокнот</p></div>
+                <div><div class="iphone-frame"></div><p style="margin-top: 15px; font-size: 0.9rem;"><strong>Коллекции</strong><br>Исследование и обратная связь</p></div>
             </div>
         </section>
 
-        <!-- BLOCK 10 -->
+        <!-- BLOCK 10: STORYTELLING -->
         <section id="cases">
             <h2 style="text-align: center; margin-bottom: 40px;">Между «заметил» и «исправил»</h2>
             <div style="max-width: 800px; margin: 0 auto;">
                 <p style="margin-bottom: 25px;">Вот как это сработало у меня: Вытянул карту "Осознанность" — наблюдение без оценки. Поразмыслил. Буквально через полчаса ситуация, вполне подходит для работы.</p>
                 <p style="margin-bottom: 25px;">Спустя пару часов, после тренировки в душе меня догоняет поток. Ловлю себя на том, что прокручиваю в голове сценарии будущего: как я отвечу в той или иной ситуации, что скажу. Я оставнавливаюсь и не пытаюсь подправить себя, а просто наблюдаю этот процесс, как это происходит. И замечаю корень: этим прогнозированием я пытаюсь убрать или приглушить страх неопределенности, страх будущего.</p>
-                <p style="margin-bottom: 40px;">Будто хочу избавиться от какого-то дискомфорта, строя воздушные замки там, где меня ещё нет. Я просто остался с этим наблюдением. Дал себе время пережить, пережевать, переварить этот страх, не пытаясь его "лечить". И произошла “магия момента” — я снова в себе, в теле, чувствую умиротворение и внутреннюю тишину, “шум” затих.</p>
-                
+                <p style="margin-bottom: 40px;">Будто хочу избавиться от какого-то дискомфорта, строя мосты там, где меня ещё нет. Я просто остался с этим наблюдением. Дал себе время пережить, пережевать, переварить этот страх, не пытаясь его "лечить". И произошла “магия момента” — я снова в себе, в теле, чувствую умиротворение и внутреннюю тишину, “шум” затих.</p>
                 <div style="background: white; padding: 40px; border-radius: 40px; border: 1px dashed var(--carrot); margin-bottom: 40px; text-align: center;">
                     <p style="font-family: 'Playfair Display'; font-size: 1.4rem; font-style: italic;">"Это как в работе со штангой: когда чувствуешь, что в середине подхода техника "поплыла", тут же пытаешься судорожно подправить её прямо в движении, не имея нужного навыка. В итоге — только больше суеты и кривая техника"</p>
                 </div>
-
                 <p style="margin-bottom: 25px;">Я не знаю, как правильно жить. Никто не знает. Есть только движение, сонаправленное с самой жизнью — рост и развитие. И наш отклик на него: гармония, чувство опоры и радость, переходящая в ощущение счастья</p>
                 <p style="margin-bottom: 40px;">Эти карточки — мой личный опыт. Мой способ направить стремление к росту в конкретные внутренние стержни. Это не догма, а пространство для само-исследования Каждая из них — это ядро смысла, повод для размышления и реального поступка. Это тренажер осознанности, который возвращает управление жизнью и состоянием в твои руки.</p>
-                
-                <div class="usage-frame">
-                    Как ты это используешь: за утренним кофе, в медитации, для игры или как самоподдержку — решать тебе. Набор — это всего лишь импульс, правила игры устанавливаешь ты. Твой путь и твои открытия — это то, что по-настоящему важно
-                </div>
+                <div class="usage-frame">Как ты это используешь: за утренним кофе, в медитации, для игры или как самоподдержку — решать тебе. Набор — это всего лишь импульс, правила игры устанавливаешь ты. Твой путь и твои открытия — это то, что по-настоящему важно</div>
             </div>
-            <div style="text-align: center; margin-top: 60px;">
-                <a href="#" class="cta-btn">Войти в игру</a>
-            </div>
+            <div style="text-align: center; margin-top: 60px;"><a href="#" class="cta-btn">Войти в игру</a></div>
         </section>
     </div>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
     </script>
 </body>
 </html>
