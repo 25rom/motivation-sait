@@ -143,6 +143,12 @@
             .func-split, .int-row, .benefits-nodes, .scenarios-visual { grid-template-columns: 1fr; flex-direction: column; }
             .essence-capsule { padding: 40px 20px; }
         }
+        .screen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка заполнит экран без искажений */
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -165,7 +171,8 @@
         <section class="hero visible">
             <p class="subtitle">28 карточек ценностей в твоем telegram</p>
             <h1>28 опор твоего внутреннего стержня. Тренажёр для тех, кто сам управляет своей игрой</h1>
-            <p class="description">Это бот с 28 карточками внутренних состояний. Карточки — это простой способ выключить внешний шум и переключить внимание на то, что у тебя внутри и действительно имеет значение.</p>
+            <p class="description">Это бот с 28 карточками внутренних состояний. Карточки — это простой способ выключить внешний шум и переключить внимание на то, что у тебя внутри и действительно имеет значение</p>
+            <a href="https://t.me/o_cardbot" class="cta-btn" style="margin-top: 20px;">Вытянуть карточку</a>
         </section>
 
         <!-- BLOCK 2: SHA-SHKA & NODES -->
@@ -314,16 +321,25 @@
             </div>
         </section>
 
-        <!-- BLOCK 9: BOT -->
-        <section id="bot" style="text-align: center;">
-            <h2>Цифровая версия</h2>
-            <p style="margin-bottom: 35px; color: var(--text-soft);">Пока я готовлю физический продукт, сделал цифровую версию, чтобы карточки всегда были под рукой.</p>
-            <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                <div><div class="iphone-frame"></div><p style="margin-top: 15px; font-size: 0.9rem;"><strong>Игровое поле</strong></p></div>
-                <div><div class="iphone-frame"></div><p style="margin-top: 15px; font-size: 0.9rem;"><strong>Коллекции</strong></p></div>
+        <!-- <!-- BLOCK 9: BOT -->
+<section id="bot" style="text-align: center;">
+    <h2>Цифровая версия</h2>
+    <p style="margin-bottom: 35px; color: var(--text-soft);">Пока я готовлю физический продукт, сделал цифровую версию, чтобы карточки всегда были под рукой.</p>
+    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+        <div>
+            <div class="iphone-frame">
+                <img src="https://raw.githubusercontent.com/25rom/zobilie_sait/main/images/screen0.png" alt="Игровое поле" class="screen-img">
             </div>
-        </section>
-
+            <p style="margin-top: 15px; font-size: 0.9rem;"><strong>Игровое поле</strong><br>Переход в коллекцию и блокнот</p>
+        </div>
+        <div>
+            <div class="iphone-frame">
+                <img src="https://raw.githubusercontent.com/25rom/zobilie_sait/main/images/screen1.png" alt="Коллекции" class="screen-img">
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem;"><strong>Коллекции</strong><br>Исследование и обратная связь</p>
+        </div>
+    </div>
+</section>
         <!-- BLOCK 10: STORYTELLING -->
         <section id="cases">
             <h2 style="text-align: center; margin-bottom: 40px;">Между «заметил» и «исправил»</h2>
