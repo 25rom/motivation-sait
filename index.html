@@ -130,15 +130,31 @@
         }
         .int-item p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-soft); }
         
-        /* Блок результата */
-        .int-result { border-top: 1px solid var(--border); padding-top: 35px; text-align: center; }
-        .result-content { display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 850px; margin: 0 auto; }
-        .result-content svg { width: 32px; height: 32px; flex-shrink: 0; stroke: var(--graphite); fill: none; stroke-width: 1.2; }
+        /* Обновленный стиль блока результата */
+        .int-result { 
+            border: 1px solid var(--carrot); /* Та же линия, что у всего блока */
+            border-radius: 30px; 
+            padding: 35px; 
+            text-align: center;
+            background: white; /* Чтобы выделялся на фоне основного блока */
+            margin-top: 10px;
+        }
+        
+        /* Исправляем отступы для иконки в результате */
+        .result-content { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 25px; 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
 
         @media (max-width: 768px) {
             .int-row { flex-direction: column; }
             .result-content { flex-direction: column; text-align: center; }
         }
+        
 
         /* BLOCK 9: SCENARIOS ACTIVE HOVER */
         .scenarios-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -355,25 +371,23 @@
 
     <!-- BLOCK 8: UNIFIED INTENTION -->
        <!-- BLOCK 8: UNIFIED INTENTION -->
+        <<!-- BLOCK 8: UNIFIED INTENTION -->
         <section>
             <h2 style="text-align: center; margin-bottom: 30px; font-family: 'Playfair Display';">Намерение как внутреннее состояние</h2>
             <div class="intention-unified">
                 <div class="int-row">
-                    <!-- Блок МЕТОД: теперь с фоном и выровненным тегом -->
+                    <!-- Блок МЕТОД -->
                     <div class="int-col">
                         <span class="int-tag">МЕТОД</span>
                         <div class="int-item">
-                            <!-- Иконка Созидания/Формулы -->
                             <svg viewBox="0 0 24 24" stroke="var(--carrot)"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
                             <p>Вы можете использовать карточки как формулы для создания Намерения</p>
                         </div>
                         <div class="int-item">
-                            <!-- Иконка Внутреннего фокуса -->
                             <svg viewBox="0 0 24 24" stroke="var(--carrot)"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
                             <p>Работайте с намерением как с внутренним состоянием</p>
                         </div>
                         <div class="int-item">
-                            <!-- Иконка Пропускания через фильтр/себя -->
                             <svg viewBox="0 0 24 24" stroke="var(--carrot)"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg>
                             <p>Любое сильное желание или цель нужно пропустить через себя</p>
                         </div>
@@ -383,32 +397,32 @@
                     <div class="int-col">
                         <span class="int-tag" style="background: var(--blue);">ЗАПРОСЫ</span>
                         <div class="int-item">
-                            <!-- Иконка Ключа к пониманию -->
-                            <svg viewBox="0 0 24 24" stroke="var(--blue)"><circle cx="8" cy="16" r="5"/><path d="M11.35 12.35l8.65-8.65M16 4l4 4"/></svg>
+                            <!-- ИКОНКА КЛЮЧА (вместо гендерного знака) -->
+                            <svg viewBox="0 0 24 24" stroke="var(--blue)"><circle cx="8" cy="15" r="4"/><path d="M11 12l6-6 3 3M14 9l2 2"/></svg>
                             <p style="font-style: italic;">"что мне нужно изменить / понять / осознать, чтобы достичь желаемого"</p>
                         </div>
                         <div class="int-item">
-                            <!-- Иконка Компаса/Направления -->
-                            <svg viewBox="0 0 24 24" stroke="var(--blue)"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg>
+                            <!-- ИКОНКА КОМПАСА -->
+                            <svg viewBox="0 0 24 24" stroke="var(--blue)"><circle cx="12" cy="12" r="10"/><path d="M16 8l-2 6-6 2 2-6 6-2z"/></svg>
                             <p style="font-style: italic;">"Какое состояние сопутствует тому, каким я хочу быть, чего хочу достичь/реализовать"</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Блок РЕЗУЛЬТАТ -->
+                <!-- Блок РЕЗУЛЬТАТ (теперь с рамкой и новой иконкой) -->
                 <div class="int-result">
-                    <span class="int-tag" style="background: var(--graphite); margin-bottom: 15px;">РЕЗУЛЬТАТ</span>
+                    <span class="int-tag" style="background: var(--graphite); margin-bottom: 20px;">РЕЗУЛЬТАТ</span>
                     <div class="result-content">
-                        <!-- Иконка Зеркала/Отражения -->
-                        <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM2 12h20M12 2v20"/></svg>
-                        <p style="font-weight: 500; font-size: 1.15rem; color: var(--graphite);">
+                        <!-- НОВАЯ ИКОНКА: Зеркало/Отражение (центр и расходящиеся лучи) -->
+                        <svg viewBox="0 0 24 24" stroke="var(--graphite)"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3m-15.5-6.5l2 2m9 9l2 2m-11 0l-2 2m11-11l-2-2"/></svg>
+                        <p style="font-weight: 500; font-size: 1.15rem; color: var(--graphite); text-align: left;">
                             Вся реальная работа происходит в голове и чувствах, а мир снаружи — это просто зеркало, которое отражает твои настройки
                         </p>
                     </div>
                 </div>
             </div>
         </section>
-
+            
         <!-- BLOCK 9: ACTIVE SCENARIOS -->
         <section>
             <h2 style="text-align: center; margin-bottom: 35px;">Возможные сценарии</h2>
