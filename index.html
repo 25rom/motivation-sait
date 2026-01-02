@@ -149,6 +149,55 @@
     object-fit: cover; /* Картинка заполнит экран без искажений */
     display: block;
 }
+        /* Дополнения для блока 8 */
+        .int-card {
+            background: var(--milk);
+            padding: 30px;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .int-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+        .int-item p {
+            margin: 0;
+            line-height: 1.4;
+        }
+        .int-item svg {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            stroke-width: 1.5;
+            fill: none;
+            margin-top: 2px;
+        }
+        .icon-carrot { stroke: var(--carrot); }
+        .icon-blue { stroke: var(--blue); }
+        .icon-graphite { stroke: var(--graphite); }
+        
+        .result-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .result-flex svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--graphite);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .result-flex { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -275,25 +324,54 @@
             </div>
         </section>
 
-        <!-- BLOCK 8: UNIFIED INTENTION -->
+    <!-- BLOCK 8: UNIFIED INTENTION -->
         <section>
             <h2 style="text-align: center; margin-bottom: 30px; font-family: 'Playfair Display';">Намерение как внутреннее состояние</h2>
             <div class="intention-unified">
                 <div class="int-row">
-                    <div class="int-col">
+                    <!-- Левая колонка: МЕТОД -->
+                    <div class="int-col int-card">
                         <span class="int-tag">МЕТОД</span>
-                        <p>Вы можете использовать карточки как формулы для создания Намерение <br>Работайте с намерением как с внутренним состояние <br>Любое сильное желание или цель нужно пропустить через себя</p>
+                        <div class="int-content">
+                            <div class="int-item">
+                                <svg viewBox="0 0 24 24" class="icon-carrot"><path d="M12 2v20M2 12h20M5.6 5.6l12.8 12.8M5.6 18.4L18.4 5.6"/></svg>
+                                <p>Вы можете использовать карточки как формулы для создания Намерения</p>
+                            </div>
+                            <div class="int-item">
+                                <svg viewBox="0 0 24 24" class="icon-carrot"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+                                <p>Работайте с намерением как с внутренним состоянием</p>
+                            </div>
+                            <div class="int-item">
+                                <svg viewBox="0 0 24 24" class="icon-carrot"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                                <p>Любое сильное желание или цель нужно пропустить через себя</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="int-col" style="background: var(--milk); padding: 25px; border-radius: 25px;">
+
+                    <!-- Правая колонка: ЗАПРОСЫ -->
+                    <div class="int-col int-card">
                         <span class="int-tag" style="background: var(--blue);">ЗАПРОСЫ</span>
-                        <p>Запрос может выглядеть так:</p>
-                        <p style="font-size: 0.9rem; font-style: italic; margin-bottom: 15px;">"что мне нужно изменить/понять/осознать чтобы достичь желаемого"</p>
-                        <p style="font-size: 0.9rem; font-style: italic;">"Какое состояние сопутствует тому, каким я хочу быть, чего хочу достичь/реализовать"</p>
+                        <div class="int-content">
+                            <p style="margin-bottom: 15px; font-weight: 500;">Запрос может выглядеть так:</p>
+                            <div class="int-item">
+                                <svg viewBox="0 0 24 24" class="icon-blue"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                                <p style="font-size: 0.9rem; font-style: italic;">"что мне нужно изменить / понять / осознать, чтобы достичь желаемого"</p>
+                            </div>
+                            <div class="int-item">
+                                <svg viewBox="0 0 24 24" class="icon-blue"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                <p style="font-size: 0.9rem; font-style: italic;">"Какое состояние сопутствует тому, каким я хочу быть, чего хочу достичь"</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Нижний блок: РЕЗУЛЬТАТ -->
                 <div class="int-result">
                     <span class="int-tag" style="background: var(--graphite);">РЕЗУЛЬТАТ</span>
-                    <p style="font-weight: 500; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Вся реальная работа происходит в голове и чувствах, а мир снаружи -- это просто зеркало, которое отражает твои настройки</p>
+                    <div class="result-flex">
+                        <svg viewBox="0 0 24 24" class="icon-graphite"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                        <p style="font-weight: 500; font-size: 1.1rem; max-width: 800px;">Вся реальная работа происходит в голове и чувствах, а мир снаружи — это просто зеркало, которое отражает твои настройки</p>
+                    </div>
                 </div>
             </div>
         </section>
