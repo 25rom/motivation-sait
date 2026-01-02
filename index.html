@@ -130,26 +130,51 @@
         }
         .int-item p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-soft); }
         
-        /* Обновленный стиль блока результата */
+        /* Обновленный стиль блока результата — компактный и аккуратный */
         .int-result { 
-            border: 1px solid var(--carrot); /* Та же линия, что у всего блока */
-            border-radius: 30px; 
-            padding: 35px; 
+            border: 1px solid var(--carrot); 
+            border-radius: 40px; 
+            padding: 30px 40px; 
             text-align: center;
-            background: white; /* Чтобы выделялся на фоне основного блока */
-            margin-top: 10px;
+            background: white; 
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
         
-        /* Исправляем отступы для иконки в результате */
         .result-content { 
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            gap: 25px; 
-            max-width: 900px; 
-            margin: 0 auto; 
+            gap: 20px; 
+            max-width: 850px; 
         }
-        
+
+        /* Жестко ограничиваем размер иконки, чтобы она не разрасталась */
+        .result-content svg { 
+            width: 32px !important; 
+            height: 32px !important; 
+            flex-shrink: 0; 
+            stroke: var(--graphite);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .result-text {
+            font-weight: 500; 
+            font-size: 1.1rem; 
+            color: var(--graphite); 
+            text-align: left;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .result-content { flex-direction: column; text-align: center; }
+            .result-text { text-align: center; }
+        }
 
         /* BLOCK 9: SCENARIOS ACTIVE HOVER */
         .scenarios-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -404,11 +429,15 @@
                     </div>
                 </div>
 
-                <!-- Блок РЕЗУЛЬТАТ (теперь с рамкой и новой иконкой) -->
+               <!-- Блок РЕЗУЛЬТАТ: компактный, с лампочкой и рамкой -->
                 <div class="int-result">
-                    <span class="int-tag" style="background: var(--graphite); margin-bottom: 20px;">РЕЗУЛЬТАТ</span>
+                    <span class="int-tag" style="background: var(--graphite); margin-bottom: 5px;">РЕЗУЛЬТАТ</span>
                     <div class="result-content">
-                        <p style="font-weight: 500; font-size: 1.15rem; color: var(--graphite); text-align: left;">
+                        <!-- Иконка ЛАМПОЧКИ -->
+                        <svg viewBox="0 0 24 24">
+                            <path d="M9 18h6m-3-3v3M9 21h6M12 3c-3.87 0-7 3.13-7 7 0 2.38 1.19 4.47 3 5.74V17h8v-1.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="result-text">
                             Вся реальная работа происходит в голове и чувствах, а мир снаружи — это просто зеркало, которое отражает твои настройки
                         </p>
                     </div>
