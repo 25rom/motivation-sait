@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тренажер осознанности</title>
+    <title>Pranaway — Тренажер осознанности</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -17,515 +17,203 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--milk); 
-            color: var(--graphite); 
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
+        body { font-family: 'Inter', sans-serif; background-color: var(--milk); color: var(--graphite); line-height: 1.6; -webkit-font-smoothing: antialiased; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
         
-        section { padding: 50px 0; opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+        section { padding: 40px 0; opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         section.visible { opacity: 1; transform: translateY(0); }
 
-        header { 
-            position: fixed; top: 0; width: 100%; z-index: 1000; 
-            background: rgba(253, 251, 247, 0.8); backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
+        /* HEADER */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(253, 251, 247, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
         nav { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-weight: 700; font-size: 1rem; text-decoration: none; color: var(--graphite); }
         .nav-links a { text-decoration: none; color: var(--graphite); margin-left: 30px; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--carrot); }
 
-        /* BLOCK 1: HERO */
+        /* HERO */
         .hero { text-align: center; padding-top: 140px; padding-bottom: 40px; }
-        .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 30px; }
-        .hero .subtitle { color: var(--carrot); font-size: 1.1rem; margin-bottom: 15px; font-weight: 500; }
-        .hero .description { font-size: 1.1rem; color: var(--text-soft); max-width: 650px; margin: 0 auto 40px; }
+        .hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1.1; margin-bottom: 25px; }
+        .hero .subtitle { color: var(--carrot); font-size: 1rem; margin-bottom: 15px; font-weight: 500; text-transform: lowercase; }
+        .hero .description { font-size: 1.1rem; color: var(--text-soft); max-width: 650px; margin: 0 auto 35px; }
 
-        /* BLOCK 2: SHA-SHKA & NODES */
-        .benefits-intro { 
-            background: white; border: 1px solid var(--border); 
-            padding: 40px 60px; border-radius: 40px 40px 15px 15px; 
-            text-align: center; margin-bottom: 10px;
-        }
-        .benefits-intro h3 { font-size: 1.5rem; color: var(--carrot); line-height: 1.4; }
+        /* BENEFITS NODES */
+        .benefits-intro { background: white; border: 1px solid var(--border); padding: 40px; border-radius: 40px 40px 15px 15px; text-align: center; margin-bottom: 10px; }
+        /* ЗАДАЧА 1: Изменение стиля вводной фразы */
+        .benefits-intro h3 { color: var(--carrot); font-size: 1.6rem; line-height: 1.3; letter-spacing: -0.01em; }
+
         .benefits-nodes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .node-item { 
-            padding: 30px; border-radius: 15px; background: white; border: 1px solid var(--border);
-            display: flex; align-items: center; gap: 20px; transition: 0.3s;
-        }
-        .node-item svg { width: 30px; height: 30px; stroke: var(--carrot); fill: none; stroke-width: 1.2; flex-shrink: 0; }
-        .node-item p { font-size: 0.95rem; color: var(--text-soft); }
-        .reflection-quote {
-            grid-column: 1 / -1; margin-top: 10px; padding: 40px; background: white;
-            border-radius: 100px; text-align: center; border: 1px solid var(--carrot);
-        }
-        .reflection-quote p { font-family: 'Playfair Display'; font-size: 1.5rem; font-style: italic; color: var(--carrot); }
+        .node-item { padding: 25px; border-radius: 15px; background: white; border: 1px solid var(--border); display: flex; align-items: center; gap: 20px; }
+        .node-item svg { width: 28px; height: 28px; stroke: var(--carrot); fill: none; stroke-width: 1.2; flex-shrink: 0; }
+        .reflection-quote { grid-column: 1 / -1; padding: 35px; background: white; border-radius: 100px; text-align: center; border: 1px solid var(--carrot); margin-top: 10px; }
+        .reflection-quote p { font-family: 'Playfair Display'; font-size: 1.4rem; font-style: italic; color: var(--carrot); }
 
-        /* BLOCK 4: TIGHTER SCATTERED FOR WHOM */
-        .scattered-wrap { position: relative; height: 480px; margin: 30px 0; }
+        /* SCATTERED SECTION */
+        .scattered-wrap { position: relative; height: 650px; margin: 40px 0; }
         .scatter-item { 
-            background: white; padding: 22px 30px; border-radius: 35px; border: 1px solid var(--border);
-            max-width: 400px; position: absolute; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            display: flex; align-items: center; gap: 18px; transition: 0.4s;
+            background: white; padding: 22px 28px; border-radius: 35px; border: 1px solid var(--border);
+            max-width: 380px; position: absolute; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            display: flex; align-items: center; gap: 18px; 
         }
-        .scatter-item svg { flex-shrink: 0; width: 28px; height: 28px; stroke: var(--carrot); fill: none; }
+        .scatter-item svg { flex-shrink: 0; width: 26px; height: 26px; stroke: var(--carrot); fill: none; }
         .si-1 { top: 0; left: 0; }
-        .si-2 { top: 50px; right: 5%; }
-        .si-3 { top: 170px; left: 8%; }
-        .si-4 { top: 250px; right: 10%; }
-        .si-5 { bottom: 20px; left: 25%; }
+        .si-2 { top: 60px; right: 2%; }
+        .si-3 { top: 220px; left: 5%; }
+        .si-4 { top: 380px; right: 5%; }
+        .si-5 { top: 520px; left: 15%; }
 
-        /* BLOCK 6: INFOGRAPHIC FUNCTIONS */
-        .func-main { 
-            background: var(--blue); color: white; padding: 50px; border-radius: 40px; 
-            text-align: center; margin-bottom: 20px;
-        }
-        .func-split { display: flex; justify-content: space-between; gap: 20px; }
-        .func-side { 
-            flex: 1; background: white; padding: 35px; border-radius: 35px; border: 1px solid var(--border);
-        }
-        .func-side h4 { color: var(--carrot); margin-bottom: 10px; font-size: 1.3rem; }
-        .essence-capsule { 
-            background: white; border: 1px solid var(--carrot); border-radius: 200px; 
-            padding: 50px 80px; text-align: center; margin: 30px 0;
-        }
-        .essence-capsule p { font-family: 'Playfair Display'; font-size: 1.7rem; font-style: italic; line-height: 1.4; color: var(--graphite); }
-        .thesis-organic { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
-        .thesis-box { flex: 1 1 300px; padding: 25px; border-left: 1px solid var(--carrot); }
-
-      /* BLOCK 8: UNIFIED INTENTION — ОБНОВЛЕННЫЙ */
-        .intention-unified {
-            background: white; border: 1px solid var(--carrot); border-radius: 50px; padding: 50px;
-            display: flex; flex-direction: column; gap: 40px;
-        }
-        .int-row { display: flex; gap: 20px; align-items: stretch; }
-        
-        /* Делаем обе колонки одинаковыми карточками */
-        .int-col { 
-            flex: 1; 
-            background: var(--milk); 
-            padding: 35px; 
-            border-radius: 30px; 
-            display: flex; 
-            flex-direction: column;
-        }
-        
-        .int-tag { 
-            display: inline-block; padding: 6px 16px; border-radius: 100px; 
-            background: var(--carrot); color: white; font-size: 0.75rem; font-weight: 600; 
-            margin-bottom: 25px; align-self: flex-start; /* Фиксирует тег вверху */
-        }
-
-        /* Стиль для строки "иконка + текст" */
-        .int-item { display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start; }
-        .int-item:last-child { margin-bottom: 0; }
-        
-        .int-item svg { 
-            width: 24px; height: 24px; flex-shrink: 0; fill: none; stroke-width: 1.3; margin-top: 3px;
-        }
-        .int-item p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--text-soft); }
-        
-        /* Обновленный стиль блока результата — компактный и аккуратный */
-        .int-result { 
-            border: 1px solid var(--carrot); 
-            border-radius: 40px; 
-            padding: 30px 40px; 
-            text-align: center;
-            background: white; 
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .result-content { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 20px; 
-            max-width: 850px; 
-        }
-
-        /* Жестко ограничиваем размер иконки, чтобы она не разрасталась */
-        .result-content svg { 
-            width: 32px !important; 
-            height: 32px !important; 
-            flex-shrink: 0; 
-            stroke: var(--graphite);
-            fill: none;
-            stroke-width: 1.5;
-        }
-
-        .result-text {
-            font-weight: 500; 
-            font-size: 1.1rem; 
-            color: var(--graphite); 
-            text-align: left;
-            line-height: 1.4;
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .result-content { flex-direction: column; text-align: center; }
-            .result-text { text-align: center; }
-        }
-
-        /* BLOCK 9: SCENARIOS ACTIVE HOVER */
-        .scenarios-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .sc-card { padding: 40px; border-radius: 40px; background: white; border: 1px solid var(--border); }
-        .sc-card.morning { background: linear-gradient(135deg, #fff 0%, #fffbf8 100%); }
-        .sc-card.storm { background: linear-gradient(135deg, #fafdff 0%, #f4f8fc 100%); }
-        .key-bubble { 
-            font-size: 0.85rem; padding: 12px 20px; background: white; 
-            border-radius: 15px; border: 1px solid rgba(0,0,0,0.05); 
-            width: fit-content; margin-bottom: 8px; cursor: pointer; transition: 0.3s;
-        }
-        .key-bubble:hover { 
-            background: var(--carrot); color: white; border-color: var(--carrot); 
-            transform: scale(1.05); box-shadow: 0 5px 15px rgba(230,126,81,0.15); 
-        }
-
+        /* КНОПКА */
         .cta-btn { 
-            background: var(--carrot); color: white; padding: 20px 50px; 
+            background: var(--carrot); color: white; padding: 18px 50px; 
             border-radius: 100px; text-decoration: none; font-weight: 600; 
             display: inline-block; transition: 0.3s; border: none; cursor: pointer;
-            box-shadow: 0 10px 25px rgba(230,126,81,0.2);
+            box-shadow: 0 10px 25px rgba(230, 126, 81, 0.2);
         }
-        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(230,126,81,0.3); }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(230, 126, 81, 0.3); }
 
-        .usage-frame { border: 2px solid var(--carrot); padding: 40px; border-radius: 40px; margin-top: 40px; text-align: center; background: rgba(230, 126, 81, 0.03); }
-        .iphone-frame { 
-            width: 250px; /* Немного шире */
-            height: 500px; /* Немного выше для современных пропорций экрана */
-            background: #2d2d2d; 
-            border-radius: 40px; 
-            border: 8px solid #333; 
-            overflow: hidden; 
-            margin: 0 auto; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            background-color: #e1f7fb; /* Фон рамки в цвет вашего приложения */
-        }        
+        /* INFOGRAPHIC & CARDS */
+        .func-main { background: var(--blue); color: white; padding: 50px; border-radius: 40px; text-align: center; margin-bottom: 20px; }
+        .func-split { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 40px; }
+        .func-side { flex: 1; background: white; padding: 35px; border-radius: 35px; border: 1px solid var(--border); }
+        .func-side h4 { color: var(--carrot); margin-bottom: 10px; font-size: 1.2rem; }
+        
+        .essence-capsule { background: white; border: 1px solid var(--carrot); border-radius: 200px; padding: 50px 80px; text-align: center; margin-bottom: 40px; }
+        .essence-capsule p { font-family: 'Playfair Display'; font-size: 1.6rem; font-style: italic; line-height: 1.4; color: var(--graphite); }
+
+        /* КАРТОЧКИ ФУНКЦИЙ (ЗАДАЧА 2: Изменение цвета и размера шрифта) */
+        .thesis-organic { display: flex; flex-wrap: wrap; gap: 20px; }
+        .thesis-box { 
+            flex: 1 1 300px; padding: 35px; background: white; border-radius: 30px; 
+            border: 1px solid var(--border); border-top: 5px solid var(--carrot);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+        .thesis-box h4 { 
+            display: inline-block; background: var(--blue); /* Изменено на голубой */
+            color: white; 
+            padding: 5px 18px; border-radius: 10px; font-size: 0.85rem; 
+            margin-bottom: 20px; font-family: 'Inter'; font-weight: 700; text-transform: uppercase;
+        }
+        .thesis-box p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.4; } /* Шрифт меньше */
+
+        footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .social-links { display: flex; gap: 25px; }
+        .social-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--graphite); font-size: 0.9rem; transition: 0.3s; }
+        .social-link:hover { color: var(--carrot); }
+        .social-link svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
         @media (max-width: 768px) {
             .scatter-item { position: static; margin-bottom: 10px !important; max-width: 100%; }
             .scattered-wrap { height: auto; }
-            .func-split, .int-row, .benefits-nodes, .scenarios-visual { grid-template-columns: 1fr; flex-direction: column; }
-            .essence-capsule { padding: 40px 20px; }
-        }
-       .screen-img {
-            width: 100%;
-            height: 100%;
-            /* ГЛАВНОЕ ИЗМЕНЕНИЕ: contain вместо cover */
-            object-fit: contain; 
-            display: block;
-            background-color: #e1f7fb; /* Чтобы не было черных полос, если скриншот короче */
-        }
-       /* Дополнения для блока 8 */
-        .int-card {
-            background: var(--milk);
-            padding: 30px;
-            border-radius: 30px;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        .int-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 18px;
-        }
-        .int-item p {
-            margin: 0;
-            line-height: 1.4;
-        }
-        .int-item svg {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-            stroke-width: 1.5;
-            fill: none;
-            margin-top: 2px;
-        }
-        .icon-carrot { stroke: var(--carrot); }
-        .icon-blue { stroke: var(--blue); }
-        .icon-graphite { stroke: var(--graphite); }
-        
-        .result-flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
-        .result-flex svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--graphite);
-            fill: none;
-            stroke-width: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .result-flex { flex-direction: column; text-align: center; }
+            .func-split { flex-direction: column; }
+            .essence-capsule { padding: 40px 20px; border-radius: 40px; }
+            .benefits-nodes { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="container">
             <nav>
-                <div style="font-weight: 700; font-size: 1rem;">pranaway</div>
+                <a href="index.html" class="logo">pranaway</a>
                 <div class="nav-links">
-                    <a href="#about">О проекте</a>
-                    <a href="#cases">Кейсы</a>
-                    <a href="#bot">Бот</a>
+                    <a href="about.html">О проекте</a>
+                    <a href="cases.html">Кейсы</a>
+                    <a href="cases.html#bot">Бот</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <div class="container">
-        <!-- BLOCK 1: HERO -->
+        <!-- HERO -->
         <section class="hero visible">
             <p class="subtitle">мотивационные карточки для медитации в telegram</p>
             <h1>Опоры твоего внутреннего стержня. Тренажёр для тех, кто сам управляет своей игрой</h1>
             <p class="description">Это бот с карточками внутренних состояний. Карточки — это простой способ выключить внешний шум и переключить внимание на то, что у тебя внутри и действительно имеет значение</p>
-            <a href="https://t.me/o_cardbot" class="cta-btn" style="margin-top: 20px;">ВЫТЯНУТЬ КАРТОЧКУ</a>
+            <a href="https://t.me/o_cardbot" class="cta-btn">ВЫТЯНУТЬ КАРТОЧКУ</a>
         </section>
 
-        <!-- BLOCK 2: SHA-SHKA & NODES -->
-        <section id="about">
+        <!-- BENEFITS -->
+        <section>
             <div class="benefits-intro">
                 <h3>Карточки — это майндфулнес инструмент для практики осознанности. С карточками вы будете:</h3>
             </div>
             <div class="benefits-nodes">
-                <div class="node-item">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    <p>развивать осознанность через саморефлексию и внимание</p>
-                </div>
-                <div class="node-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/></svg>
-                    <p>работать с ценностями через медитацию</p>
-                </div>
-                <div class="node-item">
-                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                    <p>устранять разрывы между внешним проявлением и внутренним состоянием, самостоятельно высвечивая слепые зоны</p>
-                </div>
-                <div class="node-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    <p>вдохновляться и всегда помнить о важном</p>
-                </div>
-                <div class="reflection-quote">
-                    <p>Они не дадут готовых ответов но помогут вам найти свои собственные, запуская процесс глубокой и честной рефлексии</p>
-                </div>
+                <div class="node-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><p>развивать осознанность через саморефлексию и внимание</p></div>
+                <div class="node-item"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/></svg><p>работать с ценностями через медитацию</p></div>
+                <div class="node-item"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg><p>устранять разрывы между внешним проявлением и внутренним состоянием</p></div>
+                <div class="node-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><p>вдохновляться и всегда помнить о важном</p></div>
+                <div class="reflection-quote"><p>Они не дадут готовых ответов но помогут вам найти свои собственные</p></div>
             </div>
         </section>
 
-        <!-- BLOCK 3: PHILOSOPHY -->
-        <section style="text-align: center;">
-            <p style="font-family: 'Playfair Display'; font-size: 1.6rem; color: var(--carrot); margin-bottom: 30px;">Палка которая помогает выпрямить спину пока ты не научишься держать ее ровно</p>
-            <div style="text-align: left; max-width: 800px; margin: 0 auto;">
-                <p style="margin-bottom: 25px;">Работа с карточкой похожа на возвращение к важным местам в книге. Каждое понятие как концентрированный смысл жизни, на любой вкус и цвет.</p>
-                <div style="background: white; padding: 40px; border-radius: 30px; border-right: 4px solid var(--carrot); margin-bottom: 25px;">
-                    <p style="font-family: 'Playfair Display'; font-size: 1.4rem; font-style: italic;">"оставаясь наедине с собой, сохраняя всю силу своего интеллекта, которой наслаждаешься в одиночестве и которая немедленно рассеивается в разговоре, мы сохраняем возможность вдохновиться, продолжить плодотворную работу духа над самим собой"</p>
-                    <p style="margin-top: 15px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Марсель Пруст</p>
-                </div>
-                <p>Работа с карточкой — это диалог с самим собой. В общении с другими мы часто защищаем своё Эго. Перед карточкой-символом защищаться не от кого. Это пространство предельной честности: ты не ищешь подсказки извне, а работаешь с тем, что уже созрело внутри. <br><br> Карточка — это временная опора, "палка" для ходьбы, помогающая выпрямить спину или центрироваться, когда внешний шум и тревожные мысли гнут и сбивают с пути. Она не заменяет твою волю, она возвращает её тебе. Один точный смысл может стать хайлайтом на несколько недель, превращая инсайты в крепкий внутренний хребет»</p>
-            </div>
-        </section>
-
-        <!-- BLOCK 4: TIGHTER SCATTERED CA -->
+        <!-- SCATTERED SECTION -->
         <section>
             <h2 style="text-align: center; margin-bottom: 20px;">Карточки подойдут тебе если ты</h2>
             <div class="scattered-wrap">
-                <div class="scatter-item si-1">
-                    <svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-width="2"/></svg>
-                    <p>считаешь что жизнь это не то что с тобой случается а то как ты на это отвечаешь</p>
-                </div>
-                <div class="scatter-item si-2">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2"/></svg>
-                    <p>понимаешь: чтобы что-то изменить снаружи, нужно сначала перенастролить что-то внутри</p>
-                </div>
-                <div class="scatter-item si-3">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41" stroke-width="2"/></svg>
-                    <p>ценишь баланс: когда здравый смысл и интуиция дополняются вниманием к себе</p>
-                </div>
-                <div class="scatter-item si-4">
-                    <svg viewBox="0 0 24 24"><path d="M11 4H4v14h14v-7M16 2l6 6" stroke-width="2"/></svg>
-                    <p>хочешь быть автором своего состояния а не просто плыть по течению</p>
-                </div>
-                <div class="scatter-item si-5">
-                    <svg viewBox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-width="2"/></svg>
-                    <p>готов видеть в любой ситуации не проблему а повод для роста и тренировки</p>
-                </div>
+                <div class="scatter-item si-1"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg><p>считаешь что жизнь это не то что с тобой случается а то как ты на это отвечаешь</p></div>
+                <div class="scatter-item si-2"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><p>понимаешь: чтобы что-то изменить снаружи, нужно сначала перенастролить внутри</p></div>
+                <div class="scatter-item si-3"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41"/></svg><p>ценишь баланс: когда здравый смысл и интуиция дополняются вниманием к себе</p></div>
+                <div class="scatter-item si-4"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M11 4H4v14h14v-7M16 2l6 6"/></svg><p>хочешь быть автором своего состояния а не просто плыть по течению</p></div>
+                <div class="scatter-item si-5"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg><p>готов видеть в любой ситуации не проблему а повод для роста и тренировки</p></div>
             </div>
         </section>
 
-        <!-- BLOCK 6: INFOGRAPHIC FUNCTIONS -->
+
+        <!-- INFOGRAPHIC -->
         <section>
             <div class="func-main">
-                <h3 style="font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 20px;">Инструмент развития Осознанности</h3>
-                <p style="max-width: 800px; margin: 0 auto; opacity: 0.9;">Вместо фиксации на внешней цели и желании чего-либо достичь, вы смещаете фокус на внутренее сосотояние. Это помогает устранить противоречия и разрывы в динамике "внешнее проявление-действия > внутренние процессы-цености"</p>
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Инструмент развития Осознанности</h3>
+                <p style="max-width: 800px; margin: 0 auto; opacity: 0.9;">Вместо фиксации на внешней цели, вы смещаете фокус на внутренее состояние. Это помогает устранить противоречия в динамике "действия > ценности"</p>
             </div>
             <div class="func-split">
-                <div class="func-side">
-                    <h4>Зеркало для слепых зон</h4>
-                    <p>Карточка не дает прямого ответа, а подсвечивает одно качество, которое становится точкой входа в глубокий внутренний анализ. Как зеркало, она помогает увидеть те паттерны поведения, которые в обычной суете остаются незамеченными</p>
-                </div>
-                <div class="func-side">
-                    <h4>Фильтр реакций</h4>
-                    <p>Между стимулом и реакцией существует свобода воли. Я не обещаю магических результатов. Ценность этого инструмента в твоём личном процессе. Чем больше практики, тем лучше учишься переключаться на ручное управление, нарабатывая навык</p>
-                </div>
-                <div class="func-side">
-                    <h4>Катализатор инсайта</h4>
-                    <p>Карточка не учит как надо, но создает условия в которых вы сами приходите к важному выводу о себе. Это гораздо ценнее, чем любой совет со стороны, потому что инсайт, рожденный изнутри, ведет к естественной интеграции опыта и настоящим изменениям</p>
-                </div>
+                <div class="func-side"><h4>Зеркало для слепых зон</h4><p>Карточка не дает прямого ответа, а подсвечивает одно качество для анализа</p></div>
+                <div class="func-side"><h4>Фильтр реакций</h4><p>Между стимулом и реакцией существует свобода воли. Учимся ручному управлению</p></div>
+                <div class="func-side"><h4>Катализатор инсайта</h4><p>Инсайт, рожденный изнутри, ведет к настоящим изменениям</p></div>
             </div>
-            
+        </section>
+
+        <!-- КНОПКА КЕЙСЫ -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <a href="cases.html" class="cta-btn">КЕЙСЫ</a>
+        </div>
+
+        <!-- ESSENCE & THESIS -->
+        <section>
             <div class="essence-capsule">
                 <p>Осознанность — это не когда ты стал идеальным. Это когда ты заметил, какой ты сейчас. Этого уже достаточно, чтобы вернуть руль себе</p>
             </div>
-
             <div class="thesis-organic">
-                <div class="thesis-box"><h4>Инструмент</h4><p>для активного формирования личности который поможет вернуть себе управление своей жизнью. Осознание ценностей это работа по созданию фундаментальных опор</p></div>
-                <div class="thesis-box"><h4>Материал</h4><p>для тех кто хочет осознанно выковать свой характер превращая абстрактыне понятия и ценности в ежедневную практику</p></div>
-                <div class="thesis-box"><h4>Пространство</h4><p>для твоего личного исследования. Добродетель здесь не догма, это предмет созерцания и размышлений</p></div>
-            </div>
-        </section>
-        <!-- BLOCK 8: UNIFIED INTENTION -->
-        <section>
-            <h2 style="text-align: center; margin-bottom: 30px; font-family: 'Playfair Display';">Внутреннее состояние как форма воплощения Намерения</h2>
-            <div class="intention-unified">
-                <div class="int-row">
-                    <!-- Блок МЕТОД -->
-                    <div class="int-col">
-                        <span class="int-tag">МЕТОД</span>
-                        <div class="int-item">
-                            <svg viewBox="0 0 24 24" stroke="var(--carrot)"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
-                            <p>Вы можете использовать информацию на карточках как формулы для создания намерения</p>
-                        </div>
-                        <div class="int-item">
-                            <svg viewBox="0 0 24 24" stroke="var(--carrot)"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-                            <p>Работайте с намерением через внутреннее состояние</p>
-                        </div>
-                        <div class="int-item">
-                            <svg viewBox="0 0 24 24" stroke="var(--carrot)"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg>
-                            <p>Любое сильное желание или цель нужно пропустить через себя</p>
-                        </div>
-                    </div>
-
-                    <!-- Блок ЗАПРОСЫ -->
-                    <div class="int-col">
-                        <span class="int-tag" style="background: var(--blue);">ЗАПРОСЫ</span>
-                        <div class="int-item">
-                            <!-- ИКОНКА КЛЮЧА (вместо гендерного знака) -->
-                            <svg viewBox="0 0 24 24" stroke="var(--blue)"><circle cx="8" cy="15" r="4"/><path d="M11 12l6-6 3 3M14 9l2 2"/></svg>
-                            <p style="font-style: italic;">"что мне нужно изменить / понять / осознать, чтобы достичь желаемого"</p>
-                        </div>
-                        <div class="int-item">
-                            <!-- ИКОНКА КОМПАСА -->
-                            <svg viewBox="0 0 24 24" stroke="var(--blue)"><circle cx="12" cy="12" r="10"/><path d="M16 8l-2 6-6 2 2-6 6-2z"/></svg>
-                            <p style="font-style: italic;">"Какое состояние сопутствует тому, каким я хочу быть, чего хочу достичь/реализовать"</p>
-                        </div>
-                    </div>
+                <!-- ЗАДАЧА 2: Разделение текста по смысловым абзацам -->
+                <div class="thesis-box">
+                    <h4>Инструмент</h4>
+                    <p>для активного формирования личности,<br>который поможет вернуть себе управление своей жизнью.</p>
                 </div>
-
-               <!-- Блок РЕЗУЛЬТАТ: компактный, с лампочкой и рамкой -->
-                <div class="int-result">
-                    <span class="int-tag" style="background: var(--graphite); margin-bottom: 5px;">РЕЗУЛЬТАТ</span>
-                    <div class="result-content">
-                        <!-- Иконка ЛАМПОЧКИ -->
-                        <svg viewBox="0 0 24 24">
-                            <path d="M9 18h6m-3-3v3M9 21h6M12 3c-3.87 0-7 3.13-7 7 0 2.38 1.19 4.47 3 5.74V17h8v-1.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <p class="result-text">
-                            Вся реальная работа происходит в голове и чувствах, а мир снаружи — это просто зеркало, которое отражает твои настройки
-                        </p>
-                    </div>
+                <div class="thesis-box">
+                    <h4>Материал</h4>
+                    <p>для тех, кто хочет осознанно выковать свой характер,<br>превращая ценности в ежедневную практику.</p>
+                </div>
+                <div class="thesis-box">
+                    <h4>Пространство</h4>
+                    <p>для твоего личного исследования.<br>Добродетель здесь не догма, это предмет созерцания.</p>
                 </div>
             </div>
-        </section>
-
-        <div style="text-align: center; margin: 40px 0;">
-    <a href="https://t.me/o_cardbot" class="cta-btn">СОЗДАТЬ НАМЕРЕНИЕ</a>
-</div>
-            
-        <!-- BLOCK 9: ACTIVE SCENARIOS -->
-        <section>
-            <h2 style="text-align: center; margin-bottom: 35px;">Возможные сценарии</h2>
-            <div class="scenarios-visual">
-                <div class="sc-card morning">
-                    <div class="sc-tag" style="background: var(--blue);">Сценарий 1</div>
-                    <h3 style="margin-bottom: 15px;">Линза дня</h3>
-                    <p style="margin-bottom: 25px; font-size: 0.95rem;">Выбери карточку в начале дня. Пропусти ее через медитацию и используй как линзу для происходящего.</p>
-                    <div class="keys-cloud">
-                        <div class="key-bubble">как это понятие проявляется в жизни</div>
-                        <div class="key-bubble">как я могу применить это сейчас</div>
-                        <div class="key-bubble">как оно может изменить мое восприятие</div>
-                    </div>
-                </div>
-                <div class="sc-card storm">
-                    <div class="sc-tag" ">Сценарий 2</div>
-                    <h3 style="margin-bottom: 15px;">Внутренняя опора</h3>
-                    <p style="margin-bottom: 25px; font-size: 0.95rem;">Используй карточку как подпорку — когда тебя штормит или перед важным делом.</p>
-                    <div class="keys-cloud">
-                        <div class="key-bubble">что я игнорирую или избегаю замечать</div>
-                        <div class="key-bubble">что я не могу/не хочу понять или принять</div>
-                        <div class="key-bubble">что станет для меня подспорьем в делах</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- <!-- BLOCK 9: BOT -->
-<section id="bot" style="text-align: center;">
-    <h2>Цифровая версия</h2>
-    <p style="margin-bottom: 35px; color: var(--text-soft);">Пока я готовлю физический продукт, сделал цифровую версию, чтобы карточки всегда были под рукой.</p>
-    <div style="display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
-        <div>
-            <div class="iphone-frame">
-                <img src="https://raw.githubusercontent.com/25rom/zobilie_sait/main/images/ScreenShot1.png" alt="Игровое поле" class="screen-img">
-            </div>
-            <p style="margin-top: 15px; font-size: 0.9rem;"><strong>Игровое поле</strong><br>Переход в Коллекцию и Блокнот (iOs)</p>
-        </div>
-        <div>
-            <div class="iphone-frame">
-                <img src="https://raw.githubusercontent.com/25rom/zobilie_sait/main/images/ScreenShot2.png" alt="Коллекциия" class="screen-img">
-            </div>
-            <p style="margin-top: 15px; font-size: 0.9rem;"><strong>Коллекция</strong><br>Блокнот (iOs) и Обратная связь</p>
-        </div>
-    </div>
-</section>
-                <div style="text-align: center; margin: 40px 0;">
-    <a href="https://t.me/o_cardbot" class="cta-btn">ВЫТЯНУТЬ КАРТОЧКУ</a>
-</div>
-        
-        <!-- BLOCK 10: STORYTELLING -->
-        <section id="cases">
-            <h2 style="text-align: center; margin-bottom: 40px;">Между «заметил» и «исправил»</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <p style="margin-bottom: 25px;">Вот как это сработало у меня: Вытянул карту "Осознанность" — наблюдение без оценки. Поразмыслил. Буквально через полчаса ситуация, вполне подходит для работы.</p>
-                <p style="margin-bottom: 25px;">Спустя пару часов, после тренировки в душе меня догоняет поток. Ловлю себя на том, что прокручиваю в голове сценарии будущего: как я отвечу в той или иной ситуации, что скажу. Я оставнавливаюсь и не пытаюсь подправить себя, а просто наблюдаю этот процесс, как это происходит. И замечаю корень: этим прогнозированием я пытаюсь убрать или приглушить страх неопределенности, страх будущего.</p>
-                <p style="margin-bottom: 35px;">Будто хочу избавиться от какого-то дискомфорта, строя мосты там, где меня ещё нет. Я просто остался с этим наблюдением. Дал себе время пережить, пережевать, переварить этот страх, не пытаясь его "лечить". И произошла “магия момента” — я снова в себе, в теле, чувствую умиротворение и внутреннюю тишину, “шум” затих.</p>
-                <div style="background: white; padding: 40px; border-radius: 40px; border: 1px dashed var(--carrot); margin-bottom: 35px; text-align: center;">
-                    <p style="font-family: 'Playfair Display'; font-size: 1.4rem; font-style: italic;">Это как в работе со штангой: когда чувствуешь, что в середине подхода техника "поплыла", тут же пытаешься судорожно подправить её прямо в движении, не имея нужного навыка. В итоге — только больше суеты и кривая техника</p>
-                </div>
-                <p style="margin-bottom: 25px;">Я не знаю, как правильно жить. Никто не знает. Есть только движение, сонаправленное с самой жизнью — рост и развитие. И наш отклик на него — гармония, чувство опоры и радость — переходящий в ощущение счастья</p>
-                <p style="margin-bottom: 35px;">Эти карточки — мой личный опыт. Мой способ направить стремление к росту в конкретные внутренние стержни. Добродетели здесь не догма, а пространство для само-исследования наполняющая мотивацией к действию. Каждая из них — это ядро смысла, повод для размышления и реального поступка. Это тренажер осознанности, который возвращает управление жизнью и состоянием в твои руки.</p>
-                <div class="usage-frame">Как ты это используешь: за утренним кофе для мотивации, в медитации, для игры — решать тебе. Набор — это всего лишь импульс, правила игры устанавливаешь ты. Твой путь и твои открытия — это то, что по-настоящему важно</div>
-            </div>
-           <div style="text-align: center; margin-top: 60px;">
-    <a href="https://t.me/o_cardbot" class="cta-btn">НАЧАТЬ ИГРУ</a>
-</div>
         </section>
     </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="font-size: 0.8rem; opacity: 0.6;">© 2024 pranaway.</div>
+                <div class="social-links">
+                    <a href="https://t.me/neuro25" class="social-link"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Контакты</a>
+                    <a href="https://t.me/o_cardbot" class="social-link"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
