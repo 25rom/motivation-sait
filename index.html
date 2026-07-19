@@ -14,14 +14,15 @@
             --graphite: #2D2D2D;
             --text-soft: #555555;
             --border: rgba(230, 126, 81, 0.15);
+            --gold: #C9962E;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Inter', sans-serif; background-color: var(--milk); color: var(--graphite); line-height: 1.6; -webkit-font-smoothing: antialiased; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
-        
-        section { padding: 40px 0; opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
+
+        section { padding: 48px 0; opacity: 0; transform: translateY(20px); transition: 0.8s ease-out; }
         section.visible { opacity: 1; transform: translateY(0); }
 
         /* HEADER */
@@ -32,29 +33,49 @@
         .nav-links a:hover { color: var(--carrot); }
 
         /* HERO */
-        .hero { text-align: center; padding-top: 140px; padding-bottom: 40px; }
-        .hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1.1; margin-bottom: 25px; }
-        .hero .subtitle { color: var(--carrot); font-size: 1rem; margin-bottom: 15px; font-weight: 500; text-transform: lowercase; }
-        .hero .description { font-size: 1.1rem; color: var(--text-soft); max-width: 650px; margin: 0 auto 35px; }
+        .hero { text-align: center; padding-top: 140px; padding-bottom: 44px; position: relative; }
+        .hero h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); line-height: 1.1; margin-bottom: 25px; position: relative; }
+        .hero .subtitle { color: var(--carrot); font-size: 1rem; margin-bottom: 15px; font-weight: 500; text-transform: lowercase; position: relative; }
+        .hero .description { font-size: 1.1rem; color: var(--text-soft); max-width: 650px; margin: 0 auto 35px; position: relative; }
+
+        /* Тихий слой символов за героем */
+        .hero-syms { position: absolute; inset: 0; pointer-events: none; color: var(--gold); }
+        .hero-syms span { position: absolute; opacity: 0.055; animation: symFloat 14s ease-in-out infinite; }
+        .hero-syms span svg { width: 100%; height: 100%; }
+        .hero-syms .hs-1 { width: 220px; height: 220px; left: -3%; top: 30px; }
+        .hero-syms .hs-2 { width: 170px; height: 170px; right: -1%; top: 130px; animation-delay: -5s; }
+        .hero-syms .hs-3 { width: 130px; height: 130px; left: 16%; bottom: -10px; animation-delay: -9s; }
+        @keyframes symFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
+
+        /* Лента символов — разделитель */
+        .sym-strip { overflow: hidden; padding: 6px 0 2px; color: var(--gold); opacity: 0.4;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+                    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+        .sym-track { display: flex; gap: 46px; width: max-content; animation: symDrift 80s linear infinite; }
+        .sym-track span { display: flex; }
+        .sym-track svg { width: 26px; height: 26px; }
+        @keyframes symDrift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
         /* BENEFITS NODES */
         .benefits-intro { background: white; border: 1px solid var(--border); padding: 40px; border-radius: 40px 40px 15px 15px; text-align: center; margin-bottom: 10px; }
-        /* ЗАДАЧА 1: Изменение стиля вводной фразы */
         .benefits-intro h3 { color: var(--carrot); font-size: 1.6rem; line-height: 1.3; letter-spacing: -0.01em; }
 
         .benefits-nodes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .node-item { padding: 25px; border-radius: 15px; background: white; border: 1px solid var(--border); display: flex; align-items: center; gap: 20px; }
+        .node-item { padding: 25px; border-radius: 15px; background: white; border: 1px solid var(--border); display: flex; align-items: center; gap: 20px; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+        .node-item:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(45,45,45,0.05); border-color: rgba(230,126,81,0.35); }
         .node-item svg { width: 28px; height: 28px; stroke: var(--carrot); fill: none; stroke-width: 1.2; flex-shrink: 0; }
         .reflection-quote { grid-column: 1 / -1; padding: 35px; background: white; border-radius: 100px; text-align: center; border: 1px solid var(--carrot); margin-top: 10px; }
         .reflection-quote p { font-family: 'Playfair Display'; font-size: 1.4rem; font-style: italic; color: var(--carrot); }
 
         /* SCATTERED SECTION */
         .scattered-wrap { position: relative; height: 650px; margin: 40px 0; }
-        .scatter-item { 
+        .scatter-item {
             background: white; padding: 22px 28px; border-radius: 35px; border: 1px solid var(--border);
             max-width: 380px; position: absolute; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            display: flex; align-items: center; gap: 18px; 
+            display: flex; align-items: center; gap: 18px;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
+        .scatter-item:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(45,45,45,0.06); border-color: rgba(230,126,81,0.35); }
         .scatter-item svg { flex-shrink: 0; width: 26px; height: 26px; stroke: var(--carrot); fill: none; }
         .si-1 { top: 0; left: 0; }
         .si-2 { top: 60px; right: 2%; }
@@ -62,38 +83,49 @@
         .si-4 { top: 380px; right: 5%; }
         .si-5 { top: 520px; left: 15%; }
 
-        /* КНОПКА */
-        .cta-btn { 
-            background: var(--carrot); color: white; padding: 18px 50px; 
-            border-radius: 100px; text-decoration: none; font-weight: 600; 
-            display: inline-block; transition: 0.3s; border: none; cursor: pointer;
+        /* КНОПКА — живая */
+        .cta-btn {
+            background: var(--carrot); color: white; padding: 18px 50px;
+            border-radius: 100px; text-decoration: none; font-weight: 600;
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: 0.3s; border: none; cursor: pointer;
             box-shadow: 0 10px 25px rgba(230, 126, 81, 0.2);
         }
+        .cta-btn::after { content: '→'; display: inline-block; width: 0; opacity: 0; transform: translateX(-6px); transition: 0.3s; overflow: hidden; }
         .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(230, 126, 81, 0.3); }
+        .cta-btn:hover::after { width: 1em; opacity: 1; transform: translateX(0); margin-left: 10px; }
 
         /* INFOGRAPHIC & CARDS */
-        .func-main { background: var(--blue); color: white; padding: 50px; border-radius: 40px; text-align: center; margin-bottom: 20px; }
-        .func-split { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 40px; }
-        .func-side { flex: 1; background: white; padding: 35px; border-radius: 35px; border: 1px solid var(--border); }
+        .func-main { background: var(--blue); color: white; padding: 54px 50px 50px; border-radius: 40px; text-align: center; margin-bottom: 20px; position: relative; overflow: hidden; }
+        .func-main::before { content: ''; position: absolute; inset: 0; background: radial-gradient(420px 260px at 85% 0%, rgba(255,255,255,0.22), transparent 65%); pointer-events: none; }
+        .func-main > * { position: relative; }
+        .func-main .gold-line { width: 44px; height: 1px; background: var(--gold); margin: 0 auto 22px; opacity: 0.9; }
+
+        .func-split { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 40px; counter-reset: func; }
+        .func-side { flex: 1; background: white; padding: 35px; border-radius: 35px; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+        .func-side:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(45,45,45,0.06); border-color: rgba(230,126,81,0.35); }
+        .func-side::before { counter-increment: func; content: '0' counter(func); display: block; font-size: 0.72rem; letter-spacing: 0.22em; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
         .func-side h4 { color: var(--carrot); margin-bottom: 10px; font-size: 1.2rem; }
-        
-        .essence-capsule { background: white; border: 1px solid var(--carrot); border-radius: 200px; padding: 50px 80px; text-align: center; margin-bottom: 40px; }
+
+        .essence-capsule { background: white; border: 1px solid var(--carrot); border-radius: 200px; padding: 50px 80px; text-align: center; margin-bottom: 40px; box-shadow: 0 14px 34px rgba(45,45,45,0.04); }
         .essence-capsule p { font-family: 'Playfair Display'; font-size: 1.6rem; font-style: italic; line-height: 1.4; color: var(--graphite); }
 
-        /* КАРТОЧКИ ФУНКЦИЙ (ЗАДАЧА 2: Изменение цвета и размера шрифта) */
+        /* КАРТОЧКИ ФУНКЦИЙ */
         .thesis-organic { display: flex; flex-wrap: wrap; gap: 20px; }
-        .thesis-box { 
-            flex: 1 1 300px; padding: 35px; background: white; border-radius: 30px; 
+        .thesis-box {
+            flex: 1 1 300px; padding: 35px; background: white; border-radius: 30px;
             border: 1px solid var(--border); border-top: 5px solid var(--carrot);
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .thesis-box h4 { 
-            display: inline-block; background: var(--blue); /* Изменено на голубой */
-            color: white; 
-            padding: 5px 18px; border-radius: 10px; font-size: 0.85rem; 
+        .thesis-box:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(45,45,45,0.06); }
+        .thesis-box h4 {
+            display: inline-block; background: var(--blue);
+            color: white;
+            padding: 6px 20px; border-radius: 100px; font-size: 0.78rem; letter-spacing: 0.08em;
             margin-bottom: 20px; font-family: 'Inter'; font-weight: 700; text-transform: uppercase;
         }
-        .thesis-box p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.4; } /* Шрифт меньше */
+        .thesis-box p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.4; }
 
         footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
@@ -109,6 +141,14 @@
             .essence-capsule { padding: 40px 20px; border-radius: 40px; }
             .benefits-nodes { grid-template-columns: 1fr; }
             .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+            .hero-syms .hs-1 { width: 130px; height: 130px; }
+            .hero-syms .hs-2 { width: 100px; height: 100px; }
+            .hero-syms .hs-3 { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .sym-track, .hero-syms span { animation: none !important; }
+            .node-item, .scatter-item, .func-side, .thesis-box, .cta-btn { transition: none; }
         }
     </style>
 </head>
@@ -120,6 +160,7 @@
                 <div class="nav-links">
                     <a href="about.html">О проекте</a>
                     <a href="cases.html">Кейсы</a>
+                    <a href="sostoyaniya.html">Состояния</a>
                     <a href="cases.html#bot">Бот</a>
                 </div>
             </nav>
@@ -129,11 +170,15 @@
     <div class="container">
         <!-- HERO -->
         <section class="hero visible">
-            <p class="subtitle">мотивационные карточки для медитации в telegram</p>
+            <div class="hero-syms" id="heroSyms" aria-hidden="true"></div>
+            <p class="subtitle">мотивационные карточки для медитации</p>
             <h1>Тренажер для твоей внутренней игры</h1>
             <p class="description">Это бот с карточками состояний. Карточки — это простой способ выключить внешний шум и переключить внимание на то, что у тебя внутри и действительно имеет значение</p>
             <a href="https://t.me/o_cardbot" class="cta-btn">ВЫТЯНУТЬ КАРТОЧКУ</a>
         </section>
+
+        <!-- ЛЕНТА СИМВОЛОВ -->
+        <div class="sym-strip" aria-hidden="true"><div class="sym-track" id="symTrack"></div></div>
 
         <!-- BENEFITS -->
         <section>
@@ -165,6 +210,7 @@
         <!-- INFOGRAPHIC -->
         <section>
             <div class="func-main">
+                <div class="gold-line"></div>
                 <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Инструмент развития Осознанности</h3>
                 <p style="max-width: 800px; margin: 0 auto; opacity: 0.9;">Вместо фиксации на внешней цели, вы смещаете фокус на внутренее состояние. Это помогает устранить противоречия в динамике "действия > ценности"</p>
             </div>
@@ -186,7 +232,6 @@
                 <p>Осознанность — это не когда ты стал идеальным. Это когда ты заметил, какой ты сейчас. Этого уже достаточно, чтобы вернуть руль себе</p>
             </div>
             <div class="thesis-organic">
-                <!-- ЗАДАЧА 2: Разделение текста по смысловым абзацам -->
                 <div class="thesis-box">
                     <h4>Инструмент</h4>
                     <p>для активного формирования личности,<br>который поможет вернуть себе управление своей жизнью.</p>
@@ -215,11 +260,36 @@
         </div>
     </footer>
 
+    <!-- Библиотека символов для декоративного слоя (не критична: без неё страница работает как обычно) -->
+    <script src="symbols.js"></script>
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
         document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        /* Тихий слой символов: живёт только если загрузилась библиотека */
+        (function () {
+            const lib = window.PRANAWAY_SYMBOLS;
+            if (!lib || !lib.length) return;
+            const byId = id => lib.find(s => s.id === id);
+
+            // Герой: три больших полупрозрачных знака
+            const heroPick = ['osoznannost', 'celostnost', 'vnimatelnost'];
+            const hero = document.getElementById('heroSyms');
+            heroPick.forEach((id, i) => {
+                const s = byId(id); if (!s) return;
+                const span = document.createElement('span');
+                span.className = 'hs-' + (i + 1);
+                span.innerHTML = s.alch;
+                hero.appendChild(span);
+            });
+
+            // Лента: вся библиотека (алхимический штрих), трек дублируется для бесшовности
+            const track = document.getElementById('symTrack');
+            const seq = lib.map(s => '<span>' + s.alch + '</span>').join('');
+            track.innerHTML = seq + seq;
+        })();
     </script>
 </body>
 </html>
