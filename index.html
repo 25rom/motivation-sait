@@ -47,6 +47,13 @@
         .hero-syms .hs-3 { width: 130px; height: 130px; left: 16%; bottom: -10px; animation-delay: -9s; }
         @keyframes symFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-12px) rotate(2deg); } }
 
+        /* Символы, разбросанные по всему лендингу (за контентом) */
+        .page-syms { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; color: var(--gold); }
+        .page-syms span { position: absolute; opacity: 0.05; animation: symFloat 16s ease-in-out infinite; }
+        .page-syms span svg { width: 100%; height: 100%; display: block; }
+        .container { position: relative; }
+        .container > section, .container > div { position: relative; z-index: 1; }
+
         /* Лента символов — разделитель */
         .sym-strip { overflow: hidden; padding: 6px 0 2px; color: var(--gold); opacity: 0.4;
             -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
@@ -68,20 +75,27 @@
         .reflection-quote p { font-family: 'Playfair Display'; font-size: 1.4rem; font-style: italic; color: var(--carrot); }
 
         /* SCATTERED SECTION */
-        .scattered-wrap { position: relative; height: 650px; margin: 40px 0; }
-        .scatter-item {
-            background: white; padding: 22px 28px; border-radius: 35px; border: 1px solid var(--border);
-            max-width: 380px; position: absolute; box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-            display: flex; align-items: center; gap: 18px;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        /* ГРАНИ УЗНАВАНИЯ — равнозначные тезисы без порядка (созвездие) */
+        .facets-sub { text-align: center; color: var(--text-soft); font-size: 0.98rem; margin: -6px auto 34px; max-width: 520px; }
+        .facets { position: relative; width: 960px; height: 620px; margin: 0 auto; }
+        .facets-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .facet {
+            position: absolute; width: 330px; box-sizing: border-box;
+            display: flex; align-items: flex-start; gap: 16px;
+            background: white; border: 1px solid var(--border); border-radius: 26px;
+            padding: 24px 28px; z-index: 1;
+            box-shadow: 0 10px 30px rgba(45,45,45,0.04);
+            transition: transform 0.35s cubic-bezier(.2,.7,.3,1), box-shadow 0.35s, border-color 0.35s;
         }
-        .scatter-item:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(45,45,45,0.06); border-color: rgba(230,126,81,0.35); }
-        .scatter-item svg { flex-shrink: 0; width: 26px; height: 26px; stroke: var(--carrot); fill: none; }
-        .si-1 { top: 0; left: 0; }
-        .si-2 { top: 60px; right: 2%; }
-        .si-3 { top: 220px; left: 5%; }
-        .si-4 { top: 380px; right: 5%; }
-        .si-5 { top: 520px; left: 15%; }
+        .facet:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(45,45,45,0.09); border-color: rgba(230,126,81,0.4); }
+        .facet .spark { flex-shrink: 0; width: 22px; height: 22px; color: var(--gold); margin-top: 2px; transition: transform 0.35s; }
+        .facet:hover .spark { transform: rotate(45deg) scale(1.12); }
+        .facet p { margin: 0; font-size: 0.98rem; line-height: 1.5; }
+        .facet.f1 { top: 24px;  left: 30px; }
+        .facet.f2 { top: 92px;  left: 600px; }
+        .facet.f3 { top: 256px; left: 120px; }
+        .facet.f4 { top: 338px; left: 604px; }
+        .facet.f5 { top: 476px; left: 315px; }
 
         /* КНОПКА — живая */
         .cta-btn {
@@ -134,9 +148,14 @@
         .social-link:hover { color: var(--carrot); }
         .social-link svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; }
 
+        /* Ниже ширины созвездия — аккуратная колонка равнозначных карточек */
+        @media (max-width: 1000px) {
+            .facets { width: 100%; max-width: 560px; height: auto; display: flex; flex-direction: column; gap: 16px; }
+            .facet { position: static; width: 100%; }
+            .facets-lines { display: none; }
+        }
+
         @media (max-width: 768px) {
-            .scatter-item { position: static; margin-bottom: 10px !important; max-width: 100%; }
-            .scattered-wrap { height: auto; }
             .func-split { flex-direction: column; }
             .essence-capsule { padding: 40px 20px; border-radius: 40px; }
             .benefits-nodes { grid-template-columns: 1fr; }
@@ -148,7 +167,7 @@
 
         @media (prefers-reduced-motion: reduce) {
             .sym-track, .hero-syms span { animation: none !important; }
-            .node-item, .scatter-item, .func-side, .thesis-box, .cta-btn { transition: none; }
+            .node-item, .facet, .func-side, .thesis-box, .cta-btn { transition: none; }
         }
     </style>
 </head>
@@ -168,10 +187,11 @@
     </header>
 
     <div class="container">
+        <div class="page-syms" id="pageSyms" aria-hidden="true"></div>
         <!-- HERO -->
         <section class="hero visible">
             <div class="hero-syms" id="heroSyms" aria-hidden="true"></div>
-            <p class="subtitle">мотивационные карточки для медитации</p>
+            <p class="subtitle">мотивационные карточки для медитации в telegram</p>
             <h1>Тренажер для твоей внутренней игры</h1>
             <p class="description">Это бот с карточками состояний. Карточки — это простой способ выключить внешний шум и переключить внимание на то, что у тебя внутри и действительно имеет значение</p>
             <a href="https://t.me/o_cardbot" class="cta-btn">ВЫТЯНУТЬ КАРТОЧКУ</a>
@@ -194,15 +214,28 @@
             </div>
         </section>
 
-        <!-- SCATTERED SECTION -->
+        <!-- ГРАНИ УЗНАВАНИЯ -->
         <section>
-            <h2 style="text-align: center; margin-bottom: 20px;">Карточки подойдут тебе если ты</h2>
-            <div class="scattered-wrap">
-                <div class="scatter-item si-1"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg><p>считаешь что жизнь это не то что с тобой случается а то как ты на это отвечаешь</p></div>
-                <div class="scatter-item si-2"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><p>понимаешь: чтобы что-то изменить снаружи, нужно сначала перенастролить внутри</p></div>
-                <div class="scatter-item si-3"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41"/></svg><p>ценишь баланс: когда здравый смысл и интуиция дополняются вниманием к себе</p></div>
-                <div class="scatter-item si-4"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M11 4H4v14h14v-7M16 2l6 6"/></svg><p>хочешь быть автором своего состояния а не просто плыть по течению</p></div>
-                <div class="scatter-item si-5"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg><p>готов видеть в любой ситуации не проблему а повод для роста и тренировки</p></div>
+            <h2 style="text-align: center; margin-bottom: 14px;">Карточки подойдут тебе, если ты</h2>
+            <p class="facets-sub">Не список по порядку, а грани одного — узнаёшь себя хотя бы в одной?</p>
+            <div class="facets">
+                <svg class="facets-lines" viewBox="0 0 960 620" fill="none" aria-hidden="true" preserveAspectRatio="none">
+                    <polygon points="195,90 765,150 769,400 480,540 285,320"
+                             fill="none" stroke="var(--gold)" stroke-width="1.4"
+                             stroke-dasharray="2 7" stroke-linejoin="round" opacity="0.5"/>
+                    <g fill="var(--gold)" opacity="0.65">
+                        <circle cx="195" cy="90" r="3.5"/>
+                        <circle cx="765" cy="150" r="3.5"/>
+                        <circle cx="769" cy="400" r="3.5"/>
+                        <circle cx="480" cy="540" r="3.5"/>
+                        <circle cx="285" cy="320" r="3.5"/>
+                    </g>
+                </svg>
+                <div class="facet f1"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg><p>считаешь, что жизнь — это не то, что с тобой случается, а то, как ты на это отвечаешь</p></div>
+                <div class="facet f2"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg><p>понимаешь: чтобы что-то изменить снаружи, нужно сначала перенастроить внутри</p></div>
+                <div class="facet f3"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg><p>ценишь баланс: когда здравый смысл и интуиция дополняются вниманием к себе</p></div>
+                <div class="facet f4"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg><p>хочешь быть автором своего состояния, а не просто плыть по течению</p></div>
+                <div class="facet f5"><svg class="spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg><p>готов видеть в любой ситуации не проблему, а повод для роста и тренировки</p></div>
             </div>
         </section>
 
@@ -289,6 +322,31 @@
             const track = document.getElementById('symTrack');
             const seq = lib.map(s => '<span>' + s.alch + '</span>').join('');
             track.innerHTML = seq + seq;
+
+            // Символы по всему лендингу: детерминированные позиции (не прыгают при перезагрузке)
+            const page = document.getElementById('pageSyms');
+            if (page) {
+                // фиксированная раскладка: {topVW% по высоте страницы, слева/справа, размер}
+                const spots = [
+                    [ 8,  6, 88, 'alch'], [ 15, 90, 64, 'petro'], [ 23, 40, 54, 'alch'],
+                    [ 30, 78, 74, 'petro'], [ 38, 12, 60, 'alch'], [ 46, 60, 92, 'petro'],
+                    [ 53, 88, 56, 'alch'], [ 61,  8, 70, 'petro'], [ 68, 46, 58, 'alch'],
+                    [ 75, 82, 80, 'petro'], [ 82, 20, 62, 'alch'], [ 90, 66, 68, 'petro'],
+                    [ 95, 34, 52, 'alch']
+                ];
+                // детерминированная выборка символов от индекса
+                spots.forEach((sp, i) => {
+                    const s = lib[(i * 7 + 3) % lib.length];
+                    const span = document.createElement('span');
+                    span.style.top = sp[0] + '%';
+                    span.style.left = sp[1] + '%';
+                    span.style.width = sp[2] + 'px';
+                    span.style.height = sp[2] + 'px';
+                    span.style.animationDelay = (-i * 1.7) + 's';
+                    span.innerHTML = sp[3] === 'petro' ? s.petro : s.alch;
+                    page.appendChild(span);
+                });
+            }
         })();
     </script>
 </body>

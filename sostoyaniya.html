@@ -428,26 +428,21 @@
             const next = STATES[(i + 1) % STATES.length];
             const num = String(i + 1).padStart(2, '0');
 
+            // На странице состояния — только нарратив (семенная фраза и вопрос-ключ
+            // живут на обороте карты в боте). Пока текста нет — плейсхолдер.
             let body = '';
             if (isFull(st)) {
                 body = '<div class="narrative">' + st.narrative.map(p => '<p>' + esc(p) + '</p>').join('') + '</div>';
             } else {
-                // Плейсхолдер до получения нарративов: тексты кладутся в states.js → narrative[]
                 body = '<div class="loading-note">Текст загружается…</div>';
             }
-
-            const question = st.question
-                ? '<div class="question-block"><div class="q-label">Вопрос-ключ</div><div class="q-text">' + esc(st.question) + '</div></div>'
-                : '';
 
             content.innerHTML =
                 '<article class="state-article">' +
                 '<div class="eyebrow">Колода состояний · ' + num + ' / ' + STATES.length + '</div>' +
                 '<h1>' + esc(st.title) + '</h1>' +
                 stateSymbolsRow(st) +
-                (st.seed ? seedBlock(st) : '') +
                 body +
-                question +
                 '<div class="state-actions">' +
                 '<a href="https://t.me/o_cardbot" class="cta-btn">Вытянуть карточку</a>' +
                 '<div class="hint">цифровая версия колоды — в telegram</div>' +
