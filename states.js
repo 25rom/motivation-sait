@@ -1,3 +1,7 @@
+// База сайта определяется автоматически по адресу этого файла —
+// куда бы ни был выложен states.js, ссылки бота попадут в ту же папку.
+try { if (document.currentScript && document.currentScript.src) window.PRANAWAY_BASE = document.currentScript.src.replace(/[^/]+\.js(\?.*)?$/, ''); } catch(e) {}
+
 /* ============================================================
    PRANAWAY · КОЛОДА СОСТОЯНИЙ · states.js
    ------------------------------------------------------------
