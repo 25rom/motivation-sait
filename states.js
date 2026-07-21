@@ -121,13 +121,6 @@ window.PRANAWAY_STATES = [
     ]
   },
   {
-    slug: 'istinnost',
-    title: 'Истинность',
-    seed: '',
-    question: '',
-    narrative: []
-  },
-  {
     slug: 'konsistentnost',
     title: 'Консистентность',
     seed: 'Мысль = Слово = Дело',
@@ -217,7 +210,7 @@ window.PRANAWAY_STATES = [
   },
   {
     slug: 'reshimost',
-    title: 'Решимость',
+    title: 'Решительность',
     seed: 'Мужество отказаться от чего-то, чтобы сделать выбор',
     question: 'От чего я не могу отказаться — и потому стою на месте?',
     narrative: [
@@ -293,6 +286,13 @@ window.PRANAWAY_STATES = [
   {
     slug: 'terpenie',
     title: 'Терпение',
+    seed: '',
+    question: '',
+    narrative: []
+  },
+    {
+    slug: 'uvazhenie',
+    title: 'Уважение',
     seed: '',
     question: '',
     narrative: []
