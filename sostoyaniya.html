@@ -294,6 +294,25 @@
     <!-- Данные колоды: единый источник для сайта и бота -->
     <script src="states.js"></script>
     <script src="symbols.js"></script>
+    <script>
+    /* Патч набора символов: Истинность исключена, Уважение добавлено.
+       Когда впишете это в symbols.js напрямую — патч можно удалить. */
+    (function () {
+        var S = (window.PRANAWAY_SYMBOLS = window.PRANAWAY_SYMBOLS || []);
+        for (var i = S.length - 1; i >= 0; i--) {
+            if (S[i] && S[i].id === 'istinnost') S.splice(i, 1);
+        }
+        if (!S.some(function (s) { return s && s.id === 'uvazhenie'; })) {
+            S.push({
+                id: 'uvazhenie',
+                name: 'Уважение',
+                petro: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none" stroke="#94652b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 26 Q36 40 54 26"/><line x1="36" y1="40" x2="36" y2="56"/></svg>',
+                alch: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none" stroke="#A6843C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="36" y1="18" x2="36" y2="54"/><rect x="26" y="14" width="20" height="6"/><rect x="28" y="54" width="16" height="4"/></svg>'
+            });
+        }
+    })();
+    </script>
+
 
     <script>
         const STATES = (window.PRANAWAY_STATES || []);
