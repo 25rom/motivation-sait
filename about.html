@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте — Pranaway</title>
+    <meta name="description" content="Из чего появился Pranaway: изменения, свобода, творчество и ценности как звёздные ориентиры. И для кого этот проект.">
+    <meta property="og:title" content="О проекте — Pranaway">
+    <meta property="og:description" content="Проект вырос не из избытка силы, а из признания собственной уязвимости. О ценностях как ориентирах и о том, для кого всё это.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Yandex.Metrika: тот же счётчик, что на остальных страницах. Не нужен — удали этот блок. -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105895834', 'ym');
+        ym(105895834, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105895834" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+    <style>
+        :root {
+            --milk: #FDFBF7;
+            --carrot: #E67E51;
+            --blue: #A5C4D4;
+            --mint: #E2F3E1;
+            --graphite: #2D2D2D;
+            --text-soft: #555555;
+            --border: rgba(230, 126, 81, 0.15);
+            --gold: #C9962E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--milk); color: var(--graphite); line-height: 1.6; -webkit-font-smoothing: antialiased; position: relative; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
+        a { color: inherit; }
+        :focus-visible { outline: 2px solid var(--carrot); outline-offset: 3px; border-radius: 6px; }
+
+        /* ====== ФОН ИЗ СИМВОЛОВ ====== */
+        .bg-syms { position: absolute; top: 0; left: 0; width: 100%; z-index: 0; overflow: hidden; pointer-events: none; }
+        .bg-syms span { position: absolute; display: block; }
+        .bg-syms svg { display: block; width: 100%; height: 100%; }
+
+        /* HEADER — как на остальных страницах */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(253, 251, 247, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        nav.top { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-weight: 700; font-size: 1rem; text-decoration: none; color: var(--graphite); }
+        .nav-links a { text-decoration: none; color: var(--graphite); margin-left: 30px; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--carrot); }
+
+        .cta-btn { background: var(--carrot); color: white; padding: 18px 45px; border-radius: 100px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; transition: 0.3s; border: none; cursor: pointer; font-family: inherit; }
+        .cta-btn::after { content: '→'; display: inline-block; width: 0; opacity: 0; transform: translateX(-6px); transition: 0.3s; overflow: hidden; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(230,126,81,0.25); }
+        .cta-btn:hover::after { width: 1em; opacity: 1; transform: translateX(0); margin-left: 8px; }
+
+        .eyebrow { font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--carrot); font-weight: 600; margin-bottom: 14px; }
+
+        /* ====== ТЕКСТОВАЯ КОЛОНКА ====== */
+        .shell { position: relative; z-index: 1; }
+        .page { padding: 130px 0 40px; }
+        .col { max-width: 680px; }
+
+        /* ====== ШАПКА СТРАНИЦЫ ====== */
+        .hero { animation: fadeUp 0.6s ease-out; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+        .hero h1 { font-size: clamp(2.2rem, 4.8vw, 3.1rem); line-height: 1.12; margin-bottom: 26px; }
+        .hero-syms { display: flex; align-items: center; gap: 22px; color: var(--gold); margin: 0 0 34px; }
+        .hero-syms svg { width: 30px; height: 30px; opacity: 0.75; }
+        .hero-syms span:first-child svg { width: 38px; height: 38px; opacity: 1; }
+        .intro p { font-size: 1.03rem; line-height: 1.85; margin-bottom: 1.35em; }
+        .intro-final {
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 1.22rem; line-height: 1.55;
+            border-left: 3px solid var(--gold); padding-left: 24px;
+            margin: 2em 0 0;
+        }
+
+        /* ====== РАЗДЕЛ ====== */
+        .sec { margin-top: 84px; }
+        .sec-head { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; }
+        .sec-sym { display: flex; color: var(--gold); flex-shrink: 0; }
+        .sec-sym svg { width: 46px; height: 46px; }
+        .sec h2 { font-size: clamp(1.55rem, 3.4vw, 2.1rem); line-height: 1.2; }
+        .sec-rule { width: 44px; height: 1px; background: var(--gold); margin: 22px 0 26px 66px; }
+        .sec p { font-size: 1.03rem; line-height: 1.85; margin-bottom: 1.45em; }
+        .sec p.sec-lead {
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 1.12rem; line-height: 1.6; color: var(--text-soft);
+            margin-bottom: 1.6em;
+        }
+        .sec strong { font-weight: 600; }
+        .mark { background: linear-gradient(transparent 62%, rgba(201,150,46,0.28) 62%); padding-bottom: 1px; }
+
+        /* слово, закрашенное маркером под цвет ценности */
+        .mark-v {
+            background: linear-gradient(transparent 8%, var(--mc) 8%, var(--mc) 94%, transparent 94%);
+            padding: 0 3px; border-radius: 2px;
+            -webkit-box-decoration-break: clone; box-decoration-break: clone;
+        }
+
+        /* выделенная мысль */
+        .sec p.accent {
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 1.2rem; line-height: 1.55;
+            border-left: 3px solid var(--gold); padding-left: 24px;
+            margin: 2.2em 0 2.2em;
+        }
+        /* мысль, закрывающая раздел */
+        .plate {
+            background: var(--mint); border-radius: 24px; padding: 22px 28px;
+            font-size: 0.97rem; line-height: 1.7; color: var(--text-soft);
+            margin: 2.2em 0 0;
+        }
+        /* врезка-цитата */
+        .pull {
+            background: white; border-radius: 30px; border-right: 4px solid var(--carrot);
+            padding: 32px 40px; box-shadow: 0 10px 24px rgba(45,45,45,0.04);
+            margin: 2.4em 0;
+        }
+        .sec .pull p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.28rem; line-height: 1.5; margin: 0; }
+        .pull strong { font-style: normal; font-weight: 600; }
+
+        /* ====== ЦЕННОСТИ → ССЫЛКИ НА СОСТОЯНИЯ ====== */
+        .values { display: flex; flex-wrap: wrap; gap: 10px; margin: 0.4em 0 2.2em; }
+        .value-chip {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+            padding: 10px 18px 10px 14px; text-decoration: none; color: var(--graphite);
+            font-family: 'Playfair Display', serif; font-size: 0.98rem;
+            transition: border-color 0.25s, background 0.25s, transform 0.25s, box-shadow 0.25s;
+        }
+        .value-chip .v-sym { display: flex; color: var(--vc); }
+        .value-chip .v-sym svg { width: 22px; height: 22px; }
+        .value-chip .v-alias { font-size: 0.78rem; font-family: 'Inter', sans-serif; color: var(--text-soft); }
+        .value-chip:hover { background: var(--vcs); border-color: var(--vc); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(45,45,45,0.06); }
+        .values-note { font-size: 0.82rem; color: var(--text-soft); margin: -1.4em 0 2.2em; }
+
+        /* ====== ЗВЁЗДНАЯ КАРТА ====== */
+        .map { margin: 78px 0 0; max-width: 940px; }
+        .map-intro {
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 1.18rem; line-height: 1.6;
+            border-left: 3px solid var(--gold); padding-left: 24px; margin-bottom: 36px;
+            max-width: 680px;
+        }
+        .map-frame { overflow-x: auto; border-radius: 36px; scrollbar-width: thin; }
+        .map-frame::-webkit-scrollbar { height: 4px; }
+        .map-frame::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        .map-frame svg { display: block; width: 100%; height: auto; }
+        .map-svg-text { font-family: 'Playfair Display', serif; }
+        .map-hint { display: none; font-size: 0.78rem; color: var(--text-soft); margin-top: 10px; }
+        .map-legend { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 28px; }
+        .legend-item { display: flex; gap: 14px; align-items: flex-start; }
+        .legend-key { width: 26px; flex-shrink: 0; margin-top: 8px; }
+        .legend-key svg { display: block; width: 26px; height: 10px; }
+        .legend-item h4 { font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 5px; }
+        .legend-item p { font-size: 0.86rem; line-height: 1.6; color: var(--text-soft); }
+        .map-note {
+            background: var(--mint); border-radius: 24px; padding: 20px 28px;
+            font-size: 0.92rem; line-height: 1.7; color: var(--text-soft); margin-top: 26px;
+        }
+
+        /* ====== ДЛЯ КОГО ====== */
+        .audience { margin-top: 96px; }
+        .audience h2 { font-size: clamp(1.7rem, 3.6vw, 2.2rem); margin-bottom: 14px; }
+        .audience-lead { font-size: 1.03rem; line-height: 1.8; color: var(--text-soft); max-width: 600px; }
+        .stops { position: relative; max-width: 660px; margin-top: 44px; }
+        .stops::before {
+            content: ''; position: absolute; left: 29px; top: 34px; bottom: 34px;
+            border-left: 1px dashed var(--gold); opacity: 0.45;
+        }
+        .stop { position: relative; display: flex; align-items: center; gap: 24px; padding: 14px 0; }
+        .stop-sym {
+            position: relative; z-index: 1; flex-shrink: 0;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: white; border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); transition: border-color 0.3s, background 0.3s, color 0.3s;
+        }
+        .stop-sym svg { width: 28px; height: 28px; }
+        .stop-text { font-family: 'Playfair Display', serif; font-size: clamp(1.05rem, 2.4vw, 1.3rem); line-height: 1.4; }
+        .stop:hover .stop-sym { border-color: var(--carrot); background: var(--carrot); color: #fff; }
+        .audience-final {
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 1.15rem; line-height: 1.6; color: var(--text-soft);
+            margin-top: 40px; padding-left: 84px; max-width: 660px;
+        }
+
+        /* ====== ФИНАЛЬНЫЙ ПРИЗЫВ ====== */
+        .final { text-align: center; margin-top: 90px; }
+        .final .hint { font-size: 0.8rem; color: var(--text-soft); margin-top: 14px; }
+
+        footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 80px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .social-links { display: flex; gap: 20px; }
+        .social-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--graphite); font-size: 0.9rem; }
+        .social-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+
+        @media (max-width: 900px) {
+            .page { padding-top: 110px; }
+            .sec { margin-top: 66px; }
+            .sec-head { gap: 15px; }
+            .sec-sym svg { width: 36px; height: 36px; }
+            .sec-rule { margin-left: 51px; }
+            .pull { padding: 26px 26px; }
+            .sec .pull p { font-size: 1.13rem; }
+            .map-frame svg { min-width: 740px; }
+            .map-hint { display: block; }
+            .map-legend { grid-template-columns: 1fr; gap: 18px; }
+            .stop { gap: 18px; }
+            .stop-sym { width: 52px; height: 52px; }
+            .stop-sym svg { width: 24px; height: 24px; }
+            .stops::before { left: 25px; }
+            .audience-final { padding-left: 0; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .map-path { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-syms" id="bgSyms" aria-hidden="true"></div>
+
+    <div class="shell">
+        <header>
+            <div class="container">
+                <nav class="top">
+                    <a href="index.html" class="logo">pranaway</a>
+                    <div class="nav-links">
+                        <a href="about.html" class="active">О проекте</a>
+                        <a href="cases.html">Кейсы</a>
+                        <a href="sostoyaniya.html">Состояния</a>
+                        <a href="cases.html#bot">Бот</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <div class="container">
+            <main class="page" id="page">
+                <noscript><p style="padding-top:20px;">Для просмотра страницы включи JavaScript.</p></noscript>
+            </main>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div style="font-size: 0.8rem; opacity: 0.6;">© 2025 pranaway</div>
+                    <div class="social-links">
+                        <a href="https://t.me/neuro25" class="social-link"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Контакты</a>
+                        <a href="https://t.me/o_cardbot" class="social-link"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>Telegram</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Библиотека символов: тот же файл, что у колоды состояний -->
+    <script src="symbols.js"></script>
+
+    <!-- ================================================================
+         РЕЗЕРВНАЯ КОПИЯ СИМВОЛОВ.
+         Используется, только если рядом со страницей нет symbols.js
+         (например, при локальном просмотре файла). На сайте работает
+         основная библиотека — правь символы там, здесь ничего не нужно.
+         ================================================================ -->
+    <script>
+        var ABOUT_SYMS_FALLBACK = [
+ {id:'gibkost', name:'Гибкость',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M30 56 Q30 30 50 18"/><path d="M30 44 Q34 34 44 30" opacity="0.7"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 56" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 36 Q28 14 36 32 Q44 50 60 28"/></svg>'},
+ {id:'svoboda', name:'Свобода',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 34 Q24 12 36 32"/><path d="M64 34 Q48 12 36 32"/><circle cx="36" cy="35" r="2" fill="#94652b"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="20" r="5"/><path d="M20 52 Q36 31 52 52"/><line x1="36" y1="31" x2="36" y2="39"/></svg>'},
+ {id:'tvorchestvo', name:'Творчество',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="36" y1="14" x2="36" y2="58"/><line x1="14" y1="36" x2="58" y2="36"/><line x1="21" y1="21" x2="51" y2="51"/><line x1="51" y1="21" x2="21" y2="51"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="26" r="11"/><line x1="36" y1="37" x2="36" y2="58"/><line x1="27" y1="48" x2="45" y2="48"/></svg>'},
+ {id:'celostnost', name:'Целостность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="36" r="18"/><line x1="36" y1="18" x2="36" y2="54"/><line x1="18" y1="36" x2="54" y2="36"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="36" r="20"/><circle cx="36" cy="36" r="12"/><circle cx="36" cy="36" r="4"/></svg>'},
+ {id:'igrivost', name:'Игривость',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 44 Q22 18 36 40 Q50 62 62 36"/><circle cx="22" cy="22" r="2.4" fill="#94652b"/><circle cx="62" cy="34" r="2.4" fill="#94652b"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M36 36 C42 36 42 28 36 28 C27 28 27 44 38 44 C52 44 52 22 36 22 C16 22 16 50 38 50"/></svg>'},
+ {id:'lyboznatelnost', name:'Любознательность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 54 Q22 30 44 30 Q56 30 50 42 Q46 50 38 46"/><circle cx="36" cy="58" r="2.4" fill="#94652b"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="13"/><line x1="42" y1="42" x2="56" y2="56"/><line x1="32" y1="26" x2="32" y2="34" opacity="0.6"/></svg>'},
+ {id:'autentichnost', name:'Аутентичность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M36 16 C44 24 44 30 36 30 C28 30 28 38 36 40 C46 42 46 52 36 56" opacity="0.95"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="36" r="18"/><path d="M28 30 Q36 44 44 30"/><circle cx="36" cy="36" r="2" fill="#A6843C" stroke="none"/></svg>'},
+ {id:'samobytnost', name:'Самобытность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 50 Q30 18 40 40 Q46 52 54 26"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="36" y1="16" x2="36" y2="56"/><line x1="19" y1="26" x2="53" y2="46"/><line x1="53" y1="26" x2="19" y2="46"/></svg>'},
+ {id:'celeystremlennost', name:'Целеустремлённость',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="14" y1="36" x2="50" y2="36"/><path d="M40 26 L52 36 L40 46"/><circle cx="58" cy="36" r="3"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="36" r="18"/><circle cx="36" cy="36" r="9"/><circle cx="36" cy="36" r="2" fill="#A6843C" stroke="none"/></svg>'},
+ {id:'osoznannost', name:'Осознанность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 36 Q36 22 56 36"/><path d="M16 36 Q36 50 56 36"/><circle cx="36" cy="36" r="3" fill="#94652b"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 64" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M36 12 L56 50 L16 50 Z"/><path d="M26 40 Q36 33 46 40 Q36 47 26 40 Z"/><circle cx="36" cy="40" r="2" fill="#A6843C" stroke="none"/></svg>'},
+ {id:'otkrytost', name:'Открытость',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 52 Q20 28 36 28 Q52 28 52 52"/><line x1="36" y1="28" x2="36" y2="16"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M52 24 A20 20 0 1 0 52 48"/><line x1="36" y1="14" x2="36" y2="22" opacity="0.6"/><line x1="58" y1="36" x2="50" y2="36" opacity="0.6"/></svg>'},
+ {id:'estestvennost', name:'Естественность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M36 58 C36 40 24 30 18 24 C34 26 36 36 36 36 C36 28 44 18 56 16 C50 30 44 40 36 58 Z"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M36 56 Q30 40 36 24 Q42 40 36 56 Z"/><path d="M36 56 Q24 46 22 32 Q34 40 36 56"/></svg>'},
+ {id:'smelost', name:'Смелость',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M36 58 Q22 46 30 30 Q34 38 38 32 Q44 22 36 14 Q52 24 48 44 Q46 54 36 58 Z"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 28 L50 28 L36 52 Z"/><line x1="36" y1="14" x2="36" y2="28"/></svg>'},
+ {id:'iskrennost', name:'Искренность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="36" cy="36" r="18"/><line x1="36" y1="20" x2="36" y2="52"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 40 Q36 26 50 40"/><path d="M30 32 L36 18 L42 32"/></svg>'},
+ {id:'prinytie', name:'Принятие',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 30 Q36 56 54 30"/><line x1="36" y1="16" x2="36" y2="24"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 28 Q36 50 50 28"/><circle cx="36" cy="20" r="3"/></svg>'},
+ {id:'proyavlennost', name:'Проявленность',
+  petro:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="52" x2="54" y2="52"/><line x1="36" y1="52" x2="36" y2="22"/><path d="M27 31 L36 20 L45 31"/></svg>',
+  alch:'<svg aria-hidden="true" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 30 L50 30 L36 54 Z"/><line x1="28" y1="40" x2="44" y2="40"/></svg>'}
+];
+    </script>
+
+    <script>
+/* ================================================================
+   PRANAWAY · О ПРОЕКТЕ · about.html
+   ----------------------------------------------------------------
+   ВЕСЬ ТЕКСТ СТРАНИЦЫ ЖИВЁТ В БЛОКАХ 1–4 НИЖЕ.
+   Чтобы поправить страницу — правь только их. Разметку трогать не нужно.
+
+   Внутри любой строки работают три пометки:
+     **жирный**     → смысловое ударение
+     *курсив*       → мягкий акцент
+     ==подсветка==  → фраза с золотой подсветкой
+
+   Типы блоков внутри раздела (body: [...]):
+     { p:     'обычный абзац' }
+     { p: '…', markValues: true }  → слова ценностей закрашиваются маркером
+     { accent:'ключевая мысль — крупный курсив с золотой чертой' }
+     { pull:  'врезка-цитата — белая карточка с морковной гранью' }
+     { plate: 'мысль, закрывающая раздел — мятная плашка' }
+     { values: true }              → ряд ценностей-ссылок на состояния колоды
+
+   sym: 'id' — символ из symbols.js. Доступные id смотри в этом файле:
+   uporstvo, ustoychivost, vyderzka, terpenie, reshimost, userdie, igrivost,
+   lyboznatelnost, uverennost, celeystremlennost, smelost, tvorchestvo, volya,
+   proyavlennost, blagodarnost, sochustvie, iskrennost, vnimatelnost,
+   konsistentnost, osoznannost, nevozmutimost, celostnost, autentichnost,
+   samobytnost, estestvennost, svoboda, gibkost, soprichastnost, zabota,
+   otkrytost, prinytie, umerennost, uvazhenie, staratelnost, sostradanie
+   ================================================================ */
+
+
+/* ===== БЛОК 1. ЦЕННОСТИ ========================================
+   Один список — три роли сразу: цвет маркера в тексте, чип-ссылка
+   на состояние из колоды и звезда-ориентир на схеме.
+     id     — состояние в колоде; сюда ведёт ссылка (sostoyaniya.html#id)
+     label  — как слово написано в тексте (Азарт = состояние «Игривость»)
+     color  — цвет символа и обводки чипа
+     mark   — цвет маркера, которым слово закрашено в тексте
+   ================================================================ */
+const VALUES = [
+  { id: 'svoboda',        label: 'Свобода',       color: '#7FA8BD', mark: 'rgba(165,196,212,0.78)' },
+  { id: 'tvorchestvo',    label: 'Творчество',    color: '#E67E51', mark: 'rgba(230,126,81,0.42)'  },
+  { id: 'igrivost',       label: 'Азарт',         color: '#C9962E', mark: 'rgba(201,150,46,0.42)'  },
+  { id: 'lyboznatelnost', label: 'Любопытство',   color: '#6DAF6A', mark: 'rgba(140,207,136,0.55)' },
+  { id: 'autentichnost',  label: 'Аутентичность', color: '#8E7DB8', mark: 'rgba(174,160,214,0.50)' },
+  { id: 'samobytnost',    label: 'Самобытность',  color: '#CE7C7C', mark: 'rgba(217,143,143,0.44)' }
+];
+// подпись под рядом чипов; оставь пустой — не выведется
+const VALUES_NOTE = 'Каждый ориентир — состояние из колоды: нажми, чтобы открыть';
+
+
+/* ===== БЛОК 2. ШАПКА И РАЗДЕЛЫ ================================= */
+const ABOUT = {
+  eyebrow: 'О проекте',
+  title: 'Из чего появился этот проект',
+
+  // символы-украшение под заголовком: первый крупный
+  heroSyms: ['gibkost', 'svoboda', 'tvorchestvo', 'celostnost'],
+
+  intro: [
+    'Меня зовут Роман. Мне за 40, и я до сих пор открываюсь новому, меняюсь — развиваюсь и учусь жизни',
+    'Развитие — это всегда выход из зоны комфорта; выход за пределы привычной оболочки',
+    'Развитие — это всегда изменение, которое всегда ведёт к чему-то новому. Так же как и обретение чего-то нового — опыта, знания, знакомства, смысла — всегда толчок к развитию и изменениям'
+  ],
+  introFinal: 'Поэтому я хочу рассказать как, скорее даже, ==из чего== появился этот проект и для кого он',
+
+  sections: [
+    {
+      id: 'izmeneniya',
+      sym: 'gibkost',
+      title: 'Этот проект появился из Изменений',
+      lead: 'И своего восприятия Мира, окружающей действительности; своего отношения к жизни, к процессам, явлениям, к своим целям, к людям. Изменения устоявшихся привычек в мышлении, поведении, реакциях',
+      body: [
+        { p: '**Меняться — значит быть живым.** На фундаментальном уровне человек — постоянно изменяющийся субъект: базовые структуры — клетки — постоянно обновляются. Это процесс постоянного развития, и не только на клеточном, но и на психологическом уровне' },
+        { p: 'Мы получаем новый опыт, интегрируем его и со-настраиваемся с миром: меняем реакции или способы взаимодействия, учимся иначе мыслить, меняем представления и способ ими пользоваться — мы учимся воспринимать мир без искажений и взаимодействовать с ним, людьми и самим собой по-новому' },
+        { accent: 'Изменение — это бесконечный процесс, где цель — не желаемое конечное состояние, как свойство идеального субъекта. Цель — это сам процесс. Длительный, незавершающийся, трудный, но чертовски увлекательный процесс!' },
+        { p: 'Известная формула: хочешь что-то изменить — начни с себя. Любое изменение внешнего состояния (окружения, возможностей) происходит ==изнутри наружу==: сначала меняюсь я сам — меняется внутренний мир, следом изменения происходят в мире внешнем. Поэтому меняя, зачастую даже улучшая, себя — мы меняем и улучшаем Мир' },
+        { plate: 'Стремление к изменениям — как основной принцип живого — встало и в основе этого проекта' }
+      ]
+    },
+    {
+      id: 'svoboda',
+      sym: 'svoboda',
+      title: '…из ощущения Свободы',
+      body: [
+        { p: 'Свобода — это не только бескрайний простор, незагромождённое пространство или возможность делать «что хочу и когда захочу». Не только отсутствие скованности, рамок и границ, внешних ограничений. **Свобода — это Независимость.** От суждений, оценок, реакций, привычек, страха и ролей. Это свобода быть собой' },
+        { p: 'Свобода — как чистота и лёгкость. Необременённость лишним, старым, ненужным и громоздким — тем, что тянет вниз или закрывает обзор. Это свобода различать полезное и нет, свобода принимать решения, свобода делать выбор — ==отказываясь от доступного в пользу важного==' },
+        { pull: 'Свобода — это как игра детей: движение, азарт и радость. Игра без оценок и проигравших. Побеждают все, кто играет. Такая игра бесконечна. В ней только одно правило — **играть**' },
+        { p: 'Игра без победителей и побеждённых, но игра в процесс. Жизнь — это тоже есть процесс: трудный, хаотичный, но полный чувства, свободы и радости от нахождения в нём' },
+        { accent: 'В бесконечной игре побеждают все — проигрывает только тот, кто отказывается играть. Это похоже на свободу творчества — создание ради самого акта, следуя импульсу бессознательного стремления, зову сердца, а не в погоне за оценкой похвалы' }
+      ]
+    },
+    {
+      id: 'sozdavat',
+      sym: 'tvorchestvo',
+      title: '…и желания Создавать',
+      body: [
+        { p: 'Творчество, как создание нового — новых связей, картин, путей, текстов, мечтаний, привычек, собственного мнения и взгляда на жизнь' },
+        { p: 'Это свобода создавать без ограничений и правил, установок и страха оценки. Свобода творчества — это как чувствовать жизнь, её поток' },
+        { p: 'Этот проект появился из чувства жизни; но жизнь — это не только радость и весёлый поток' },
+        { pull: 'Для меня самое острое ощущение, что я жив, приходит в моменты, когда борешься или уже на пределе. Или уже сломался, но снова делаешь попытки. Это противоречие раскрывает тот самый **контраст**, проявляющий истинный вкус жизни — не хороший, не плохой, но настоящий' },
+        { p: 'Я меняюсь — часто с трудом и через боль. Порой мне страшно и я не знаю, что делать; ощущаю себя на лодке, попавшей в шторм' },
+        { accent: 'Этот проект вырос не из избытка силы, а из глубоко осознанной потребности в ней — он родился из признания собственной уязвимости. Это — результат преодоления слабости и страха' }
+      ]
+    },
+    {
+      id: 'cennosti',
+      sym: 'celostnost',
+      title: 'Этот проект появился из ценностей',
+      body: [
+        { p: 'Свобода, Творчество, Азарт, Любопытство, Аутентичность, Самобытность — те звёздные ориентиры в приключении, где цель — Жизнь', markValues: true },
+        { values: true },
+        { accent: 'Звёзды подсвечивают направление, путь я выбираю сам' },
+        { p: 'Сегодня мой путь пролегает здесь. Где окажусь завтра — не знаю. Но точно знаю одно: следуя своим ориентирам, где бы я ни оказался — ==я живу==' }
+      ]
+    }
+  ]
+};
+
+
+/* ===== БЛОК 3. ЗВЁЗДНАЯ КАРТА (схема после раздела «Ценности») ===== */
+const MAP = {
+  // подводка к схеме — стоит над картинкой
+  intro: 'Если представить жизнь как карту возможностей, которую человек исследует на протяжении всей своей жизни, желая достичь некой высшей цели — цели жизни, то путь, пролегающий через развитие добродетелей — как истинных ценностей — будет со-направлен движению к этой цели',
+
+  // звёзды на схеме = ценности из БЛОКА 1, слева направо
+  labelMe: 'я',
+  labelStars: 'ориентиры',
+  labelGoals: 'цели',
+  labelField: 'карта возможностей',
+  labelAim: ['цель', 'жизни'],
+
+  legend: [
+    { key: 'gold',   title: 'Внутренний фокус — ориентация на ценности', text: 'Более глубокий подход: долгосрочная перспектива, холистический эффект, синергия. Путь идёт через ориентиры и приводит к цели жизни' },
+    { key: 'carrot', title: 'Внешний фокус — ориентация на цели',        text: 'Результато-ориентированный подход: краткосрочная перспектива. Движение от цели к цели внутри поля возможностей' }
+  ],
+  note: 'Ценности формируют подход к достижению целей и определяют, какие цели приемлемы, а какие — нет'
+};
+
+
+/* ===== БЛОК 4. ДЛЯ КОГО ========================================= */
+const AUDIENCE = {
+  title: 'Для кого всё это',
+  lead: '',   // необязательная строка-подводка; оставь пустой — блок не выведется
+  stops: [
+    { sym: 'lyboznatelnost',    text: 'Для тех, кто хочет попробовать что-то новое' },
+    { sym: 'celeystremlennost', text: 'Для тех, кто стремится к себе' },
+    { sym: 'osoznannost',       text: 'Для тех, кто хочет стать ближе к себе' },
+    { sym: 'celostnost',        text: 'Для тех, кто ценит свою глубину' },
+    { sym: 'otkrytost',         text: 'Для тех, кто хочет видеть жизнь такой, какая она есть' }
+  ],
+  final: 'Карточки не дадут готовых ответов — но помогут найти свои собственные',
+  cta: { text: 'Вытянуть карточку', href: 'https://t.me/o_cardbot', hint: 'цифровая версия колоды — в telegram' }
+};
+
+
+/* ================================================================
+   ДАЛЬШЕ — РАЗМЕТКА. Править не нужно.
+   ================================================================ */
+
+const SYMS = (window.PRANAWAY_SYMBOLS && window.PRANAWAY_SYMBOLS.length)
+    ? window.PRANAWAY_SYMBOLS
+    : ABOUT_SYMS_FALLBACK;   // резервная копия выше — на случай, если symbols.js не подключился
+
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+/* мини-разметка: **жирный**, ==подсветка==, *курсив* */
+function md(s) {
+    return esc(s)
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/==(.+?)==/g, '<span class="mark">$1</span>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+}
+
+/* закрасить слова ценностей маркером их цвета */
+function markValues(html) {
+    VALUES.forEach(v => {
+        html = html.replace(v.label,
+            '<span class="mark-v" style="--mc:' + v.mark + '">' + v.label + '</span>');
+    });
+    return html;
+}
+
+const symById = id => SYMS.find(s => s.id === id) || null;
+const symMarkup = (id, kind) => { const s = symById(id); return s ? (s[kind || 'petro'] || '') : ''; };
+const symName = id => { const s = symById(id); return s ? s.name : id; };
+
+/* символ, вложенный в другую схему: внешний <svg> заменяется на <g>,
+   оформление (stroke, толщина линии) переносится на группу */
+function symGroup(id, x, y, size, color, kind) {
+    const m = symMarkup(id, kind);
+    if (!m) return '';
+    const open = m.match(/^<svg([^>]*)>/);
+    const attrs = (open ? open[1] : '').replace(/\s(viewBox|xmlns|aria-hidden|width|height|x|y)="[^"]*"/g, '');
+    const inner = m.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+    return '<g' + attrs + ' style="color:' + color + '"' +
+           ' transform="translate(' + (x - size / 2) + ',' + (y - size / 2) + ') scale(' + (size / 72) + ')">' +
+           inner + '</g>';
+}
+
+/* постоянный «случай»: раскладка фона и звёзд не скачет при перезагрузке */
+function seeded(seed) {
+    let h = seed >>> 0;
+    return () => { h ^= h << 13; h ^= h >>> 17; h ^= h << 5; return (h >>> 0) / 4294967296; };
+}
+
+/* ---------- шапка страницы ---------- */
+function heroHtml() {
+    const syms = (ABOUT.heroSyms || []).map((id, i) =>
+        '<span>' + symMarkup(id, i % 2 ? 'alch' : 'petro') + '</span>').join('');
+
+    return '<div class="hero col">' +
+        '<div class="eyebrow">' + esc(ABOUT.eyebrow) + '</div>' +
+        '<h1>' + esc(ABOUT.title) + '</h1>' +
+        '<div class="hero-syms" aria-hidden="true">' + syms + '</div>' +
+        '<div class="intro">' + ABOUT.intro.map(p => '<p>' + md(p) + '</p>').join('') + '</div>' +
+        '<p class="intro-final">' + md(ABOUT.introFinal) + '</p>' +
+        '</div>';
+}
+
+/* ---------- блоки раздела ---------- */
+function blockHtml(b) {
+    if (b.p)      return '<p>' + (b.markValues ? markValues(md(b.p)) : md(b.p)) + '</p>';
+    if (b.accent) return '<p class="accent">' + md(b.accent) + '</p>';
+    if (b.plate)  return '<div class="plate">' + md(b.plate) + '</div>';
+    if (b.pull)   return '<blockquote class="pull"><p>' + md(b.pull) + '</p></blockquote>';
+    if (b.values) {
+        const chips = VALUES.map(v => {
+            const alias = (v.label !== symName(v.id)) ? '<span class="v-alias">' + esc(symName(v.id)) + '</span>' : '';
+            return '<a class="value-chip" href="sostoyaniya.html#' + v.id + '"' +
+                   ' style="--vc:' + v.color + ';--vcs:' + v.mark + '">' +
+                   '<span class="v-sym">' + symMarkup(v.id) + '</span>' + esc(v.label) + alias + '</a>';
+        }).join('');
+        return '<div class="values">' + chips + '</div>' +
+               (VALUES_NOTE ? '<p class="values-note">' + md(VALUES_NOTE) + '</p>' : '');
+    }
+    return '';
+}
+
+function sectionHtml(s) {
+    return '<section class="sec col" id="' + s.id + '">' +
+        '<div class="sec-head">' +
+            '<span class="sec-sym" aria-hidden="true">' + symMarkup(s.sym) + '</span>' +
+            '<h2>' + esc(s.title) + '</h2>' +
+        '</div>' +
+        '<div class="sec-rule" aria-hidden="true"></div>' +
+        (s.lead ? '<p class="sec-lead">' + md(s.lead) + '</p>' : '') +
+        s.body.map(blockHtml).join('') +
+        '</section>';
+}
+
+/* ---------- звёздная карта ---------- */
+function mapHtml() {
+    /* геометрия: поле возможностей — эллипсы с общей левой точкой («я»),
+       ориентиры — дугой по небу, цель жизни — светило справа */
+    const STARS = [[200,150],[325,112],[450,96],[575,100],[700,118],[818,152]];
+    const GOALS = [[220,312],[292,372],[378,294],[448,388],[520,330],[596,384],[640,278],[716,344],[774,300]];
+    const GOLD = '#E3B45C', FIRE = '#EE8A5E', MILK = '#FDFBF7';
+
+    const VALUES_PATH = 'M 80 340 C 87 325, 100 277, 120 252 C 140 227, 166 205, 200 188 C 234 171, 283 159, 325 150 ' +
+        'C 367 141, 408 136, 450 134 C 492 132, 533 134, 575 138 C 617 142, 660 147, 700 156 ' +
+        'C 740 165, 794 176, 818 190 C 842 204, 840 224, 845 238 C 850 252, 848 270, 848 276';
+    const CONSTEL = 'M 200 150 C 217 145, 292 119, 325 112 C 358 105, 417 98, 450 96 C 483 94, 542 97, 575 100 ' +
+        'C 608 103, 668 111, 700 118 C 732 125, 802 147, 818 152';
+    const GOALS_PATH = 'M 80 340 L 218 315 L 290 369 L 362 302';
+
+    /* звёздная пыль */
+    const rnd = seeded(20260916);
+    let dust = '';
+    for (let i = 0; i < 110; i++) {
+        const x = 24 + rnd() * 952, y = 22 + rnd() * 300;
+        const r = (0.7 + rnd() * 1.5).toFixed(1), o = (0.12 + rnd() * 0.5).toFixed(2);
+        dust += '<circle cx="' + x.toFixed(0) + '" cy="' + y.toFixed(0) + '" r="' + r + '" fill="' + MILK + '" opacity="' + o + '"/>';
+    }
+    for (let i = 0; i < 34; i++) {
+        const x = 24 + rnd() * 952, y = 330 + rnd() * 160;
+        const r = (0.6 + rnd() * 1.1).toFixed(1), o = (0.06 + rnd() * 0.16).toFixed(2);
+        dust += '<circle cx="' + x.toFixed(0) + '" cy="' + y.toFixed(0) + '" r="' + r + '" fill="' + MILK + '" opacity="' + o + '"/>';
+    }
+
+    const stars = VALUES.slice(0, STARS.length).map((v, i) =>
+        '<circle cx="' + STARS[i][0] + '" cy="' + STARS[i][1] + '" r="30" fill="' + GOLD + '" opacity="0.10"/>' +
+        '<circle cx="' + STARS[i][0] + '" cy="' + STARS[i][1] + '" r="18" fill="' + GOLD + '" opacity="0.07"/>' +
+        symGroup(v.id, STARS[i][0], STARS[i][1], 40, GOLD)).join('');
+
+    const goals = GOALS.map(g =>
+        '<circle cx="' + g[0] + '" cy="' + g[1] + '" r="14" fill="' + FIRE + '" opacity="0.13"/>' +
+        '<g stroke="' + FIRE + '" stroke-width="5" stroke-linecap="round">' +
+        '<line x1="' + (g[0]-8) + '" y1="' + g[1] + '" x2="' + (g[0]+8) + '" y2="' + g[1] + '"/>' +
+        '<line x1="' + g[0] + '" y1="' + (g[1]-8) + '" x2="' + g[0] + '" y2="' + (g[1]+8) + '"/></g>').join('');
+
+    /* уголки рамки — как на штурманской карте */
+    const tick = (x, y, dx, dy) =>
+        '<path d="M' + (x + dx * 18) + ' ' + y + ' H' + x + ' V' + (y + dy * 18) + '" fill="none" stroke="' + MILK + '" stroke-opacity="0.22" stroke-width="1.2"/>';
+
+    const svg =
+    '<svg viewBox="0 0 1000 520" role="img" aria-label="Звёздная карта: путь через ценности со-направлен движению к цели жизни">' +
+      '<defs>' +
+        '<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">' +
+          '<stop offset="0%" stop-color="#242832"/><stop offset="58%" stop-color="#2C2C30"/><stop offset="100%" stop-color="#34302A"/>' +
+        '</linearGradient>' +
+        '<radialGradient id="aura"><stop offset="0%" stop-color="#A5C4D4" stop-opacity="0.40"/>' +
+          '<stop offset="55%" stop-color="#A5C4D4" stop-opacity="0.10"/><stop offset="100%" stop-color="#A5C4D4" stop-opacity="0"/></radialGradient>' +
+        '<radialGradient id="aim" cx="38%" cy="34%">' +
+          '<stop offset="0%" stop-color="#D7E7EF" stop-opacity="0.92"/><stop offset="62%" stop-color="#A5C4D4" stop-opacity="0.55"/>' +
+          '<stop offset="100%" stop-color="#7FA8BD" stop-opacity="0.35"/></radialGradient>' +
+        '<linearGradient id="route" gradientUnits="userSpaceOnUse" x1="80" y1="340" x2="880" y2="300">' +
+          '<stop offset="0%" stop-color="#A5C4D4"/><stop offset="13%" stop-color="' + GOLD + '"/>' +
+          '<stop offset="82%" stop-color="' + GOLD + '"/><stop offset="100%" stop-color="#CDE0EA"/></linearGradient>' +
+        '<marker id="apGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">' +
+          '<path d="M 0 0 L 10 5 L 0 10 z" fill="#CDE0EA"/></marker>' +
+        '<marker id="apFire" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">' +
+          '<path d="M 0 0 L 10 5 L 0 10 z" fill="' + FIRE + '"/></marker>' +
+      '</defs>' +
+
+      '<rect x="0" y="0" width="1000" height="520" rx="36" fill="url(#sky)"/>' +
+      tick(22, 22, 1, 1) + tick(978, 22, -1, 1) + tick(22, 498, 1, -1) + tick(978, 498, -1, -1) +
+      '<circle cx="890" cy="340" r="210" fill="url(#aura)"/>' +
+      dust +
+
+      /* поле возможностей */
+      '<g fill="none" stroke="' + MILK + '">' +
+        '<ellipse cx="470" cy="340" rx="390" ry="140" stroke-opacity="0.17" stroke-dasharray="2 7"/>' +
+        '<ellipse cx="335" cy="340" rx="255" ry="105" stroke-opacity="0.13"/>' +
+        '<ellipse cx="210" cy="340" rx="130" ry="60" stroke-opacity="0.10"/>' +
+      '</g>' +
+
+      /* цель жизни */
+      '<circle cx="890" cy="340" r="72" fill="url(#aim)"/>' +
+      '<circle cx="890" cy="340" r="72" fill="none" stroke="#CDE0EA" stroke-opacity="0.55" stroke-width="1.2"/>' +
+
+      goals +
+
+      /* созвездие ориентиров */
+      '<path d="' + CONSTEL + '" fill="none" stroke="' + GOLD + '" stroke-opacity="0.32" stroke-width="1.6" stroke-dasharray="1 8" stroke-linecap="round"/>' +
+
+      /* два маршрута */
+      '<path d="' + GOALS_PATH + '" fill="none" stroke="' + FIRE + '" stroke-width="2" stroke-opacity="0.9" ' +
+        'stroke-dasharray="6 7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#apFire)"/>' +
+      '<path d="' + VALUES_PATH + '" class="map-path map-path-values" fill="none" stroke="url(#route)" stroke-width="2.4" ' +
+        'stroke-linecap="round" marker-end="url(#apGold)"/>' +
+
+      stars +
+
+      /* точка «я» */
+      '<circle cx="80" cy="340" r="34" fill="none" stroke="' + MILK + '" stroke-opacity="0.10"/>' +
+      '<circle cx="80" cy="340" r="22" fill="none" stroke="' + MILK + '" stroke-opacity="0.22"/>' +
+      '<circle cx="80" cy="340" r="9" fill="#CDE0EA"/>' +
+
+      /* подписи */
+      '<text class="map-svg-text" x="80" y="398" text-anchor="middle" font-size="19" font-style="italic" fill="' + MILK + '" fill-opacity="0.8">' + esc(MAP.labelMe) + '</text>' +
+      '<text class="map-svg-text" x="450" y="46" text-anchor="middle" font-size="17" fill="' + GOLD + '" letter-spacing="1.5">' + esc(MAP.labelStars) + '</text>' +
+      '<text class="map-svg-text" x="520" y="442" text-anchor="middle" font-size="17" fill="' + FIRE + '" fill-opacity="0.85">' + esc(MAP.labelGoals) + '</text>' +
+      '<text class="map-svg-text" x="300" y="466" text-anchor="middle" font-size="16" fill="' + MILK + '" fill-opacity="0.45">' + esc(MAP.labelField) + '</text>' +
+      '<text class="map-svg-text" x="890" y="336" text-anchor="middle" font-size="20" fill="#20242B">' + esc(MAP.labelAim[0]) + '</text>' +
+      '<text class="map-svg-text" x="890" y="362" text-anchor="middle" font-size="20" fill="#20242B">' + esc(MAP.labelAim[1]) + '</text>' +
+    '</svg>';
+
+    const legend = MAP.legend.map(l => {
+        const stroke = l.key === 'gold' ? 'var(--gold)' : 'var(--carrot)';
+        const dash = l.key === 'gold' ? '' : ' stroke-dasharray="5 5"';
+        return '<div class="legend-item">' +
+            '<span class="legend-key" aria-hidden="true"><svg viewBox="0 0 26 10">' +
+            '<path d="M1 5 H25" fill="none" stroke="' + stroke + '" stroke-width="2" stroke-linecap="round"' + dash + '/>' +
+            '</svg></span>' +
+            '<div><h4>' + esc(l.title) + '</h4><p>' + md(l.text) + '</p></div></div>';
+    }).join('');
+
+    return '<figure class="map">' +
+        '<p class="map-intro">' + md(MAP.intro) + '</p>' +
+        '<div class="map-frame">' + svg + '</div>' +
+        '<div class="map-hint">схема шире экрана — потяни её вбок</div>' +
+        '<figcaption><div class="map-legend">' + legend + '</div>' +
+        '<div class="map-note">' + md(MAP.note) + '</div></figcaption>' +
+        '</figure>';
+}
+
+/* ---------- «для кого» ---------- */
+function audienceHtml() {
+    const stops = AUDIENCE.stops.map(s =>
+        '<div class="stop">' +
+            '<span class="stop-sym" aria-hidden="true">' + symMarkup(s.sym) + '</span>' +
+            '<span class="stop-text">' + md(s.text) + '</span>' +
+        '</div>').join('');
+
+    return '<section class="audience" id="dlya-kogo">' +
+        '<h2>' + esc(AUDIENCE.title) + '</h2>' +
+        (AUDIENCE.lead ? '<p class="audience-lead">' + md(AUDIENCE.lead) + '</p>' : '') +
+        '<div class="stops">' + stops + '</div>' +
+        '<p class="audience-final">' + md(AUDIENCE.final) + '</p>' +
+        '<div class="final">' +
+            '<a href="' + AUDIENCE.cta.href + '" class="cta-btn">' + esc(AUDIENCE.cta.text) + '</a>' +
+            '<div class="hint">' + esc(AUDIENCE.cta.hint) + '</div>' +
+        '</div>' +
+        '</section>';
+}
+
+/* ---------- сборка ---------- */
+document.getElementById('page').innerHTML =
+    heroHtml() +
+    ABOUT.sections.map(sectionHtml).join('') +
+    mapHtml() +
+    audienceHtml();
+
+/* ---------- фон: разновеликие символы ---------- */
+function paintBackground() {
+    const layer = document.getElementById('bgSyms');
+    if (!layer || !SYMS.length) return;
+    const W = document.documentElement.clientWidth;
+    const H = Math.max(document.body.scrollHeight, window.innerHeight);
+    layer.style.height = H + 'px';
+
+    const cell = W < 760 ? 140 : 172;
+    const cols = Math.ceil(W / cell) + 1, rows = Math.ceil(H / (cell + 60));
+    const rnd = seeded(777001);
+    let html = '';
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (rnd() < 0.16) continue;                       // пропуски — чтобы сетка не читалась
+            const size = Math.round(22 + rnd() * (W < 760 ? 40 : 70));
+            const x = Math.round(c * cell + rnd() * (cell - size * 0.5));
+            const y = Math.round(r * (cell + 34) + rnd() * (cell + 18));
+            const s = SYMS[Math.floor(rnd() * SYMS.length)];
+            const art = rnd() < 0.5 ? s.petro : s.alch;
+            const rot = Math.round((rnd() - 0.5) * 48);
+            const op = (0.04 + rnd() * 0.055).toFixed(3);
+            const col = rnd() < 0.72 ? 'var(--gold)' : 'var(--graphite)';
+            html += '<span style="left:' + x + 'px;top:' + y + 'px;width:' + size + 'px;height:' + size +
+                    'px;opacity:' + op + ';color:' + col + ';transform:rotate(' + rot + 'deg)">' + art + '</span>';
+        }
+    }
+    layer.innerHTML = html;
+}
+
+paintBackground();
+window.addEventListener('load', paintBackground);
+let bgTimer;
+window.addEventListener('resize', () => { clearTimeout(bgTimer); bgTimer = setTimeout(paintBackground, 250); });
+
+/* ---------- один акцент движения: маршрут прочерчивается при появлении ---------- */
+(function () {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const path = document.querySelector('.map-path-values');
+    if (reduce || !path || !('IntersectionObserver' in window) || !path.getTotalLength) return;
+
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = len + ' ' + len;
+    path.style.strokeDashoffset = len;
+
+    function reveal() {
+        path.style.transition = 'stroke-dashoffset 1.7s ease-out';
+        path.style.strokeDashoffset = 0;
+        io.disconnect();
+    }
+
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) reveal(); });
+    }, { threshold: 0.25 });
+    io.observe(path);
+    setTimeout(reveal, 2600);   // страховка: маршрут не должен остаться невидимым
+})();
+    </script>
+</body>
+</html>
