@@ -122,6 +122,15 @@
         .cta-btn::after { content: '→'; display: inline-block; width: 0; opacity: 0; transform: translateX(-6px); transition: 0.3s; overflow: hidden; }
         .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(230, 126, 81, 0.3); }
         .cta-btn:hover::after { width: 1em; opacity: 1; transform: translateX(0); margin-left: 10px; }
+        .cta-btn.cta-ghost { background: transparent; color: var(--carrot); border: 1px solid var(--carrot); box-shadow: none; }
+        .cta-btn.cta-ghost:hover { box-shadow: 0 10px 22px rgba(230, 126, 81, 0.15); }
+
+        /* ФИНАЛ СТРАНИЦЫ */
+        .final-cta { text-align: center; margin: 8px 0 20px; }
+        .final-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .final-try { margin-top: 18px; font-size: 0.9rem; color: var(--text-soft); }
+        .final-try a { color: var(--carrot); text-decoration: none; border-bottom: 1px solid rgba(230, 126, 81, 0.35); transition: 0.3s; }
+        .final-try a:hover { border-bottom-color: var(--carrot); }
 
         /* INFOGRAPHIC & CARDS */
         .func-main { background: var(--blue); color: white; padding: 54px 50px 50px; border-radius: 40px; text-align: center; margin-bottom: 20px; position: relative; overflow: hidden; }
@@ -154,6 +163,9 @@
             margin-bottom: 20px; font-family: 'Inter'; font-weight: 700; text-transform: uppercase;
         }
         .thesis-box p { font-size: 0.9rem; color: var(--text-soft); line-height: 1.4; }
+        .thesis-lead { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 24px; }
+        .thesis-lead .fan { width: 60px; height: 45px; color: var(--gold); flex-shrink: 0; }
+        .thesis-lead span { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--graphite); }
 
         footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 60px; }
         .footer-content { display: flex; justify-content: space-between; align-items: center; }
@@ -218,7 +230,7 @@
         <!-- BENEFITS -->
         <section>
             <div class="benefits-intro">
-                <h3>Карточки — это инструмент для саморазвития. С ними ты сможешь:</h3>
+                <h3>С карточками ты сможешь:</h3>
             </div>
             <div class="benefits-nodes">
                 <div class="node-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><p>развивать саморегуляцию</p></div>
@@ -254,15 +266,19 @@
         </section>
 
 
-        <!-- КНОПКА ПРАКТИКА -->
-        <div style="text-align: center; margin-bottom: 60px;">
-            <a href="cases.html" class="cta-btn">ПРАКТИКА</a>
-        </div>
-
         <!-- ESSENCE & THESIS -->
         <section>
             <div class="essence-capsule">
                 <p>Осознанность — это не когда ты стал идеальным. Осознанность - это когда ты замечаешь, какой ты сейчас</p>
+            </div>
+            <div class="thesis-lead">
+                <svg class="fan" viewBox="0 0 64 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="26" y="4" width="12" height="32" rx="6" transform="rotate(-30 32 52)" fill="var(--milk)"/>
+                    <rect x="26" y="4" width="12" height="32" rx="6" transform="rotate(30 32 52)" fill="var(--milk)"/>
+                    <rect x="26" y="4" width="12" height="32" rx="6" fill="var(--milk)"/>
+                    <circle cx="32" cy="12" r="1.8" fill="currentColor" stroke="none"/>
+                </svg>
+                <span>Колода — это</span>
             </div>
             <div class="thesis-organic">
                 <div class="thesis-box">
@@ -279,6 +295,15 @@
                 </div>
             </div>
         </section>
+
+        <!-- ФИНАЛ: ПРАКТИКА + ПОКУПКА -->
+        <div class="final-cta">
+            <div class="final-row">
+                <a href="cases.html" class="cta-btn cta-ghost">ПРАКТИКА</a>
+                <a href="https://t.me/neuro25" class="cta-btn">КУПИТЬ КОЛОДУ</a>
+            </div>
+            <p class="final-try">Сначала попробовать — <a href="https://t.me/o_cardbot">одна карта в день в telegram</a></p>
+        </div>
     </div>
 
     <footer>
