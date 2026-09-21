@@ -11,7 +11,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кейсы — Pranaway</title>
+    <title>Практика — Pranaway</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -22,6 +22,7 @@
             --graphite: #2D2D2D;
             --text-soft: #555555;
             --border: rgba(230, 126, 81, 0.15);
+            --gold: #C9962E;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
@@ -48,6 +49,17 @@
         .int-result { border: 1px solid var(--carrot); border-radius: 40px; padding: 30px 40px; text-align: center; background: white; margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px; }
         .result-content { display: flex; align-items: center; justify-content: center; gap: 20px; max-width: 850px; }
         .result-content svg { width: 32px !important; height: 32px !important; stroke: var(--graphite); fill: none; stroke-width: 1.5; }
+
+        /* ИНСТРУМЕНТ РАЗВИТИЯ (перенесено с главной) */
+        .func-main { background: var(--blue); color: white; padding: 54px 50px 50px; border-radius: 40px; text-align: center; margin-bottom: 20px; position: relative; overflow: hidden; }
+        .func-main::before { content: ''; position: absolute; inset: 0; background: radial-gradient(420px 260px at 85% 0%, rgba(255,255,255,0.22), transparent 65%); pointer-events: none; }
+        .func-main > * { position: relative; }
+        .func-main .gold-line { width: 44px; height: 1px; background: var(--gold); margin: 0 auto 22px; opacity: 0.9; }
+        .func-split { display: flex; justify-content: space-between; gap: 20px; margin-bottom: 40px; counter-reset: func; }
+        .func-side { flex: 1; background: white; padding: 35px; border-radius: 35px; border: 1px solid var(--border); transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+        .func-side:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(45,45,45,0.06); border-color: rgba(230,126,81,0.35); }
+        .func-side::before { counter-increment: func; content: '0' counter(func); display: block; font-size: 0.72rem; letter-spacing: 0.22em; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+        .func-side h4 { color: var(--carrot); margin-bottom: 10px; font-size: 1.2rem; }
 
         /* SCENARIOS */
         .scenarios-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -93,6 +105,7 @@
 
         @media (max-width: 768px) {
             .int-row, .scenarios-visual { flex-direction: column; grid-template-columns: 1fr; }
+            .func-split { flex-direction: column; }
             .intention-unified { padding: 25px; }
             .footer-content { flex-direction: column; gap: 20px; text-align: center; }
         }
@@ -105,7 +118,7 @@
                 <a href="index.html" class="logo">pranaway</a>
                 <div class="nav-links">
                     <a href="about.html">О проекте</a>
-                    <a href="cases.html">Кейсы</a>
+                    <a href="cases.html">Практика</a>
                     <a href="sostoyaniya.html">Состояния</a>
                     <a href="cases.html#bot">Бот</a>
                 </div>
@@ -124,6 +137,20 @@
                     <p style="margin-top: 15px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Марсель Пруст</p>
                 </div>
                 <p>Работа с карточкой — это диалог с самим собой. В общении с другими мы часто защищаем своё Эго. Перед карточкой-символом защищаться не от кого. Это пространство предельной честности: ты не ищешь подсказки извне, а работаешь с тем, что уже созрело внутри. <br><br> Карточка — это временная опора, "палка" для ходьбы, помогающая выпрямить спину или центрироваться, когда внешний шум и тревожные мысли гнут и сбивают с пути. Она не заменяет твою волю, она возвращает её тебе. Один точный смысл может стать хайлайтом на несколько недель, превращая инсайты в крепкий внутренний хребет</p>
+            </div>
+        </section>
+
+        <!-- INFOGRAPHIC -->
+        <section>
+            <div class="func-main">
+                <div class="gold-line"></div>
+                <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Инструмент развития Личности</h3>
+                <p style="max-width: 800px; margin: 0 auto; opacity: 0.9;">Вместо фиксации на внешней цели, ты смещаешь фокус на внутренее состояние. Это помогает устранить противоречия между поступками и ценностями</p>
+            </div>
+            <div class="func-split">
+                <div class="func-side"><h4>Зеркало для слепых зон</h4><p>Карточка не дает прямого ответа, а подсвечивает одно свойство для самоисследования</p></div>
+                <div class="func-side"><h4>Фильтр реакций</h4><p>Между событием и реакцией существует свобода воли</p></div>
+                <div class="func-side"><h4>Катализатор инсайта</h4><p>Инсайт, рожденный изнутри, ведет к настоящим изменениям</p></div>
             </div>
         </section>
 
