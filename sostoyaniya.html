@@ -11,9 +11,10 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     <title>Состояния — Pranaway</title>
-    <meta name="description" content="Колода из 33 карточек состояний для медитации и саморефлексии.">
-<meta property="og:title" content="Колода состояний — Pranaway">
+    <meta name="description" content="Набор из 33 карточек состояний для медитации и саморефлексии.">
+<meta property="og:title" content="Набор состояний — Pranaway">
 <meta property="og:description" content="Карточка не заменяет волю — она возвращает её тебе через осознанность. 33 состояния, у каждого — символ, фраза и вопрос. Вытяни карточку в Telegram.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -183,6 +184,9 @@
 
         .state-actions { text-align: center; margin-top: 54px; }
         .state-actions .hint { font-size: 0.8rem; color: var(--text-soft); margin-top: 14px; }
+        .state-actions .hint a, .deck-try { color: var(--carrot); text-decoration: none; border-bottom: 1px solid rgba(230,126,81,0.35); transition: 0.3s; }
+        .state-actions .hint a:hover, .deck-try:hover { border-bottom-color: var(--carrot); }
+        .deck-try { display: inline-block; margin: 4px 0 6px 14px; font-size: 0.78rem; }
 
         .state-footer-nav {
             display: flex; justify-content: space-between; gap: 20px;
@@ -232,6 +236,11 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation: none !important; transition: none !important; }
         }
+            /* статический список для поисковиков (build-pages.js); у посетителей с JS скрыт */
+        .js .static-index { display: none; }
+        .static-index ul { list-style: none; padding: 0; margin-top: 20px; columns: 2; }
+        .static-index li { margin-bottom: 8px; }
+        .static-index a { color: var(--graphite); }
     </style>
 </head>
 <body>
@@ -241,7 +250,7 @@
                 <a href="index.html" class="logo">pranaway</a>
                 <div class="nav-links">
                     <a href="about.html">О проекте</a>
-                    <a href="cases.html">Кейсы</a>
+                    <a href="cases.html">Практика</a>
                     <a href="sostoyaniya.html" class="active">Состояния</a>
                     <a href="cases.html#bot">Бот</a>
                 </div>
@@ -251,14 +260,14 @@
 
     <!-- Мобильная панель: текущее состояние + вход в колоду -->
     <div class="mobile-bar" id="mobileBar">
-        <span class="current" id="mobileCurrent">Колода состояний</span>
-        <button type="button" onclick="toggleOverlay(true)">Колода · 33</button>
+        <span class="current" id="mobileCurrent">Набор состояний</span>
+        <button type="button" onclick="toggleOverlay(true)">Набор · 33</button>
     </div>
 
     <!-- Полноэкранная колода для мобильных -->
     <div class="deck-overlay" id="deckOverlay" aria-hidden="true">
         <div class="overlay-head">
-            <span class="overlay-title">Колода состояний</span>
+            <span class="overlay-title">Набор состояний</span>
             <button class="overlay-close" type="button" onclick="toggleOverlay(false)" aria-label="Закрыть">✕</button>
         </div>
         <ul class="deck-list" id="overlayList"></ul>
@@ -268,20 +277,60 @@
         <div class="layout">
 
             <!-- БОКОВОЕ МЕНЮ -->
-            <aside class="deck-nav" id="deckNav" aria-label="Колода состояний">
+            <aside class="deck-nav" id="deckNav" aria-label="Набор состояний">
                 <div class="deck-head">
-                    <a href="#" class="deck-home" id="deckHome">Колода состояний</a>
+                    <a href="#" class="deck-home" id="deckHome">Набор состояний</a>
                     <button class="deck-chevron" id="deckChevron" type="button" aria-expanded="false" aria-controls="deckList" aria-label="Раскрыть список состояний">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                 </div>
                 <ul class="deck-list" id="deckList"></ul>
-                <a href="https://t.me/o_cardbot" class="cta-btn">Вытянуть карточку</a>
+                <a href="https://t.me/neuro25" class="cta-btn">Купить набор</a>
+                <a href="https://t.me/o_cardbot" class="deck-try">одна карта в день в telegram</a>
             </aside>
 
             <!-- КОНТЕНТ -->
             <main id="content">
-                <noscript><p style="padding-top:20px;">Для просмотра колоды состояний включи JavaScript.</p></noscript>
+                <!-- STATIC-INDEX:START -->
+                <div class="static-index">
+                    <h1>Набор состояний</h1>
+                    <ul>
+                        <li><a href="s/autentichnost.html">Аутентичность</a></li>
+                        <li><a href="s/blagodarnost.html">Благодарность</a></li>
+                        <li><a href="s/vnimatelnost.html">Внимательность</a></li>
+                        <li><a href="s/vyderzka.html">Выдержка</a></li>
+                        <li><a href="s/estestvennost.html">Естественность</a></li>
+                        <li><a href="s/zabota.html">Забота</a></li>
+                        <li><a href="s/igrivost.html">Игривость</a></li>
+                        <li><a href="s/iskrennost.html">Искренность</a></li>
+                        <li><a href="s/konsistentnost.html">Консистентность</a></li>
+                        <li><a href="s/lyboznatelnost.html">Любознательность</a></li>
+                        <li><a href="s/nevozmutimost.html">Невозмутимость</a></li>
+                        <li><a href="s/osoznannost.html">Осознанность</a></li>
+                        <li><a href="s/otkrytost.html">Открытость</a></li>
+                        <li><a href="s/prinytie.html">Принятие</a></li>
+                        <li><a href="s/proyavlennost.html">Проявленность</a></li>
+                        <li><a href="s/reshimost.html">Решительность</a></li>
+                        <li><a href="s/samobytnost.html">Самобытность</a></li>
+                        <li><a href="s/svoboda.html">Свобода</a></li>
+                        <li><a href="s/smelost.html">Смелость</a></li>
+                        <li><a href="s/soprichastnost.html">Сопричастность</a></li>
+                        <li><a href="s/sostradanie.html">Сострадание</a></li>
+                        <li><a href="s/sochustvie.html">Сочувствие</a></li>
+                        <li><a href="s/staratelnost.html">Старательность</a></li>
+                        <li><a href="s/tvorchestvo.html">Творчество</a></li>
+                        <li><a href="s/terpenie.html">Терпение</a></li>
+                        <li><a href="s/uvazhenie.html">Уважение</a></li>
+                        <li><a href="s/uverennost.html">Уверенность</a></li>
+                        <li><a href="s/umerennost.html">Умеренность</a></li>
+                        <li><a href="s/uporstvo.html">Упорство</a></li>
+                        <li><a href="s/userdie.html">Усердие</a></li>
+                        <li><a href="s/ustoychivost.html">Устойчивость</a></li>
+                        <li><a href="s/celeystremlennost.html">Целеустремленность</a></li>
+                        <li><a href="s/celostnost.html">Целостность</a></li>
+                    </ul>
+                </div>
+                <!-- STATIC-INDEX:END -->
             </main>
 
         </div>
@@ -395,7 +444,7 @@
             }).join('');
             deckList.innerHTML = items;
             overlayList.innerHTML =
-                '<li><a href="#" data-slug="" style="font-family:\'Playfair Display\',serif;font-size:1.05rem;">Колода состояний</a></li>' + items;
+                '<li><a href="#" data-slug="" style="font-family:\'Playfair Display\',serif;font-size:1.05rem;">Набор состояний</a></li>' + items;
         }
 
         function markActive(slug) {
@@ -446,13 +495,13 @@
 
             content.innerHTML =
                 '<article class="state-article">' +
-                '<div class="eyebrow">Колода состояний · ' + num + ' / ' + STATES.length + '</div>' +
+                '<div class="eyebrow">Набор состояний · ' + num + ' / ' + STATES.length + '</div>' +
                 '<h1>' + esc(st.title) + '</h1>' +
                 stateSymbolsRow(st) +
                 body +
                 '<div class="state-actions">' +
-                '<a href="https://t.me/o_cardbot" class="cta-btn">Вытянуть карточку</a>' +
-                '<div class="hint">цифровая версия колоды — в telegram</div>' +
+                '<a href="https://t.me/neuro25" class="cta-btn">Купить набор</a>' +
+                '<div class="hint">Сначала попробовать — <a href="https://t.me/o_cardbot">одна карта в день в telegram</a></div>' +
                 '</div>' +
                 '<nav class="state-footer-nav">' +
                 '<a href="#' + prev.slug + '"><span class="dir">← Предыдущее</span>' + esc(prev.title) + '</a>' +
@@ -472,15 +521,16 @@
             content.innerHTML =
                 '<div class="deck-index">' +
                 '<div class="eyebrow">Карманные талисманы</div>' +
-                '<h1>Колода состояний</h1>' +
+                '<h1>Набор состояний</h1>' +
                 '<p class="deck-intro">Каждая карта — это состояние, в которое можно проникнуть и носить с собой</p>' +
-                '<p class="deck-intro">Выбери состояние из колоды — или доверь выбор случаю и вытяни карточку в боте</p>' +
+                '<p class="deck-intro">Выбери состояние из набора — или доверь выбор случаю и вытяни карточку в боте</p>' +
                 deckEssay() +
-                '<div class="state-actions"><a href="https://t.me/o_cardbot" class="cta-btn">Вытянуть карточку</a></div>' +
+                '<div class="state-actions"><a href="https://t.me/neuro25" class="cta-btn">Купить набор</a>' +
+                '<div class="hint">Сначала попробовать — <a href="https://t.me/o_cardbot">одна карта в день в telegram</a></div></div>' +
                 '</div>';
 
             document.title = 'Состояния — Pranaway';
-            mobileCurrent.textContent = 'Колода состояний';
+            mobileCurrent.textContent = 'Набор состояний';
             markActive(null);
             trackHit(document.title);
         }

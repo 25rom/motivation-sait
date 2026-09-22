@@ -19,16 +19,23 @@
   'use strict';
 
   var SLUG = /^[A-Za-z0-9_-]{1,64}$/;
-  var BRAND = 'Колода состояний Pranaway';
+  var BRAND = 'Набор состояний Pranaway';
+
+  // на статической странице s/<slug>.html слаг берётся из адреса
+  function pathSlug() {
+    var m = location.pathname.match(/\/s\/([A-Za-z0-9_-]{1,64})\.html$/);
+    return m ? m[1].toLowerCase() : '';
+  }
 
   function shareUrl(slug) {
+    if (pathSlug()) return location.href.split('#')[0].split('?')[0];
     return new URL('s/' + slug + '.html', location.href).href; // .../motivation-sait/s/<slug>.html
   }
 
   function currentSlug() {
     var q = new URLSearchParams(location.search).get('s');
     var h = decodeURIComponent(location.hash.replace(/^#/, ''));
-    var slug = (q || h || '').trim().toLowerCase();
+    var slug = (q || h || pathSlug() || '').trim().toLowerCase();
     return SLUG.test(slug) ? slug : '';
   }
 
