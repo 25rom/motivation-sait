@@ -123,6 +123,9 @@
             font-size: 0.97rem; line-height: 1.7; color: var(--text-soft);
             margin: 2.2em 0 0;
         }
+        /* та же плашка, но в цвете ценности (tone: 'id' в блоке) */
+        .plate.tone { background: var(--pc); color: var(--graphite); margin: 2.2em 0; }
+        .plate.tone strong { font-weight: 600; }
         /* врезка-цитата */
         .pull {
             background: white; border-radius: 30px; border-right: 4px solid var(--carrot);
@@ -149,24 +152,65 @@
 
         /* ====== ЗВЁЗДНАЯ КАРТА ====== */
         .map { margin: 78px 0 0; max-width: 940px; }
-        .map-intro {
-            font-family: 'Playfair Display', serif; font-style: italic;
-            font-size: 1.18rem; line-height: 1.6;
-            border-left: 3px solid var(--gold); padding-left: 24px; margin-bottom: 36px;
-            max-width: 680px;
+
+        /* подводка к карте: светлая «палуба» над тёмным небом — одна карточка с картой */
+        .map-lead {
+            position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F6F9FB 100%);
+            border: 1px solid rgba(165,196,212,0.45); border-bottom: none;
+            border-radius: 36px 36px 0 0;
+            padding: 40px 46px 44px;
         }
-        .map-frame { overflow-x: auto; border-radius: 36px; scrollbar-width: thin; }
+        .map-lead .eyebrow { color: var(--gold); margin-bottom: 18px; }
+        .map-lead h3 {
+            font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500;
+            font-size: clamp(1.35rem, 2.8vw, 1.75rem); line-height: 1.35;
+            max-width: 600px; margin-bottom: 18px;
+        }
+        .map-lead p { font-size: 1rem; line-height: 1.8; color: var(--text-soft); max-width: 600px; }
+        .map-lead p + p { margin-top: 0.8em; }
+        .map-lead .constel { position: absolute; right: 30px; top: 26px; width: 220px; height: 150px; pointer-events: none; }
+        .map-lead .constel svg { width: 100%; height: 100%; display: block; }
+        /* сигнал «небо начинается ниже»: тёмная кромка под палубой */
+        .map-lead::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+            background: linear-gradient(90deg, #A5C4D4 0%, var(--gold) 50%, #CDE0EA 100%);
+            opacity: 0.85;
+        }
+
+        .map-frame { overflow-x: auto; border-radius: 0 0 36px 36px; scrollbar-width: thin; }
         .map-frame::-webkit-scrollbar { height: 4px; }
         .map-frame::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        .map-frame svg { display: block; width: 100%; height: auto; }
+        .map-frame svg { display: block; width: 100%; height: auto; border-radius: 0; }
         .map-svg-text { font-family: 'Playfair Display', serif; }
         .map-hint { display: none; font-size: 0.78rem; color: var(--text-soft); margin-top: 10px; }
-        .map-legend { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 28px; }
-        .legend-item { display: flex; gap: 14px; align-items: flex-start; }
-        .legend-key { width: 26px; flex-shrink: 0; margin-top: 8px; }
-        .legend-key svg { display: block; width: 26px; height: 10px; }
-        .legend-item h4 { font-family: 'Inter', sans-serif; font-size: 0.83rem; font-weight: 600; letter-spacing: 0.3px; margin-bottom: 5px; }
-        .legend-item p { font-size: 0.86rem; line-height: 1.6; color: var(--text-soft); }
+
+        /* легенда: две карточки-«курса» */
+        .map-legend { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; margin-top: 22px; }
+        .legend-card {
+            position: relative; overflow: hidden;
+            background: var(--lb); border: 1px solid var(--lbd); border-radius: 28px;
+            padding: 26px 30px 28px 34px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .legend-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(45,45,45,0.07); }
+        /* ключ: та же линия, что на карте — сплошная золотая или пунктирная морковная */
+        .legend-card .lk {
+            position: absolute; left: 0; top: 26px; bottom: 26px; width: 0;
+            border-left: 3px solid var(--lc);
+        }
+        .legend-card.dashed .lk { border-left-style: dashed; }
+        .legend-card .lw {
+            position: absolute; right: -14px; bottom: -22px; width: 150px; height: 150px;
+            color: var(--lc); opacity: 0.12; pointer-events: none;
+        }
+        .legend-card .lw svg { width: 100%; height: 100%; display: block; }
+        .legend-card .eyebrow { color: var(--lc); margin-bottom: 10px; }
+        .legend-card h4 {
+            font-family: 'Playfair Display', serif; font-weight: 500;
+            font-size: 1.22rem; line-height: 1.3; margin-bottom: 10px;
+        }
+        .legend-card p { font-size: 0.92rem; line-height: 1.7; color: var(--text-soft); position: relative; }
         .map-note {
             background: var(--mint); border-radius: 24px; padding: 20px 28px;
             font-size: 0.92rem; line-height: 1.7; color: var(--text-soft); margin-top: 26px;
@@ -218,7 +262,11 @@
             .sec .pull p { font-size: 1.13rem; }
             .map-frame svg { min-width: 740px; }
             .map-hint { display: block; }
-            .map-legend { grid-template-columns: 1fr; gap: 18px; }
+            .map-lead { padding: 30px 26px 34px; border-radius: 28px 28px 0 0; }
+            .map-lead .constel { display: none; }
+            .map-frame { border-radius: 0 0 28px 28px; }
+            .map-legend { grid-template-columns: 1fr; gap: 14px; }
+            .legend-card { padding: 22px 24px 24px 28px; }
             .stop { gap: 18px; }
             .stop-sym { width: 52px; height: 52px; }
             .stop-sym svg { width: 24px; height: 24px; }
@@ -350,6 +398,10 @@
      { accent:'ключевая мысль — крупный курсив с золотой чертой' }
      { pull:  'врезка-цитата — белая карточка с морковной гранью' }
      { plate: 'мысль, закрывающая раздел — мятная плашка' }
+     { plate: '…', tone: 'tvorchestvo' } → та же плашка в цвете ценности
+                                     (id из БЛОКА 1: svoboda, tvorchestvo,
+                                      igrivost, lyboznatelnost,
+                                      autentichnost, samobytnost)
      { values: true }              → ряд ценностей-ссылок на состояния колоды
 
    sym: 'id' — символ из symbols.js. Доступные id смотри в этом файле:
@@ -369,14 +421,15 @@
      label  — как слово написано в тексте (Азарт = состояние «Игривость»)
      color  — цвет символа и обводки чипа
      mark   — цвет маркера, которым слово закрашено в тексте
+     tint   — фон цветной плашки ({ plate: '…', tone: id })
    ================================================================ */
 const VALUES = [
-  { id: 'svoboda',        label: 'Свобода',       color: '#7FA8BD', mark: 'rgba(165,196,212,0.78)' },
-  { id: 'tvorchestvo',    label: 'Творчество',    color: '#E67E51', mark: 'rgba(230,126,81,0.42)'  },
-  { id: 'igrivost',       label: 'Азарт',         color: '#C9962E', mark: 'rgba(201,150,46,0.42)'  },
-  { id: 'lyboznatelnost', label: 'Любопытство',   color: '#6DAF6A', mark: 'rgba(140,207,136,0.55)' },
-  { id: 'autentichnost',  label: 'Аутентичность', color: '#8E7DB8', mark: 'rgba(174,160,214,0.50)' },
-  { id: 'samobytnost',    label: 'Самобытность',  color: '#CE7C7C', mark: 'rgba(217,143,143,0.44)' }
+  { id: 'svoboda',        label: 'Свобода',       color: '#7FA8BD', mark: 'rgba(165,196,212,0.78)', tint: 'rgba(165,196,212,0.40)' },
+  { id: 'tvorchestvo',    label: 'Творчество',    color: '#E67E51', mark: 'rgba(230,126,81,0.42)',  tint: 'rgba(230,126,81,0.20)'  },
+  { id: 'igrivost',       label: 'Азарт',         color: '#C9962E', mark: 'rgba(201,150,46,0.42)',  tint: 'rgba(201,150,46,0.20)'  },
+  { id: 'lyboznatelnost', label: 'Любопытство',   color: '#6DAF6A', mark: 'rgba(140,207,136,0.55)', tint: 'rgba(140,207,136,0.28)' },
+  { id: 'autentichnost',  label: 'Аутентичность', color: '#8E7DB8', mark: 'rgba(174,160,214,0.50)', tint: 'rgba(174,160,214,0.32)' },
+  { id: 'samobytnost',    label: 'Самобытность',  color: '#CE7C7C', mark: 'rgba(217,143,143,0.44)', tint: 'rgba(217,143,143,0.24)' }
 ];
 // подпись под рядом чипов; оставь пустой — не выведется
 const VALUES_NOTE = '';
@@ -418,9 +471,9 @@ const ABOUT = {
       body: [
         { p: 'Свобода — это не только бескрайний простор, незагромождённое пространство или возможность делать «что хочу и когда захочу». Не только отсутствие скованности, рамок и границ, внешних ограничений. **Свобода — это Независимость.** От суждений, оценок, реакций, привычек, страха и ролей. Это свобода быть собой' },
         { p: 'Свобода — как чистота и лёгкость. Необременённость лишним, старым, ненужным и громоздким — тем, что тянет вниз или закрывает обзор. Это свобода различать полезное и нет, свобода принимать решения, свобода делать выбор — ==отказываясь от доступного в пользу важного==' },
-        { pull: 'Свобода — это как игра детей: движение, азарт и радость. Игра без оценок и проигравших. Побеждают все, кто играет. Такая игра бесконечна. В ней только одно правило — **играть**' },
+        { accent: 'Свобода — это как игра детей: движение, азарт и радость. Игра без оценок и проигравших. Побеждают все, кто играет. Такая игра бесконечна. В ней только одно правило — **играть**' },
         { p: 'Игра без победителей и побеждённых, но игра в процесс. Жизнь — это тоже есть процесс: трудный, хаотичный, но полный чувства, свободы и радости от нахождения в нём' },
-        { accent: 'В бесконечной игре побеждают все — проигрывает только тот, кто отказывается играть. Это похоже на свободу творчества — создание ради самого акта, следуя импульсу бессознательного стремления, зову сердца, а не в погоне за оценкой похвалы' }
+        { plate: 'В бесконечной игре побеждают все — проигрывает только тот, кто отказывается играть. Это похоже на свободу творчества — создание ради самого акта, следуя импульсу бессознательного стремления, зову сердца, а не в погоне за оценкой похвалы', tone: 'tvorchestvo' }
       ]
     },
     {
@@ -431,9 +484,9 @@ const ABOUT = {
         { p: 'Творчество, как создание нового — новых связей, картин, путей, текстов, мечтаний, привычек, собственного мнения и взгляда на жизнь' },
         { p: 'Это свобода создавать без ограничений и правил, установок и страха оценки. Свобода творчества — это как чувствовать жизнь, её поток' },
         { p: 'Этот проект появился из чувства жизни; но жизнь — это не только радость и весёлый поток' },
-        { pull: 'Для меня самое острое ощущение, что я жив, приходит в моменты, когда борешься или уже на пределе. Или уже сломался, но снова делаешь попытки. Это противоречие раскрывает тот самый **контраст**, проявляющий истинный вкус жизни — не хороший, не плохой, но настоящий' },
+        { accent: 'Для меня самое острое ощущение, что я жив, приходит в моменты, когда борешься или уже на пределе. Или уже сломался, но снова делаешь попытки. Это противоречие раскрывает тот самый **контраст**, проявляющий истинный вкус жизни — не хороший, не плохой, но настоящий' },
         { p: 'Я меняюсь — часто с трудом и через боль. Порой мне страшно и я не знаю, что делать; ощущаю себя на лодке, попавшей в шторм' },
-        { accent: 'Этот проект вырос не из избытка силы, а из глубоко осознанной потребности в ней — он родился из признания собственной уязвимости. Это — результат преодоления слабости и страха' }
+        { plate: 'Этот проект вырос не из избытка силы, а из глубоко осознанной потребности в ней — он родился из признания собственной уязвимости. Это — результат преодоления слабости и страха', tone: 'autentichnost' }
       ]
     },
     {
@@ -452,8 +505,15 @@ const ABOUT = {
 
 /* ===== БЛОК 3. ЗВЁЗДНАЯ КАРТА (схема после раздела «Ценности») ===== */
 const MAP = {
-  // подводка к схеме — стоит над картинкой
-  intro: 'Если представить жизнь как карту возможностей, которую человек исследует на протяжении всей своей жизни, то стремление достичь некой высшей цели, будет связано со стремлением развивать внутреннее состояние. И это же движение будет со-направлено с достижением локальных целей. Более значимое - внутренее - всегда включает в себя необходимое внешнее',
+  // подводка к схеме — светлая карточка, сросшаяся с картой сверху
+  introEyebrow: 'Звёздная карта',
+  // крупная строка — мысль, с которой всё начинается
+  introLead: 'Если представить жизнь как карту возможностей, которую человек исследует всю свою жизнь…',
+  // абзацы помельче под ней (каждая строка — абзац)
+  introText: [
+    '…то стремление достичь некой высшей цели будет связано со стремлением развивать внутреннее состояние. И это же движение будет со-направлено с достижением локальных целей.',
+    '==Более значимое — внутреннее — всегда включает в себя необходимое внешнее=='
+  ],
 
   // звёзды на схеме = ценности из БЛОКА 1, слева направо
   labelMe: 'я',
@@ -462,9 +522,11 @@ const MAP = {
   labelField: 'карта возможностей',
   labelAim: ['цель', 'жизни'],
 
+  // легенда: две карточки под картой. key: 'gold' — сплошная линия ориентиров,
+  // 'carrot' — пунктир целей. eyebrow — мелкая подпись над заголовком
   legend: [
-    { key: 'gold',   title: 'Внутренний фокус — ориентация на ценности', text: 'Более глубокий подход: долгосрочная перспектива, холистический эффект, синергия. Путь идёт через ориентиры и ведет к большей цели' },
-    { key: 'carrot', title: 'Внешний фокус — ориентация на цели',        text: 'Результато-ориентированный подход: краткосрочная перспектива. Движение от цели к цели внутри поля возможностей' }
+    { key: 'gold',   eyebrow: 'Внутренний фокус', title: 'Ориентация на ценности', text: 'Более глубокий подход: долгосрочная перспектива, холистический эффект, синергия. Путь идёт через ориентиры и ведёт к большей цели' },
+    { key: 'carrot', eyebrow: 'Внешний фокус',    title: 'Ориентация на цели',     text: 'Результато-ориентированный подход: краткосрочная перспектива. Движение от цели к цели внутри поля возможностей' }
   ],
   note: 'Ценности формируют подход к достижению целей и определяют, какие цели приемлемы, а какие — нет'
 };
@@ -476,7 +538,6 @@ const AUDIENCE = {
   lead: '',   // необязательная строка-подводка; оставь пустой — блок не выведется
   stops: [
     { sym: 'lyboznatelnost',    text: 'Для тех, кто хочет попробовать что-то новое' },
-    { sym: 'celeystremlennost', text: 'Для тех, кто стремится к себе' },
     { sym: 'osoznannost',       text: 'Для тех, кто хочет стать ближе к себе' },
     { sym: 'celostnost',        text: 'Для тех, кто ценит свою глубину' },
     { sym: 'otkrytost',         text: 'Для тех, кто хочет видеть жизнь такой, какая она есть' }
@@ -554,7 +615,12 @@ function heroHtml() {
 function blockHtml(b) {
     if (b.p)      return '<p>' + (b.markValues ? markValues(md(b.p)) : md(b.p)) + '</p>';
     if (b.accent) return '<p class="accent">' + md(b.accent) + '</p>';
-    if (b.plate)  return '<div class="plate">' + md(b.plate) + '</div>';
+    if (b.plate) {
+        const v = b.tone ? VALUES.find(x => x.id === b.tone) : null;
+        return v
+            ? '<div class="plate tone" style="--pc:' + v.tint + '">' + md(b.plate) + '</div>'
+            : '<div class="plate">' + md(b.plate) + '</div>';
+    }
     if (b.pull)   return '<blockquote class="pull"><p>' + md(b.pull) + '</p></blockquote>';
     if (b.values) {
         const chips = VALUES.map(v => {
@@ -688,18 +754,46 @@ function mapHtml() {
       '<text class="map-svg-text" x="890" y="362" text-anchor="middle" font-size="20" fill="#20242B">' + esc(MAP.labelAim[1]) + '</text>' +
     '</svg>';
 
+    /* легенда: карточка-курс. Водяной знак — то, чем курс отмечен на карте:
+       у ориентиров звезда, у целей крестик */
     const legend = MAP.legend.map(l => {
-        const stroke = l.key === 'gold' ? 'var(--gold)' : 'var(--carrot)';
-        const dash = l.key === 'gold' ? '' : ' stroke-dasharray="5 5"';
-        return '<div class="legend-item">' +
-            '<span class="legend-key" aria-hidden="true"><svg viewBox="0 0 26 10">' +
-            '<path d="M1 5 H25" fill="none" stroke="' + stroke + '" stroke-width="2" stroke-linecap="round"' + dash + '/>' +
-            '</svg></span>' +
-            '<div><h4>' + esc(l.title) + '</h4><p>' + md(l.text) + '</p></div></div>';
+        const gold = l.key === 'gold';
+        const lc = gold ? 'var(--gold)' : 'var(--carrot)';
+        const lb = gold ? 'rgba(201,150,46,0.09)' : 'rgba(230,126,81,0.08)';
+        const lbd = gold ? 'rgba(201,150,46,0.28)' : 'rgba(230,126,81,0.26)';
+        const wm = gold
+            ? '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">' +
+              '<path d="M50 8 C52 34, 66 48, 92 50 C66 52, 52 66, 50 92 C48 66, 34 52, 8 50 C34 48, 48 34, 50 8 Z"/>' +
+              '<circle cx="50" cy="50" r="30" stroke-dasharray="1 7"/></svg>'
+            : '<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round">' +
+              '<line x1="50" y1="18" x2="50" y2="82"/><line x1="18" y1="50" x2="82" y2="50"/>' +
+              '<circle cx="50" cy="50" r="40" stroke-width="2" stroke-dasharray="6 7"/></svg>';
+        return '<div class="legend-card' + (gold ? '' : ' dashed') + '" style="--lc:' + lc + ';--lb:' + lb + ';--lbd:' + lbd + '">' +
+            '<span class="lk" aria-hidden="true"></span>' +
+            '<span class="lw" aria-hidden="true">' + wm + '</span>' +
+            (l.eyebrow ? '<div class="eyebrow">' + esc(l.eyebrow) + '</div>' : '') +
+            '<h4>' + esc(l.title) + '</h4><p>' + md(l.text) + '</p></div>';
     }).join('');
 
+    /* подводка: мини-созвездие в углу — те же ориентиры, что на карте */
+    const constel =
+        '<svg viewBox="0 0 220 150" fill="none" aria-hidden="true">' +
+          '<path d="M18 118 C50 80, 92 50, 130 42 C160 36, 190 46, 206 70" stroke="' + GOLD + '" stroke-opacity="0.45" stroke-width="1.4" stroke-dasharray="1 7" stroke-linecap="round"/>' +
+          [[18,118],[64,78],[130,42],[176,44],[206,70]].map(p =>
+            '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="9" fill="' + GOLD + '" fill-opacity="0.12"/>' +
+            '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3" fill="' + GOLD + '"/>').join('') +
+          '<circle cx="206" cy="70" r="16" fill="#A5C4D4" fill-opacity="0.35"/>' +
+          '<circle cx="206" cy="70" r="16" fill="none" stroke="#7FA8BD" stroke-opacity="0.6"/>' +
+        '</svg>';
+    const introText = (MAP.introText || []).map(p => '<p>' + md(p) + '</p>').join('');
+
     return '<figure class="map">' +
-        '<p class="map-intro">' + md(MAP.intro) + '</p>' +
+        '<div class="map-lead">' +
+            '<span class="constel">' + constel + '</span>' +
+            (MAP.introEyebrow ? '<div class="eyebrow">' + esc(MAP.introEyebrow) + '</div>' : '') +
+            '<h3>' + md(MAP.introLead) + '</h3>' +
+            introText +
+        '</div>' +
         '<div class="map-frame">' + svg + '</div>' +
         '<div class="map-hint">схема шире экрана — потяни её вбок</div>' +
         '<figcaption><div class="map-legend">' + legend + '</div>' +
