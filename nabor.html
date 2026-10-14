@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HEFWC8FP9M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HEFWC8FP9M');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Набор — Pranaway</title>
+    <meta name="description" content="Тридцать три состояния, напечатанных на бумаге. Первый тираж колоды Pranaway: карты 85 × 30 мм, бумага, крашенная в массе, слепое тиснение символа.">
+    <meta property="og:title" content="Набор состояний — Pranaway">
+    <meta property="og:description" content="33 карты на дизайнерской бумаге. Слово, символ, одна строка на обороте. Первый тираж — 100 экземпляров.">
+    <meta property="og:image" content="img/card-iskrennost-massa.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Yandex.Metrika -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105895834', 'ym');
+        ym(105895834, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/105895834" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+    <style>
+        :root {
+            --milk: #FDFBF7;
+            --carrot: #E67E51;
+            --blue: #A5C4D4;
+            --mint: #E2F3E1;
+            --graphite: #2D2D2D;
+            --text-soft: #555555;
+            --border: rgba(230, 126, 81, 0.15);
+            --gold: #C9962E;
+            --sand: #F3EADB;
+            --ink: #2B2420;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--milk); color: var(--graphite); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; }
+        a { color: inherit; }
+        img { display: block; max-width: 100%; }
+        :focus-visible { outline: 2px solid var(--carrot); outline-offset: 3px; border-radius: 6px; }
+
+        /* HEADER — как на остальных страницах */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(253, 251, 247, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        nav.top { display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-weight: 700; font-size: 1rem; text-decoration: none; color: var(--graphite); }
+        .nav-links a { text-decoration: none; color: var(--graphite); margin-left: 30px; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--carrot); }
+
+        .cta-btn { background: var(--carrot); color: white; padding: 18px 42px; border-radius: 100px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; transition: 0.3s; border: none; cursor: pointer; font-family: inherit; box-shadow: 0 10px 25px rgba(230,126,81,0.2); white-space: nowrap; }
+        .cta-btn::after { content: '→'; display: inline-block; width: 0; opacity: 0; transform: translateX(-6px); transition: 0.3s; overflow: hidden; }
+        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(230,126,81,0.28); }
+        .cta-btn:hover::after { width: 1em; opacity: 1; transform: translateX(0); margin-left: 8px; }
+        .cta-btn.cta-ghost { background: transparent; color: var(--carrot); border: 1px solid var(--carrot); box-shadow: none; }
+
+        .eyebrow { font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+        .try { font-size: 0.9rem; color: var(--text-soft); }
+        .try a { color: var(--carrot); text-decoration: none; border-bottom: 1px solid rgba(230,126,81,0.35); transition: 0.3s; }
+        .try a:hover { border-bottom-color: var(--carrot); }
+
+        /* ====== HERO ====== */
+        .hero { padding: 130px 0 40px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 50px; align-items: center; }
+        .hero h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); line-height: 1.08; margin-bottom: 24px; letter-spacing: -0.01em; }
+        .hero .lead { font-size: 1.05rem; line-height: 1.75; color: var(--text-soft); max-width: 460px; margin-bottom: 30px; }
+        .hero-buy { display: flex; align-items: center; gap: 22px; margin-bottom: 18px; flex-wrap: wrap; }
+        .left-note { font-size: 0.82rem; color: var(--text-soft); line-height: 1.4; }
+        .left-note strong { color: var(--graphite); font-weight: 600; }
+
+        /* стопка карт из реального макета */
+        .stack { position: relative; aspect-ratio: 1 / 1; background: var(--sand); border-radius: 36px; overflow: hidden; }
+        .stack::before { content: ''; position: absolute; inset: 0; background: radial-gradient(420px 300px at 80% 0%, rgba(255,255,255,0.55), transparent 65%); }
+        .stack img { position: absolute; left: 50%; width: 66%; height: auto; filter: drop-shadow(0 14px 22px rgba(43,36,32,0.18)); transition: transform 0.5s cubic-bezier(.2,.7,.3,1); }
+        .stack .c1 { top: 7%; transform: translateX(-54%) rotate(-9deg); }
+        .stack .c2 { top: 28%; transform: translateX(-47%) rotate(-3deg); }
+        .stack .c3 { top: 49%; transform: translateX(-52%) rotate(5deg); }
+        .stack .c4 { top: 70%; transform: translateX(-45%) rotate(-5deg); }
+        .stack:hover .c1 { transform: translateX(-58%) rotate(-12deg) translateY(-6px); }
+        .stack:hover .c2 { transform: translateX(-44%) rotate(-1deg) translateY(-3px); }
+        .stack:hover .c3 { transform: translateX(-55%) rotate(7deg); }
+        .stack:hover .c4 { transform: translateX(-42%) rotate(-7deg) translateY(3px); }
+        .stack .cap { position: absolute; left: 26px; bottom: 18px; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-soft); opacity: 0.8; }
+
+        /* ====== ЧТО ВНУТРИ ====== */
+        .sec { margin-top: 70px; }
+        .sec-title { font-size: clamp(1.6rem, 3.4vw, 2.1rem); line-height: 1.2; margin-bottom: 26px; }
+        .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .fact { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 24px; padding: 24px 24px 22px; box-shadow: 0 6px 18px rgba(45,45,45,0.03); }
+        .fact b { display: block; font-family: 'Playfair Display', serif; font-weight: 500; font-size: 1.7rem; line-height: 1.1; margin-bottom: 8px; }
+        .fact p { font-size: 0.86rem; line-height: 1.55; color: var(--text-soft); }
+        .facts-note { font-size: 0.82rem; color: var(--text-soft); margin-top: 14px; }
+
+        /* ====== ДВЕ ВЕРСИИ ====== */
+        .versions { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .ver { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 30px; padding: 30px 30px 26px; }
+        .ver .pic { background: var(--sand); border-radius: 22px; padding: 22px 26px; display: grid; gap: 12px; margin-bottom: 22px; }
+        .ver .pic img { width: 78%; filter: drop-shadow(0 8px 14px rgba(43,36,32,0.14)); }
+        .ver .pic img + img { margin-left: 22%; }
+        .ver h3 { font-size: 1.35rem; margin-bottom: 8px; }
+        .ver p { font-size: 0.92rem; line-height: 1.65; color: var(--text-soft); }
+        .ver .tag { display: inline-block; font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+        .emboss-note { margin-top: 16px; background: var(--mint); border-radius: 22px; padding: 20px 26px; font-size: 0.92rem; line-height: 1.65; color: var(--text-soft); }
+
+        /* ====== ОБРАЗЕЦ ====== */
+        .sample { background: white; border-radius: 40px; padding: 48px 54px; display: grid; grid-template-columns: 300px 1fr; gap: 50px; box-shadow: 0 14px 34px rgba(45,45,45,0.04); }
+        .sample-aside p.small { font-size: 0.9rem; line-height: 1.65; color: var(--text-soft); margin-bottom: 22px; }
+        .sample-aside img { filter: drop-shadow(0 10px 18px rgba(43,36,32,0.16)); margin-bottom: 20px; }
+        .sample-aside .more { font-size: 0.88rem; color: var(--carrot); text-decoration: none; border-bottom: 1px solid rgba(230,126,81,0.35); font-weight: 500; }
+        .sample-aside .back { margin-top: 26px; background: var(--sand); border-radius: 20px; padding: 18px 20px; }
+        .sample-aside .back .eyebrow { margin-bottom: 6px; font-size: 0.62rem; }
+        .sample-aside .back p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; line-height: 1.4; }
+        .sample-text h2 { font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; margin: 4px 0 12px; }
+        .sample-text .syms { display: flex; gap: 16px; color: var(--gold); margin-bottom: 22px; }
+        .sample-text .syms svg { width: 26px; height: 26px; }
+        .sample-text p { font-size: 0.98rem; line-height: 1.8; margin-bottom: 1.2em; }
+
+        /* ====== КАК ПОЛЬЗУЮТСЯ ====== */
+        .ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
+        .way h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .way p { font-size: 0.92rem; line-height: 1.7; color: var(--text-soft); }
+        .way .sym { color: var(--gold); margin-bottom: 14px; }
+        .way .sym svg { width: 34px; height: 34px; }
+
+        /* ====== ОТЗЫВЫ ====== */
+        .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .review { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 28px; padding: 28px 28px 24px; display: flex; flex-direction: column; }
+        .review p { font-size: 0.95rem; line-height: 1.7; flex: 1; }
+        .review .who { font-size: 0.8rem; color: var(--text-soft); margin-top: 18px; }
+        .reviews-note { font-size: 0.82rem; color: var(--text-soft); margin-top: 14px; }
+
+        /* ====== ТИРАЖ ====== */
+        .offer { background: white; border-radius: 40px; padding: 48px 54px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; box-shadow: 0 14px 34px rgba(45,45,45,0.04); }
+        .offer h2 { font-size: clamp(2rem, 4vw, 2.6rem); margin-bottom: 18px; }
+        .price { display: flex; align-items: baseline; gap: 14px; margin-bottom: 26px; }
+        .price b { font-family: 'Playfair Display', serif; font-weight: 500; font-size: 2.6rem; line-height: 1; }
+        .price span { font-size: 0.85rem; color: var(--text-soft); max-width: 150px; line-height: 1.35; }
+        .offer .ship { font-size: 0.85rem; color: var(--text-soft); line-height: 1.6; margin-top: 18px; }
+        .kit { list-style: none; }
+        .kit li { padding: 13px 0; border-bottom: 1px solid rgba(0,0,0,0.07); font-size: 0.95rem; line-height: 1.5; }
+        .kit li:last-child { border-bottom: none; }
+        .kit li span { display: block; font-size: 0.8rem; color: var(--text-soft); }
+
+        /* ====== FAQ ====== */
+        .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 50px; }
+        .faq h4 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1rem; margin-bottom: 6px; }
+        .faq p { font-size: 0.92rem; line-height: 1.7; color: var(--text-soft); }
+
+        /* ====== ФИНАЛ ====== */
+        .final { text-align: center; margin: 80px 0 20px; }
+        .final .try { margin-top: 18px; }
+
+        footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 80px; }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; }
+        .social-links { display: flex; gap: 20px; }
+        .social-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--graphite); font-size: 0.9rem; }
+        .social-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; padding-top: 105px; gap: 34px; }
+            .stack { aspect-ratio: 1 / 0.92; } .stack .cap { display: none; }
+            .facts { grid-template-columns: 1fr 1fr; }
+            .versions, .reviews, .faq, .offer { grid-template-columns: 1fr; }
+            .ways { grid-template-columns: 1fr; gap: 26px; }
+            .sample { grid-template-columns: 1fr; padding: 32px 26px; gap: 30px; }
+            .offer { padding: 32px 26px; gap: 30px; }
+            .nav-links a { margin-left: 16px; font-size: 0.8rem; }
+            .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+        }
+        @media (max-width: 520px) {
+            .facts { grid-template-columns: 1fr; }
+            .cta-btn { width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="top">
+                <a href="index.html" class="logo">pranaway</a>
+                <div class="nav-links">
+                    <a href="nabor.html" class="active">Набор</a>
+                    <a href="about.html">О проекте</a>
+                    <a href="cases.html">Практика</a>
+                    <a href="sostoyaniya.html">Состояния</a>
+                    <a href="cases.html#bot">Бот</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- ================= HERO ================= -->
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Первый тираж · 100 экземпляров</div>
+                <h1>Тридцать три состояния, напечатанных на&nbsp;бумаге</h1>
+                <p class="lead">33 карты 85 × 30 мм на дизайнерской бумаге, крашенной в массе. Слово — печатью, символ — слепым тиснением: его видно на свет и находишь пальцем. На обороте одна строка — с чего начать.</p>
+                <div class="hero-buy">
+                    <a href="https://t.me/neuro25" class="cta-btn">Купить набор — 4 900 ₽</a>
+                    <div class="left-note"><strong>Остался 41</strong><br>экземпляр из 100</div>
+                </div>
+                <p class="try">Сначала попробовать — <a href="https://t.me/o_cardbot">одна карта в день в telegram</a></p>
+            </div>
+            <div class="stack" aria-label="Карты набора: Выдержка, Искренность, Игривость, Целостность">
+                <img class="c1" src="img/card-vyderzka-massa.png" alt="Карта «Выдержка»">
+                <img class="c2" src="img/card-iskrennost-massa.png" alt="Карта «Искренность»">
+                <img class="c3" src="img/card-igrivost-massa.png" alt="Карта «Игривость»">
+                <img class="c4" src="img/card-celostnost-massa.png" alt="Карта «Целостность»">
+                <div class="cap">карты из макета · версия «масса»</div>
+            </div>
+        </section>
+
+        <!-- ================= ЧТО ВНУТРИ ================= -->
+        <section class="sec">
+            <div class="eyebrow">Что внутри</div>
+            <div class="facts">
+                <div class="fact"><b>33</b><p>карты 85 × 30 мм, по одному состоянию на каждой</p></div>
+                <div class="fact"><b>700 г/м²</b><p>дуплекс из двух листов дизайнерской бумаги. Торец в цвет карты</p></div>
+                <div class="fact"><b>2 отделки</b><p>слово — печать, символ — слепое тиснение, находится пальцем</p></div>
+                <div class="fact"><b>№ 1—100</b><p>коробка-слайдер, вкладыш с номером экземпляра и кодом доступа</p></div>
+            </div>
+            <p class="facts-note">Тираж закрыт на 100 экземплярах. Допечатки первого тиража не будет.</p>
+        </section>
+
+        <!-- ================= ДВЕ ВЕРСИИ ================= -->
+        <section class="sec">
+            <div class="eyebrow">Две версии</div>
+            <h2 class="sec-title">Одна колода — два характера бумаги</h2>
+            <div class="versions">
+                <div class="ver">
+                    <div class="pic">
+                        <img src="img/card-svoboda-massa.png" alt="Карта «Свобода», версия на бумаге, крашенной в массе">
+                        <img src="img/card-terpenie-massa.png" alt="Карта «Терпение», версия на бумаге, крашенной в массе">
+                    </div>
+                    <span class="tag">Основная</span>
+                    <h3>Крашеная масса</h3>
+                    <p>Цвет даёт сама бумага, а не краска: он одинаковый на лице, обороте и срезе. Матовая, плотная, с живой фактурой. Символ выдавлен без краски — тише слова, но ощутимее.</p>
+                </div>
+                <div class="ver">
+                    <div class="pic">
+                        <img src="img/card-svoboda-akvarel.png" alt="Карта «Свобода», акварельная версия">
+                        <img src="img/card-terpenie-akvarel.png" alt="Карта «Терпение», акварельная версия">
+                    </div>
+                    <span class="tag">Акварель</span>
+                    <h3>Акварельный узор</h3>
+                    <p>Печать по белой бумаге: у каждой карты своё акварельное пятно, две одинаковых не найти. Мягче, светлее, ближе к открытке. Символ — то же тиснение.</p>
+                </div>
+            </div>
+            <div class="emboss-note">Какая версия достанется вам — выбирается при заказе. Если не принципиально, пришлём «массу»: это основной тираж.</div>
+        </section>
+
+        <!-- ================= ОБРАЗЕЦ ================= -->
+        <section class="sec">
+            <div class="sample">
+                <div class="sample-aside">
+                    <div class="eyebrow">Образец содержания</div>
+                    <p class="small">Ниже — одно состояние из тридцати трёх, целиком, как оно есть на сайте и в наборе. Прочитайте и решите сами.</p>
+                    <img src="img/card-iskrennost-massa.png" alt="Карта «Искренность»">
+                    <a class="more" href="sostoyaniya.html">Ещё 32 состояния →</a>
+                    <div class="back">
+                        <div class="eyebrow">На обороте карты</div>
+                        <p>говорить как есть</p>
+                    </div>
+                </div>
+                <div class="sample-text">
+                    <div class="eyebrow">Набор состояний · 08 / 33</div>
+                    <h2>Искренность</h2>
+                    <div class="syms" id="sampleSyms" aria-hidden="true"></div>
+                    <p>В слове «искренний» спрятаны значения «ближний», «родной». Быть искренним — значит подпустить человека на ту дистанцию, на какой держат своих, убрать щиты. Это короткая вспышка правды, идущая прямо от сердца, «горячее» слово без обмана. Полная противоположность искренности — лицемерие. Искренний человек однослоен: что у него снаружи, то и внутри, между лицом и сердцем нет зазора. Лицемер многослоен: снаружи улыбка, под ней расчёт, и одно прикрывает другое.</p>
+                    <p>Искренность всегда требует смелости. Открываясь, человек снимает броню и делается уязвимым: он показывает свои настоящие чувства и тем самым даёт другому возможность ударить по больному. Поэтому искренность — это и высшая форма доверия: я открываюсь тебе, заранее зная, что этим можно воспользоваться.</p>
+                    <p>Искренность — как прозрачное окно, сквозь которое видно, что делается внутри дома, в душе. Стоит стеклу искривиться или покрыться краской — ложью или просто гладким этикетом, — и картинка искажается, внутрь уже не заглянуть. Быть искренним — значит не замазывать своих трещин и шероховатостей, не наводить глянец, чтобы подороже себя продать, а показывать себя как есть.</p>
+                    <p>Искренность — это прямое, неискажённое выражение того, что ты чувствуешь и думаешь сейчас, без второго дна и без маски, когда сказанное и пережитое — одно и то же. Это отказ от притворства даже тогда, когда правда выходит неудобной или некрасивой. Стоит это дорого — зато только так один человек оказывается по-настоящему близок другому.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= КАК ПОЛЬЗУЮТСЯ ================= -->
+        <section class="sec">
+            <div class="eyebrow">Как этим пользуются</div>
+            <div class="ways">
+                <div class="way">
+                    <div class="sym" data-sym="vnimatelnost" aria-hidden="true"></div>
+                    <h3>Линза дня</h3>
+                    <p>Утром вытягиваете одну карту и оставляете её на виду. Весь день смотрите на происходящее через это состояние. Вечером — короткая проверка: где оно было, где его не хватило.</p>
+                </div>
+                <div class="way">
+                    <div class="sym" data-sym="ustoychivost" aria-hidden="true"></div>
+                    <h3>Опора под задачу</h3>
+                    <p>Перед сложным разговором выбираете состояние осознанно, а не случайно. Кладёте карту рядом. Она не советует, что сказать, — она напоминает, из чего говорить.</p>
+                </div>
+                <div class="way">
+                    <div class="sym" data-sym="otkrytost" aria-hidden="true"></div>
+                    <h3>Разбор застревания</h3>
+                    <p>Раскладываете три карты: как есть сейчас, чего не хватает, что мешает. Работает как словарь для того, что обычно остаётся без названия.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ОТЗЫВЫ ================= -->
+        <section class="sec">
+            <div class="eyebrow">Из первых экземпляров</div>
+            <div class="reviews">
+                <div class="review">
+                    <p>Купила, когда было тяжело, и честно не ждала многого. А они помогли. Не как таблетка — просто каждое утро было с чего начать, одно слово, и уже не пусто.</p>
+                    <div class="who">из переписки в telegram</div>
+                </div>
+                <div class="review">
+                    <p>Прошло больше года, часть карт так и живёт у меня на столе. Две — в обложке паспорта. Казалось бы, что там: слово на бумажке. Но до сих пор пользуюсь.</p>
+                    <div class="who">из переписки в telegram</div>
+                </div>
+                <div class="review">
+                    <p>Скажу как есть: большую часть времени это просто красивая штука, стоит на полке как аксессуар. А потом наступает момент, когда реально вытаскивает. Ради таких моментов и держу.</p>
+                    <div class="who">из переписки в telegram</div>
+                </div>
+            </div>
+            <p class="reviews-note">Отзывы из переписок, пересказаны своими словами и с разрешения.</p>
+        </section>
+
+        <!-- ================= ТИРАЖ ================= -->
+        <section class="sec" id="kupit">
+            <div class="offer">
+                <div>
+                    <h2>Первый тираж</h2>
+                    <div class="price"><b>4 900 ₽</b><span>за экземпляр с номером</span></div>
+                    <a href="https://t.me/neuro25" class="cta-btn">Купить набор</a>
+                    <p class="ship">Остался 41 экземпляр. Пишете в telegram, называете версию и адрес. Отправка в течение трёх рабочих дней, СДЭК и Почта России по РФ, международная отправка по запросу.</p>
+                </div>
+                <div>
+                    <div class="eyebrow">В комплекте</div>
+                    <ul class="kit">
+                        <li>33 карты 85 × 30 мм <span>дуплекс 700 г/м², крашеный торец, тиснение символа</span></li>
+                        <li>Коробка-слайдер, бумажная бандероль</li>
+                        <li>Вкладыш с номером экземпляра <span>подписан от руки</span></li>
+                        <li>Код доступа <span>выбор состояния и архив заметок в telegram-боте</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ЧАСТЫЕ ВОПРОСЫ ================= -->
+        <section class="sec">
+            <div class="eyebrow">Частые вопросы</div>
+            <div class="faq">
+                <div>
+                    <h4>Чем это отличается от бота?</h4>
+                    <p>Бот даёт одну случайную карту в сутки — этого хватает, чтобы понять язык. Набор даёт предмет, все тридцать три состояния сразу и возможность выбрать нужное, а не ждать выпадения.</p>
+                </div>
+                <div>
+                    <h4>Что за код на вкладыше?</h4>
+                    <p>Он открывает в боте ручной выбор состояния и личный архив: что выпадало, когда, что вы записали рядом. Лимит одной карты в день при этом остаётся — это часть практики.</p>
+                </div>
+                <div>
+                    <h4>Почему карты такие узкие?</h4>
+                    <p>85 × 30 мм — формат закладки. Карта дня встаёт в книгу, в карман рубашки, под клавиатуру. Колода целиком помещается в ладонь и носится с собой без коробки.</p>
+                </div>
+                <div>
+                    <h4>Будет ли допечатка?</h4>
+                    <p>Первого тиража — нет. Нумерация от 1 до 100 закрывается вместе с ним. Второе издание, если оно случится, будет отличаться бумагой и составом.</p>
+                </div>
+                <div>
+                    <h4>Это эзотерика?</h4>
+                    <p>Нет. Ни предсказаний, ни значений «в перевёрнутом положении». Тридцать три состояния с определениями, этимологией и различением от соседних понятий. Ближе к словарю, чем к гаданию.</p>
+                </div>
+                <div>
+                    <h4>Можно подарить?</h4>
+                    <p>Да, и это половина заказов. В сообщении к заказу можно попросить оставить вкладыш неподписанным или указать имя получателя.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ФИНАЛ ================= -->
+        <div class="final">
+            <a href="https://t.me/neuro25" class="cta-btn">Купить набор — 4 900 ₽</a>
+            <p class="try">Сначала попробовать — <a href="https://t.me/o_cardbot">одна карта в день в telegram</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="font-size: 0.8rem; opacity: 0.6;">© 2026 pranaway · набор состояний · первый тираж</div>
+                <div class="social-links">
+                    <a href="https://t.me/neuro25" class="social-link"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Контакты</a>
+                    <a href="https://t.me/o_cardbot" class="social-link"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Библиотека символов сайта: маленькие знаки в разделах. Без неё страница работает как есть. -->
+    <script src="symbols.js"></script>
+    <script>
+        (function () {
+            const lib = window.PRANAWAY_SYMBOLS; if (!lib) return;
+            const by = id => lib.find(s => s.id === id);
+            document.querySelectorAll('[data-sym]').forEach(el => { const s = by(el.dataset.sym); if (s) el.innerHTML = s.petro; });
+            const ss = document.getElementById('sampleSyms');
+            if (ss) ss.innerHTML = ['iskrennost', 'otkrytost', 'smelost'].map(id => { const s = by(id); return s ? s.petro : ''; }).join('');
+        })();
+    </script>
+</body>
+</html>
